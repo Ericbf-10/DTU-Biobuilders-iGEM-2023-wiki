@@ -17,21 +17,40 @@ body { padding-top: 56px; }
 footer a { color: white; font-weight: bold; text-decoration: none; }
 footer a:hover { color: white; text-decoration: underline; }
 
+/* earth */
+.floating {
+  animation: float 5s ease-in-out infinite;
+}
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.zoom-out {
+  transition: transform 0.5s;
+  transform: scale(0.8);
+}
 
 /* wave */
-
 .ocean { 
   height: 5%;
   width:100%;
   left:0;
+  top: 760px;
   position: absolute;
-  /* background: #015871; */
+  background: #015871;
 }
 
 .wave {
   background: url(https://static.igem.wiki/teams/4811/wiki/wave.svg) repeat-x; 
   position: absolute;
-  /* top: -198px; */
+  top: -198px;
   width: 6400px;
   height: 198px;
   animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
@@ -39,9 +58,14 @@ footer a:hover { color: white; text-decoration: underline; }
 }
 
 .wave:nth-of-type(2) {
-  /* top: -175px; */
+  top: -175px;
   animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.125s infinite, swell 7s ease -1.25s infinite;
   opacity: 1;
+}
+
+.next-container {
+  margin-top: 50px;
+  margin-bottom: 300px;
 }
 
 @keyframes wave {

@@ -5,28 +5,38 @@
 
 {% block page_content %}
 
-<div class="container mt-5">
+<div class="container mt-6" style="padding-top: 40px;">
   <div class="row">
-      <div class="col-md-12 text-center">
-          <img src="https://static.igem.wiki/teams/4811/wiki/earth.png" alt="Earth Logo" style="width: 300px; margin-bottom: 20px;">
-          <h1>Today in Denmark</h1>
-          <h1>the question is not where PFAS is, </h1>
-          <h1>but where PFAS isn't.</h1>
-          
-          <div class="ocean">
-            <div class="wave"></div>
-            <div class="wave"></div>
-          </div>
-      </div>
-      <div class="col-md-12 text-center">
+    <div class="col-md-12 text-center">
+        <img id="earth-logo" class="floating" src="https://static.igem.wiki/teams/4811/wiki/earth.png" alt="Earth Logo" style="width: 300px; margin-bottom: 20px;">
         <h1>Today in Denmark</h1>
         <h1>the question is not where PFAS is, </h1>
         <h1>but where PFAS isn't.</h1>
-        
     </div>
-    
   </div>
 </div>
+
+<div class="container next-container">
+  <div class="ocean">
+    <div class="wave"></div>
+    <div class="wave"></div>
+  </div>
+</div>
+
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6">
+      <img src="https://static.igem.wiki/teams/4811/wiki/pfas-products.png" alt="Intro Image" class="img-fluid">
+    </div>
+    <div class="col-md-6 d-flex align-items-center justify-content-center">
+      <p class="text-center" style="color: black;">
+        Recent advances in environmental and health sciences have confirmed that PFAS, a class of "forever chemicals", can cause loss of biodiversity, cancer and infertility. As efforts are made to identify sites of contamination and sources of pollution, detection methods are not streamlined or efficient.
+      </p>
+    </div>
+  </div>
+</div>
+
 
 
 {% endblock %}
