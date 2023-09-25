@@ -93,7 +93,7 @@ footer a:hover { color: white; text-decoration: underline; }
   z-index: 1; /* Stay on top */
   top: 25%; /* Stay at the top */
   left: 5;
-  background-color: white; /* Black */
+  background-color: white; 
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 20px;
   padding-bottom: 20px;
