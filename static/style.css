@@ -102,8 +102,7 @@ footer a:hover { color: white; text-decoration: underline; }
   border-top-left-radius: 50%;
   border-bottom-right-radius: 75%;
   border-bottom-left-radius: 25%;
-  border-bottom-left-radius: 10%;
-  padding-left: 15px;
+
 }
 
 /* The navigation menu links */
