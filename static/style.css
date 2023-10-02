@@ -89,7 +89,7 @@ footer a:hover { color: white; text-decoration: underline; }
 /* The sidebar menu */
 .sidenav {
   width: 200px; /* Set the width of the sidebar */
-  position: absolute; /* fixed sidebar (stay in place on scroll) */
+  position: absolute; 
   z-index: 1; /* Stay on top */
   top: 25%; /* Stay at the top */
   left: 5;
