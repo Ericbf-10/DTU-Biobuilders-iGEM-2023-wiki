@@ -34,13 +34,12 @@ footer a:hover { color: white; text-decoration: underline; }
 }
 
 /* text block */
-.text-block {
-  width: 400px;
-  height: 400px;
-  background: url('text-background.svg') no-repeat center center;
-  background-size: cover; /* Ensure background image covers the entire div */
-  padding: 20px; /* Optional: for some inner spacing */
-  box-sizing: border-box; /* Include padding in element's total width and height */
+.main-title {
+    /* font-family: 'Open Sauce Sans Black Italic', 'Arial Black'; */
+    font-size: 200px;
+    opacity: 1;
+    position: relative;
+    /* animation: float 3.5s infinite ease-in-out; */
 }
 
 @media (max-width: 767px) {
@@ -59,7 +58,7 @@ footer a:hover { color: white; text-decoration: underline; }
 }
 
 .wave {
-background: url("/static/images/wave.svg");
+background: url("https://static.igem.wiki/teams/4811/wiki/images/wave.svg");
 position: absolute;
 width: 200%;
 height: 100%;
