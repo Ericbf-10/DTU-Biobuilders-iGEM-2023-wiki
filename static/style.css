@@ -17,71 +17,86 @@ body { padding-top: 56px; }
 footer a { color: white; font-weight: bold; text-decoration: none; }
 footer a:hover { color: white; text-decoration: underline; }
 
-/* earth */
-.floating {
-  animation: float 5s ease-in-out infinite;
-}
-@keyframes float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-.zoom-out {
-  transition: transform 0.5s;
-  transform: scale(0.8);
+/* Default colour */
+:root {
+  --tomato-red: #E65929;
+  --crimson-red: #BA2424;
+  --black: #000000;
+  --fresh-green: #7ED957;
+  --deep-sky-blue: #0097B2;
+  --sky-blue: #1D9CD8;
+  --light-sky-blue: #24B8F2;
+  --soft-blue: #9CD8EF;
+  --light-gray: #F2F2F2;
+  --ocean-surface: #2B76D9;
+  --ocean-middle: #020659;
+  --ocean-deep: #010440;
 }
 
-/* wave */
-.ocean { 
-  height: 5%;
-  width:100%;
-  left:0;
-  top: 760px;
+/* text block */
+.text-block {
+  width: 400px;
+  height: 400px;
+  background: url('text-background.svg') no-repeat center center;
+  background-size: cover; /* Ensure background image covers the entire div */
+  padding: 20px; /* Optional: for some inner spacing */
+  box-sizing: border-box; /* Include padding in element's total width and height */
+}
+
+@media (max-width: 767px) {
+  .text-block {
+      width: 100%; /* Full width on small screens */
+      height: auto; /* Auto height based on content */
+  }
+}
+
+/* ocean */
+.ocean {
+  left: 0px;
+  height: 48px;
   position: absolute;
-  background: #015871;
+  overflow: hidden;
 }
 
 .wave {
-  background: url(https://static.igem.wiki/teams/4811/wiki/wave.svg) repeat-x; 
-  position: absolute;
-  top: -198px;
-  width: 6400px;
-  height: 198px;
-  animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
-  transform: translate3d(0, 0, 0);
+background: url("/static/images/wave.svg");
+position: absolute;
+width: 200%;
+height: 100%;
+left: 0;
+animation: wave 8s -3s linear infinite;
+transform: translate3d(0, 0, 0);
+opacity: 0.8;
 }
 
 .wave:nth-of-type(2) {
-  top: -175px;
-  animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.125s infinite, swell 7s ease -1.25s infinite;
-  opacity: 1;
+animation: wave 18s linear reverse infinite;
+opacity: 0.5;
+left: 0;
 }
 
-.next-container {
-  margin-top: 50px;
-  margin-bottom: 300px;
+.wave:nth-of-type(3) {
+animation: wave 10s -1s linear infinite;
+opacity: 0.5;
+left: 0;
 }
 
 @keyframes wave {
-  0% {
-    margin-left: 0;
-  }
-  100% {
-    margin-left: -1600px;
-  }
+  0% {transform: translateX(0);}
+  50% {transform: translateX(-25%);}
+  100% {transform: translateX(-50%);}
 }
 
-@keyframes swell {
-  0%, 100% {
-    transform: translate3d(0,-25px,0);
-  }
-  50% {
-    transform: translate3d(0,5px,0);
-  }
+/* Main page content */
+.text-background{
+  background: url("/static/images/text-background.svg");
+  width: 200%;
+  height: 200%;
+}
+
+.main-content {
+  position: relative;
+  top: 48px;
+  width: 100%;
+  height: 100%;
 }
