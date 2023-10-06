@@ -26,7 +26,6 @@ footer a:hover { color: white; text-decoration: underline; }
 :root {
   --tomato-red: #E65929;
   --crimson-red: #BA2424;
-  --black: #000000;
   --fresh-green: #7ED957;
   --deep-sky-blue: #0097B2;
   --sky-blue: #1D9CD8;
@@ -52,6 +51,18 @@ footer a:hover { color: white; text-decoration: underline; }
       width: 100%; /* Full width on small screens */
       height: auto; /* Auto height based on content */
   }
+}
+
+/* typing text effect on main page */
+@-webkit-keyframes typing { from { width: 0; } }
+
+.typing {
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+	white-space: nowrap;
+	overflow: hidden;
+	-webkit-animation: typing 2s steps(21, end),
 }
 
 /* ocean */
@@ -92,25 +103,21 @@ left: 0;
 }
 
 /* Main page content */
-.text-background{
+/* main-page background */
+.text-background {
   background: url("/static/images/text-background.svg");
-  width: 200%;
-  height: 200%;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
 
 .main-content {
   position: relative;
   top: 48px;
   width: 100%;
   height: 100%;
-}
-@keyframes swell {
-  0%, 100% {
-    transform: translate3d(0,-25px,0);
-  }
-  50% {
-    transform: translate3d(0,5px,0);
-  }
 }
 
 /* The sidebar menu */
@@ -171,4 +178,10 @@ left: 0;
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
+}
+
+
+/* Footer Style */
+.footer {
+  background-color: black;
 }
