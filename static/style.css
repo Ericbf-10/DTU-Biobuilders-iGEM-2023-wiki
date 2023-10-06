@@ -110,11 +110,6 @@ left: 0;
 
 /* The sidebar menu */
 .sidenav {
-  background-image: url("https://static.igem.wiki/teams/4811/wiki/text-background.svg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 300px;
-  width: 800px;
   padding: 10px;
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1; /* Stay on top */
