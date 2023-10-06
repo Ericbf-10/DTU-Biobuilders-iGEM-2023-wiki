@@ -111,7 +111,7 @@ left: 0;
 /* Main page content */
 /* main-page background */
 .text-background {
-  background: url("/static/images/text-background.svg");
+  background: url("https://static.igem.wiki/teams/4811/wiki/images/text-background.svg");
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
