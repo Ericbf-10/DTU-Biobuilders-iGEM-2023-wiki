@@ -22,20 +22,23 @@
 
   <!-- Header -->
   {% if not is_homepage %}
+  <div class="grad-header h-100 main-content">
   <header>
-    <div class="grad container h-100">
+    
       <div class="row h-100 align-items-center">
         <div class="col-lg-12">
           <h1 class="display-4 text-white mt-5 mb-2">{{ self.title() }}</h1>
 	        <p class="lead mb-5 text-white-50">{% block lead %}{% endblock %}</p>
         </div>
       </div>
-    </div>
+    
   </header>
+</div>
   {% endif %}
   <!-- Page Content -->
+  <div class="grad-content h-100 main-content">
   {% block page_content %}{% endblock %}
-
+</div>
   <!-- Footer: MUST mention license AND have a link to team wiki's repository on gitlab.igem.org -->
   {% include 'footer.html' %}
 

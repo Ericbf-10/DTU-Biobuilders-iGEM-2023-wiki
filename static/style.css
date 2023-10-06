@@ -1,9 +1,15 @@
 body { 
   padding-top: 56px;
 }
-.grad{
-  background-image: linear-gradient(#264187, #000614); 
+.grad-header{
+  background-image: linear-gradient(white, #264187); 
   height: 100vh;
+  padding-bottom: 100px;
+}
+.grad-content{
+  background-image: linear-gradient(#264187,#000614); 
+  height: 100vh;
+  padding-bottom: 100px;
 }
 .left-aligned { margin-left: auto; }
 .bg-dark { background-color: #343a40 !important; }
@@ -21,7 +27,7 @@ body {
 /* footer */
 footer a { color: white; font-weight: bold; text-decoration: none; }
 footer a:hover { color: white; text-decoration: underline; }
-
+footer{padding: 1px;}
 /* Default colour */
 :root {
   --tomato-red: #E65929;
@@ -146,7 +152,7 @@ left: 0;
   margin-left: 275px; /* Same as the width of the sidebar */
   padding: 0px 10px;
 }
-
+/* previous and next button */
 .buttons{
   margin-left: 350px;
   margin-right: 20px;
@@ -166,6 +172,13 @@ left: 0;
   border-color: black;
   }
   
+/* header */
+
+header{
+  padding-top: 5px;
+  background-color: transparent;
+  color: black;
+}
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
