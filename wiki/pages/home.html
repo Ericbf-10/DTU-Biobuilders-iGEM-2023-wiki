@@ -7,10 +7,12 @@
 
 <div class="container">
   <div id="globe" class="col-md-12 text-center" style="width: 100%; height: 420px;"></div>
-  <div class="col-md-12 text-center main-title" style="padding: 20px;">
-    <h1>Today in Denmark</h1>
-    <h1>the question is not where PFAS is, </h1>
-    <h1>but where PFAS isn't.</h1>
+  <!-- <div class="col-md-12 text-center main-title typewriter" style="padding: 20px;">
+    <h1>Today in Denmark <br>
+    the question is not where PFAS is, <br>
+    but where PFAS isn't.</h1>
+  </div> -->
+  <div id="typedtext" class="col-md-12 text-center main-title">
   </div>
 </div>
 
@@ -37,6 +39,11 @@
 <div>
   <img src="https://static.igem.wiki/teams/4811/wiki/images/main-page.png" alt="Intro Image" class="main-content">
 </div>
+
+<!-- <div class="text-background">
+    <div class="col-md-12 text-center">
+      <object data="https://static.igem.wiki/teams/4811/wiki/images/main-page.svg" type="image/svg+xml"></object>
+</div> -->
 
 <script src="{{ url_for('static', filename='js/d3.v7.min.js') }}"></script>
 <script src="{{ url_for('static', filename='js/topojson.min.js') }}"></script>
@@ -76,7 +83,7 @@
 
 
       // Load and display the GPS data
-      d3.json("/static/data/gps_data.json").then(function(data) {
+      d3.json("https://static.igem.wiki/teams/4811/wiki/data/map-pfas-data.json").then(function(data) {
           svg.append("g")
              .selectAll("circle")
              .data(data)
@@ -109,6 +116,47 @@
   //     });
 
   // svg.call(drag);
+
+  // set up text to print, each item in array is new line
+var aText = new Array(
+  "Today in Denmark,",
+    "the question is not where PFAS is,",
+    "but where PFAS isn't."
+);
+var iSpeed = 100; // time delay of print out
+var iIndex = 0; // start printing array at this posision
+var iArrLength = aText[0].length; // the length of the text array
+var iScrollAt = 20; // start scrolling up at this many lines
+ 
+var iTextPos = 0; // initialise text position
+var sContents = ''; // initialise contents variable
+var iRow; // initialise current row
+ 
+function typewriter()
+{
+ sContents =  ' ';
+ iRow = Math.max(0, iIndex-iScrollAt);
+ var destination = document.getElementById("typedtext");
+ 
+ while ( iRow < iIndex ) {
+  sContents += aText[iRow++] + '<br />';
+ }
+ destination.innerHTML = sContents + aText[iIndex].substring(0, iTextPos) + "_";
+ if ( iTextPos++ == iArrLength ) {
+  iTextPos = 0;
+  iIndex++;
+  if ( iIndex != aText.length ) {
+   iArrLength = aText[iIndex].length;
+   setTimeout("typewriter()", 500);
+  }
+ } else {
+  setTimeout("typewriter()", iSpeed);
+ }
+}
+
+
+typewriter();
+  
   
 </script>
 

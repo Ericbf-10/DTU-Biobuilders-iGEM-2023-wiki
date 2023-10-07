@@ -32,7 +32,6 @@ footer{padding: 1px;}
 :root {
   --tomato-red: #E65929;
   --crimson-red: #BA2424;
-  --black: #000000;
   --fresh-green: #7ED957;
   --deep-sky-blue: #0097B2;
   --sky-blue: #1D9CD8;
@@ -46,17 +45,18 @@ footer{padding: 1px;}
 
 /* text block */
 .main-title {
-    /* font-family: 'Open Sauce Sans Black Italic', 'Arial Black'; */
-    font-size: 200px;
-    opacity: 1;
+    font-family: 'Bahnschrift', sans-serif;
+    font-size: 45px;
     position: relative;
-    /* animation: float 3.5s infinite ease-in-out; */
+
+    width: 100%; 
+    height: 270px;
 }
 
 @media (max-width: 767px) {
-  .text-block {
-      width: 100%; /* Full width on small screens */
-      height: auto; /* Auto height based on content */
+  .main-title {
+      font-size: 40px; /* Adjust the font size as needed */
+      height: 250px;
   }
 }
 
@@ -98,25 +98,21 @@ left: 0;
 }
 
 /* Main page content */
-.text-background{
-  background: url("/static/images/text-background.svg");
-  width: 200%;
-  height: 200%;
+/* main-page background */
+.text-background {
+  background: url("https://static.igem.wiki/teams/4811/wiki/images/text-background.svg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
 
 .main-content {
   position: relative;
   top: 48px;
   width: 100%;
   height: 100%;
-}
-@keyframes swell {
-  0%, 100% {
-    transform: translate3d(0,-25px,0);
-  }
-  50% {
-    transform: translate3d(0,5px,0);
-  }
 }
 
 /* The sidebar menu */
@@ -173,17 +169,15 @@ left: 0;
   border-style: solid;
   border-color: black;
   }
-  
-/* header */
-
-header{
-  padding-top: 5px;
-  background-color: transparent;
-  color: black;
-}
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
+}
+
+
+/* Footer Style */
+.footer {
+  background-color: var(--tomato-red);
 }
