@@ -18,16 +18,14 @@
           <a class="nav-link" href="{{ url_for('home') }}">Home</a>
         </li>
 
-        <!---- PUBLIC ENGAGEMENT ---->
+        <!---- PROJECT ---->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="{{ url_for('pages', page='human-practices') }}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Human Practices
+          <a class="nav-link dropdown-toggle" href="{{ url_for('pages', page='project') }}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Project
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='biobricktutorial2023') }}">Biobrick tutorial 2023</a></li>
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='greenchallenge') }}">Green challenge</a></li>
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='atgsynbioconference') }}">ATG SynBio conference</a></li>
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='nordicigemconference') }}">Nordic iGEM conference</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('pages', page='contribution') }}">Contribution</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('pages', page='description') }}">Description</a></li>
 
           </ul>
         </li>
@@ -42,6 +40,20 @@
             <li><a class="dropdown-item" href="{{ url_for('pages', page='highschoolworkshops') }}">High school workshops</a></li>
             <li><a class="dropdown-item" href="{{ url_for('pages', page='biotechacademy') }}">Biotech academy</a></li>
             <li><a class="dropdown-item" href="{{ url_for('pages', page='some') }}">SoMe - Educational videos</a></li>
+
+          </ul>
+        </li>                
+
+        <!---- HUMAN PRACTICES ---->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="{{ url_for('pages', page='human-practices') }}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Human Practices
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="{{ url_for('pages', page='biobricktutorial2023') }}">Biobrick tutorial 2023</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('pages', page='greenchallenge') }}">Green challenge</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('pages', page='atgsynbioconference') }}">ATG SynBio conference</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('pages', page='nordicigemconference') }}">Nordic iGEM conference</a></li>
 
           </ul>
         </li>
