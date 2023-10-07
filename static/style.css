@@ -1,5 +1,5 @@
 body { 
-  padding-top: 56px;
+  padding-top: 80px;
 }
 .grad-header{
   background-image: linear-gradient(white, #264187); 
@@ -23,6 +23,20 @@ body {
 .bd-callout-info { border-left-color:#5bc0de }
 .bd-callout-warning { border-left-color:#f0ad4e }
 .bd-callout-danger { border-left-color:#d9534f }
+
+/* Header style */
+.navbar {
+  width: 100%;
+  position: fixed;
+  color: black;
+  background-color: transparent;
+  transition: background-color 0.2s linear;
+  
+  &.solid-nav {
+    background-color: rgba(255, 255, 255, 0.9);
+    transition: background-color 0.2s linear;
+  }
+}
 
 /* footer */
 footer a { color: white; font-weight: bold; text-decoration: none; }
@@ -55,7 +69,7 @@ footer{padding: 1px;}
 
 @media (max-width: 767px) {
   .main-title {
-      font-size: 40px; /* Adjust the font size as needed */
+      font-size: 30px; /* Adjust the font size as needed */
       height: 250px;
   }
 }

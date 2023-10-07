@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: rgb(255 255 255 / .9);">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
   <div class="container">
 
 
@@ -96,3 +96,22 @@
     </div>
   </div>
 </nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var nav = document.querySelector('nav');
+    var height = 500;
+
+    window.addEventListener('scroll', function() {
+      var scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+      if (scrollTop >= height) {
+        // Change the background color of the navbar
+        nav.classList.add('solid-nav');
+      } else {
+        // Remove the background color from the navbar
+        nav.classList.remove('solid-nav');
+      }
+    });
+  });
+</script>
