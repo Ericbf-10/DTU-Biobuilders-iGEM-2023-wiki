@@ -151,6 +151,7 @@ left: 0;
 }
 
 .page-text{
+  color: white;
   margin: 1rem;
 }
 /* The sidebar menu */
@@ -196,36 +197,7 @@ left: 0;
 }
 
 
-.sidenav {
-  padding: 10px;
-  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-  z-index: 1; /* Stay on top */
- 
-  top: 25%;
-  left: -165px;
 
-}
-
-
-
-/* The navigation menu links */
-.sidenav a {
-  padding: 5px 8px 6px 40px;
-  position: relative;
-  top: 20px;
-  left: 150px;
-  text-decoration: none;
-  text-align: left;
-  font-size: 15px;
-  color: white;
-  display: block;
-  width: 20%;
-}
-
-/* When you mouse over the navigation links, change their color */
-.sidenav a:hover {
-  color: red;
-}
 
 /* Style page content */
 .main {
@@ -252,13 +224,6 @@ left: 0;
   border-style: solid;
   border-color: black;
   }
-
-/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-
 
 /* Footer Style */
 .footer {
