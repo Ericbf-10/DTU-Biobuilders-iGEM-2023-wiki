@@ -38,6 +38,15 @@ body {
   }
 }
 
+@media (max-width: 767px) {
+  .navbar-collapse {
+    background-color: transparent;
+    &.half-nav {
+    background-color: rgba(255, 255, 255, 0.9); 
+    }
+  }
+}
+
 /* footer */
 footer a { color: white; font-weight: bold; text-decoration: none; }
 footer a:hover { color: white; text-decoration: underline; }
@@ -177,7 +186,6 @@ padding-bottom: 2rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
-
 .page-text figcaption{
     padding-top: 1rem;
     font-style: italic;
@@ -185,7 +193,6 @@ padding-bottom: 2rem;
     color: #ccc;
     font-size: 1rem;
 }
-
 /* Add these styles under the .page-text style */
 .page-text table {
   border-collapse: collapse;
@@ -201,28 +208,31 @@ padding-bottom: 2rem;
   text-align: left;
   color: black;
 }
-
 .page-text table td {
   border: 1px solid #ddd;
   padding: 8px;
   text-align: left;
   color: black;
 }
-
-/* Apply alternate background colors to table rows */
 .page-text table tbody tr:nth-child(even) {
   background-color: #fff;
 }
-
 .page-text table tbody tr:nth-child(odd) {
   background-color: #f2f2f2;
 }
-
-/* Add hover effect on table rows */
 .page-text table tbody tr:hover {
   background-color: #ddd;
 }
 
+/* page text style */
+.page-text ul {
+  max-width: 100%; 
+  overflow-x: auto;
+}
+
+.page-text ul li {
+  word-wrap: break-word;
+}
 
 /* The sidebar menu */
 .toc {

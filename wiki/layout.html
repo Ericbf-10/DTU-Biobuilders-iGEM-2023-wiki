@@ -25,11 +25,7 @@
 
   {% block page_content %}{% endblock %}
 
-  <!-- Footer: MUST mention license AND have a link to team wiki's repository on gitlab.igem.org -->
-  {% include 'footer.html' %}
-
-  <!-- Bootstrap Bundle with Popper -->
-  <script src="{{ url_for('static', filename = 'js/bootstrap.bundle.min.js') }}"></script>
+  {% if not is_homepage %}
   <script>
     var toc = document.querySelector( '.toc' );
     var tocPath = document.querySelector( '.toc-marker path' );
@@ -151,5 +147,13 @@
   });
 });
   </script>
+  {% endif %}
+
+  <!-- Footer: MUST mention license AND have a link to team wiki's repository on gitlab.igem.org -->
+  {% include 'footer.html' %}
+
+  <!-- Bootstrap Bundle with Popper -->
+  <script src="{{ url_for('static', filename = 'js/bootstrap.bundle.min.js') }}"></script>
+
 </body>
 </html>
