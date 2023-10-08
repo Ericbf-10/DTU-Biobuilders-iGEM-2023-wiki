@@ -30,13 +30,7 @@
 
           </ul>
         </li>
-
-        <!---- EDUCATION ---->
-        <li class="nav-item ">
-          <a class="nav-link " href="{{ url_for('pages', page='education') }}" >
-            Education
-          </a>
-        </li>                
+              
 
         <!---- HUMAN PRACTICES ---->
         <li class="nav-item dropdown">
@@ -44,8 +38,10 @@
             Human Practices
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="{{ url_for('pages', page='publicengagement') }}">Engagement</a></li>
             <li><a class="dropdown-item" href="{{ url_for('pages', page='human-practices') }}">Integrated Human Practices</a></li>
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='publicengagement') }}">Public Engagement</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('pages', page='education') }}">Education</a></li>
+            
             
 
           </ul>
@@ -54,28 +50,26 @@
         <!---- WET LAB ---->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="{{ url_for('pages', page='wetlab') }}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Wet lab
+            Laboratory
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="{{ url_for('pages', page='design') }}">Design</a></li>
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='engineering') }}">Engineering</a></li>
             <li><a class="dropdown-item" href="{{ url_for('pages', page='parts') }}">Parts</a></li>
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='experiments') }}">Experiments</a></li>
             <li><a class="dropdown-item" href="{{ url_for('pages', page='results') }}">Results</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('pages', page='engineering') }}">Engineering</a></li>            
+            <li><a class="dropdown-item" href="{{ url_for('pages', page='experiments') }}">Experiments</a></li>            
             <li><a class="dropdown-item" href="{{ url_for('pages', page='safety') }}">Safety</a></li>
           </ul>
         </li>
 
         <!---- DRY LAB ---->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="{{ url_for('pages', page='drylab') }}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dry lab
+          <a class="nav-link dropdown-toggle" href="{{ url_for('pages', page='software') }}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Software
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='overview') }}">Overview</a></li>
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='software') }}">Software</a></li>
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='analysis') }}">Analysis</a></li>
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='tutorial') }}">Tutorial</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('pages', page='software') }}">AptaLoop</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('pages', page='analysis') }}">Simulation</a></li>
           </ul>
         </li>
 
@@ -87,7 +81,7 @@
             Team
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="{{ url_for('pages', page='team') }}">Team</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('pages', page='team') }}">Members</a></li>
             <li><a class="dropdown-item" href="{{ url_for('pages', page='attributions') }}">Attributions</a></li>
           </ul>
         </li>
