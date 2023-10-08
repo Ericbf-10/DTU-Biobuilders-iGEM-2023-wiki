@@ -38,11 +38,14 @@ body {
   }
 }
 
+/* Global Style */
+#pfas-map {
+  width: 100%;
+  height: 85%;
+}
 /* footer */
 footer a { color: white; font-weight: bold; text-decoration: none; }
 footer a:hover { color: white; text-decoration: underline; }
-footer{padding: 1px;}
-
 footer{padding: 1px; }
 /* Default colour */
 :root {
@@ -60,15 +63,9 @@ footer{padding: 1px; }
 }
 
 /* text block */
-.main-image {
-  padding-top: 1.8rem;
-  width: 100%;
-  height: 80%;
-}
-
 .main-title {
     font-family: 'Bahnschrift', sans-serif;
-    font-size: 2rem;;
+    font-size: 45px;
     position: relative;
 
     width: 100%; 
@@ -137,65 +134,7 @@ left: 0;
   height: 100%;
 }
 
-/* Page design */
-.page {
-  width: 100%;
-}
-
-.page-header {
-  padding-top: 2rem;
-}
-
-.page-content{
-  padding-top: 2rem;
-}
-
-.page-text{
-  margin: 1rem;
-}
 /* The sidebar menu */
-
-.toc {
-  position: -webkit-sticky;
-  position: sticky;
-  left: 3em;
-  top: 10em;
-  padding: 1em;
-  width: 14em;
-  line-height: 2;
-}
-.toc ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.toc ul ul { padding-left: 2em; }
-.toc li a {
-  display: inline-block;
-  color: #aaa;
-  text-decoration: none;
-  -webkit-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-}
-.toc li.visible > a {
-  color: #111;
-  -webkit-transform: translate(5px);
-  transform: translate(5px);
-}
-.toc-marker {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
-.toc-marker path {
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-}
-
-
 .sidenav {
   padding: 10px;
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
@@ -263,4 +202,10 @@ left: 0;
 /* Footer Style */
 .footer {
   background-color: var(--tomato-red);
+}
+
+.biobuilders_logo {
+  max-height: 100px; /* You can adjust the max-height as needed */
+  width: auto;
+  height: auto;
 }
