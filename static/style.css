@@ -188,8 +188,8 @@ padding-bottom: 2rem;
   padding: 1em;
   width: 14em;
   line-height: 2;
-  height: calc(100vh - 10em); /* Set a max height for the TOC */
-  overflow-y: auto; /* Add scrollbars if the TOC overflows */
+  height: calc(100vh - 5em); /* Set a max height for the TOC */
+  overflow-y: hidden; /* Add scrollbars if the TOC overflows */
 }
 .toc h3 {
   padding-top: 2rem;
