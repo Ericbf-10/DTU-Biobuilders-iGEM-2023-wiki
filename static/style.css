@@ -156,7 +156,7 @@ left: 0;
 }
 
 .page-content{
-  padding-bottom: 2rem;
+  padding-bottom: 3.5rem;
 }
 
 .page-text{
@@ -179,19 +179,29 @@ padding-bottom: 2rem;
   padding-bottom: 1rem;
 }
 
+.page-text figcaption{
+    padding-top: 1rem;
+    font-style: italic;
+    text-align: center;
+    color: #ccc;
+    font-size: 1rem;
+}
+
 /* The sidebar menu */
 .toc {
   position: -webkit-sticky;
   position: sticky;
   left: 3em;
-  top: 10em;
-  padding: 1em;
+  top: 6em;
+  padding-top: 1em;
+  padding-bottom: 1em;
   width: 14em;
   line-height: 2;
-  height: calc(100vh - 5em); /* Set a max height for the TOC */
-  overflow-y: hidden; /* Add scrollbars if the TOC overflows */
+  height: 100vh; /* Set a max height for the TOC */
+  overflow-y: auto; /* Add scrollbars if the TOC overflows */
+  font-size: 0.9rem;
 }
-.toc h3 {
+.toc h5 {
   padding-top: 2rem;
   padding-bottom: 0.5rem;
   color: white;
@@ -211,7 +221,7 @@ padding-bottom: 2rem;
   transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
 }
 .toc li.visible > a {
-  color: #111;
+  color: #aaa;
   -webkit-transform: translate(5px);
   transform: translate(5px);
 }

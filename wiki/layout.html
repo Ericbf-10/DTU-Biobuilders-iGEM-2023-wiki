@@ -36,8 +36,8 @@
     var tocItems;
     // Factor of screen size that the element must cross
     // before it's considered visible
-    var TOP_MARGIN = 0.1,
-        BOTTOM_MARGIN = 0.2;
+    var TOP_MARGIN = 0.2,
+        BOTTOM_MARGIN = 0.1;
     var pathLength;
     window.addEventListener( 'resize', drawPath, false );
     window.addEventListener( 'scroll', sync, false );
@@ -66,7 +66,7 @@
             y = item.anchor.offsetTop,
             height = item.anchor.offsetHeight;
         if( i === 0 ) {
-          path.push( 'M', x, y, 'L', x, y + height );
+          path.push( 'M', x, y, 'L', x, y + height);
           item.pathStart = tocPath.getTotalLength() || 0;
         }
         else {
@@ -130,6 +130,26 @@
         tocPath.setAttribute( 'opacity', 0 );
       }
     }
+
+    tocItems.forEach(function (item) {
+  item.anchor.addEventListener('click', function (e) {
+    e.preventDefault(); // Prevent default link behavior
+
+    var targetId = this.getAttribute('href').slice(1); // Get the target section's id
+    var targetSection = document.getElementById(targetId);
+
+    if (targetSection) {
+      // Calculate the scroll position, including an additional 40 pixels offset
+      var offset = targetSection.offsetTop - 100;
+
+      // Scroll to the target section with the calculated offset
+      window.scrollTo({
+        top: offset,
+        behavior: 'smooth' // Add smooth scrolling behavior
+      });
+    }
+  });
+});
   </script>
 </body>
 </html>
