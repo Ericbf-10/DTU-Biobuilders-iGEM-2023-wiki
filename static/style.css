@@ -289,3 +289,7 @@ padding-bottom: 2rem;
 .footer {
   background-color: var(--tomato-red);
 }
+
+table, th, td {
+  border: 1px solid;
+}
