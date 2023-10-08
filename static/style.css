@@ -187,6 +187,44 @@ padding-bottom: 2rem;
     font-size: 1rem;
 }
 
+/* Add these styles under the .page-text style */
+.page-text table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.page-text table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  color: black;
+}
+
+.page-text table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  color: black;
+}
+
+/* Apply alternate background colors to table rows */
+.page-text table tbody tr:nth-child(even) {
+  background-color: #fff;
+}
+
+.page-text table tbody tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+/* Add hover effect on table rows */
+.page-text table tbody tr:hover {
+  background-color: #ddd;
+}
+
+
 /* The sidebar menu */
 .toc {
   position: -webkit-sticky;

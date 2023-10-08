@@ -4,26 +4,28 @@
 {% block lead %}Keep it simple to have it simple.{% endblock %}
 
 {% block page_content %}
+
 <div class="page">
     <div class="page-header">
-        <h1>Parts</h1>
+      <h1>Parts</h1>
     </div>
-    <div class="page-content row h-100">
+    <div class="container page-content">
+      <div class="row h-100">
         <div class="toc col-lg-5">
-            <h3>Menu</h3>
-            <ul>
-                <li>
-                    <a href="#basic_part">&gt; Basic Parts</a>
-                </li>
-                <li>
-                    <a href="#composite_part">&gt; Composite Parts</a>
-                </li>
-            </ul>
-            <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-                <path stroke="#fff" stroke-width="3" fill="transparent" stroke-dasharray="0, 0, 0, 1000" stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)" />
-              </svg>
+          <h5>Menu</h5>
+          <ul>
+            <li>
+                <a href="#basic_part">&gt; Basic Parts</a>
+            </li>
+            <li>
+                <a href="#composite_part">&gt; Composite Parts</a>
+            </li>
+        </ul>
+          <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+            <path stroke="#fff" stroke-width="3" fill="transparent" stroke-dasharray="0, 0, 0, 1000" stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)" />
+          </svg>
         </div>
-        <div class="toc col-lg-7">
+        <div class="page-text col-lg-9">
             <h2 id="basic_part">Basic Parts</h2>
             <table>
                 <thead>
@@ -170,11 +172,11 @@
                 <td><span>New</span></td>
                 </tr>
                 </tbody>
-                </table>
+                </table>    
         </div>
+      </div>
     </div>
-</div>
-
+  </div>
 
 {% endblock %}
 
