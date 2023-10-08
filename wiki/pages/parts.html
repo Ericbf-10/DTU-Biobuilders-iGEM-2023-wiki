@@ -4,22 +4,176 @@
 {% block lead %}Keep it simple to have it simple.{% endblock %}
 
 {% block page_content %}
-
-<div class="grad-content h-100 main-content">
-
-
-
-    <div class="row">
-        <div class="sidenav"style="top: 25%;" >
-            <div  style="font-weight: bold; text-align: center; text-decoration: none; padding-top: 30px; padding-right: 65%;">Parts</div>
-            <a href="#">&gt; Basic Parts</a>
-            <a href="#">&gt; Composite Parts</a>
+<div class="page">
+    <div class="page-header">
+        <h1>Parts</h1>
+    </div>
+    <div class="page-content row h-100">
+        <div class="toc col-lg-5">
+            <h3>Menu</h3>
+            <ul>
+                <li>
+                    <a href="#basic_part">&gt; Basic Parts</a>
+                </li>
+                <li>
+                    <a href="#composite_part">&gt; Composite Parts</a>
+                </li>
+            </ul>
+            <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                <path stroke="#fff" stroke-width="3" fill="transparent" stroke-dasharray="0, 0, 0, 1000" stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)" />
+              </svg>
+        </div>
+        <div class="toc col-lg-7">
+            <h2 id="basic_part">Basic Parts</h2>
+            <table>
+                <thead>
+                <tr>
+                <th><span>BioBrick ID</span></th>
+                <th><span>Description</span></th>
+                <th><span>Type</span></th>
+                <th><span>Size [bp]</span></th>
+                <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                <td><a href="http://parts.igem.org/Part:BBa_K4811000" target="_blank" rel="noopener"><span>BBa_K4811000</span></a></td>
+                <td><span>BRA</span></td>
+                <td><span>RBS</span></td>
+                <td><span>24</span></td>
+                <td><span>New</span></td>
+                </tr>
+                <tr>
+                <td><a href="http://parts.igem.org/Part:BBa_K4811001" target="_blank" rel="noopener"><span>BBa_K4811001</span></a></td>
+                <td><span>mCherry</span></td>
+                <td><span>CDS</span></td>
+                <td><span>711</span></td>
+                <td><span>New</span></td>
+                </tr>
+                <tr>
+                <td><a href="http://parts.igem.org/Part:BBa_K3143689" target="_blank" rel="noopener"><span>BBa_K3143689</span></a></td>
+                <td><span>sfGFP</span></td>
+                <td><span>CDS</span></td>
+                <td><span>717</span></td>
+                <td><span>Existing</span></td>
+                </tr>
+                <tr>
+                <td><a href="http://parts.igem.org/Part:BBa_K4811012" target="_blank" rel="noopener"><span>BBa_K4811012</span></a></td>
+                <td><span>AraC-pBAD</span></td>
+                <td><span>Regulatory</span></td>
+                <td><span>1190</span></td>
+                <td><span>New</span></td>
+                </tr>
+                <tr>
+                <td><a href="http://parts.igem.org/Part:BBa_K4811013" target="_blank" rel="noopener"><span>BBa_K4811013</span></a></td>
+                <td><span>Bidirectional terminator</span></td>
+                <td><span>Terminator</span></td>
+                <td><span>42</span></td>
+                <td><span>New</span></td>
+                </tr>
+                <tr>
+                <td><a href="http://parts.igem.org/Part:BBa_K4811014" target="_blank" rel="noopener"><span>BBa_K4811014</span></a></td>
+                <td><span>ProD</span></td>
+                <td><span>Promoter</span></td>
+                <td><span>144</span></td>
+                <td><span>New</span></td>
+                </tr>
+                <tr>
+                <td><a href="http://parts.igem.org/Part:BBa_K3715081" target="_blank" rel="noopener"><span>BBa_K3715081</span></a></td>
+                <td><span>PT7</span></td>
+                <td><span>Promoter</span></td>
+                <td><span>17</span></td>
+                <td><span>Existing</span></td>
+                </tr>
+                <tr>
+                <td><a href="http://parts.igem.org/Part:BBa_K4811015" target="_blank" rel="noopener"><span>BBa_K4811015</span></a></td>
+                <td><span>TT7</span></td>
+                <td><span>Terminator</span></td>
+                <td><span>50</span></td>
+                <td><span>New</span></td>
+                </tr>
+                <tr>
+                <td><a href="http://parts.igem.org/Part:BBa_K4811002" target="_blank" rel="noopener"><span>BBa_K4811002</span></a></td>
+                <td><span>TMS</span></td>
+                <td><span>RNA</span></td>
+                <td><span>144</span></td>
+                <td><span>New</span></td>
+                </tr>
+                <tr>
+                <td><a href="http://parts.igem.org/Part:BBa_K4811006" target="_blank" rel="noopener"><span>BBa_K4811006</span></a></td>
+                <td><span>TMS(GFP1)</span></td>
+                <td><span>RNA</span></td>
+                <td><span>254</span></td>
+                <td><span>New</span></td>
+                </tr>
+                <tr>
+                <td><a href="http://parts.igem.org/Part:BBa_K4811007" target="_blank" rel="noopener"><span>BBa_K4811007</span></a></td>
+                <td><span>TMS(Kan1)</span></td>
+                <td><span>RNA</span></td>
+                <td><span>106</span></td>
+                <td><span>New</span></td>
+                </tr>
+                <tr>
+                <td><a href="http://parts.igem.org/Part:BBa_K4811008" target="_blank" rel="noopener"><span>BBa_K4811008</span></a></td>
+                <td><span>TMS(Neo1)</span></td>
+                <td><span>RNA</span></td>
+                <td><span>108</span></td>
+                <td><span>New</span></td>
+                </tr>
+                <tr>
+                <td><a href="http://parts.igem.org/Part:BBa_K4811009" target="_blank" rel="noopener"><span>BBa_K4811009</span></a></td>
+                <td><span>TMS(Mn1)</span></td>
+                <td><span>RNA</span></td>
+                <td><span>207</span></td>
+                <td><span>New</span></td>
+                </tr>
+                <tr>
+                <td><a href="http://parts.igem.org/Part:BBa_K4811029" target="_blank" rel="noopener"><span>BBa_K4811029</span></a></td>
+                <td><span>TMS(Mn2)</span></td>
+                <td><span>RNA</span></td>
+                <td><span>201</span></td>
+                <td><span>New</span></td>
+                </tr>
+                <tr>
+                <td><a href="http://parts.igem.org/Part:BBa_K4811010" target="_blank" rel="noopener"><span>BBa_K4811010</span></a></td>
+                <td><span>TMS(Theo1)</span></td>
+                <td><span>RNA</span></td>
+                <td><span>109</span></td>
+                <td><span>New</span></td>
+                </tr>
+                <tr>
+                <td><a href="http://parts.igem.org/Part:BBa_K4811011" target="_blank" rel="noopener"><span>BBa_K4811011</span></a></td>
+                <td><span>TMS(Theo2)</span></td>
+                <td><span>RNA</span></td>
+                <td><span>124</span></td>
+                <td><span>New</span></td>
+                </tr>
+                <tr>
+                <td><a href="http://parts.igem.org/Part:BBa_K4811024" target="_blank" rel="noopener"><span>BBa_K4811024</span></a></td>
+                <td><span>TMS(PFOA1)</span></td>
+                <td><span>RNA</span></td>
+                <td><span>130</span></td>
+                <td><span>New</span></td>
+                </tr>
+                <tr>
+                <td><a href="http://parts.igem.org/Part:BBa_K4811030" target="_blank" rel="noopener"><span>BBa_K4811030</span></a></td>
+                <td><span>TMS(PFOA2)</span></td>
+                <td><span>RNA</span></td>
+                <td><span>117</span></td>
+                <td><span>New</span></td>
+                </tr>
+                <tr>
+                <td><a href="http://parts.igem.org/Part:BBa_K4811025" target="_blank" rel="noopener"><span>BBa_K4811025</span></a></td>
+                <td><span>TMS(PFOA3)</span></td>
+                <td><span>RNA</span></td>
+                <td><span>104</span></td>
+                <td><span>New</span></td>
+                </tr>
+                </tbody>
+                </table>
         </div>
     </div>
-    
-    <a href="#" class="buttons">Previous</a>
-    <a href="#" class="buttons">Next</a>
-    </div>
+</div>
 
 
 {% endblock %}
