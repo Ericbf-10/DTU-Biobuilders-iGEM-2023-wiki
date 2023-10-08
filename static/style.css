@@ -138,6 +138,7 @@ left: 0;
 /* Page design */
 .page {
   width: 100%;
+  background-image: linear-gradient(#264187,#000614); 
 }
 
 .page-header {
@@ -156,9 +157,9 @@ left: 0;
 }
 
 .page-text{
-  margin: 1rem;
   color: white;
-  padding-left: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .page-text img {
@@ -186,7 +187,7 @@ padding-bottom: 2rem;
   line-height: 2;
 }
 .toc h3 {
-  padding-top: 3rem;
+  padding-top: 2rem;
   padding-bottom: 0.5rem;
   color: white;
 
@@ -226,10 +227,11 @@ padding-bottom: 2rem;
   transform: translate(5px); /* Remove -webkit- prefix for cross-browser compatibility */
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 992px) {
   .toc {
     position: relative;
-    left: 2rem;
+    left: 1rem;
+    top: 0rem;
   }
 }
 
