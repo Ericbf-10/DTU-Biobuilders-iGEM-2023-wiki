@@ -9,7 +9,7 @@ body {
 .grad-content{
   background-image: linear-gradient(#264187,#000614); 
   height: 100vh;
-  padding-bottom: 100px;
+  /* padding-bottom: 100px; */
 }
 .left-aligned { margin-left: auto; }
 .bg-dark { background-color: #343a40 !important; }
@@ -120,7 +120,6 @@ left: 0;
 }
 
 /* Main page content */
-/* main-page background */
 .text-background {
   background: url("https://static.igem.wiki/teams/4811/wiki/images/text-background.svg");
   height: 100%;
@@ -128,7 +127,6 @@ left: 0;
   background-repeat: no-repeat;
   background-size: cover;
 }
-
 
 .main-content {
   position: relative;
@@ -143,18 +141,41 @@ left: 0;
 }
 
 .page-header {
+  background-image: linear-gradient(white, #264187);
+  height: 24rem;
   padding-top: 2rem;
+  text-align: center;
+  display: flex; /* Use flexbox to vertically align content */
+  flex-direction: column; /* Stack child elements vertically */
+  justify-content: center; /* Center content vertically */
+  color: white;
 }
 
 .page-content{
-  padding-top: 2rem;
+  padding-bottom: 1rem;
 }
 
 .page-text{
   margin: 1rem;
+  color: white;
+  padding-left: 1rem;
 }
-/* The sidebar menu */
 
+.page-text img {
+  width: 100%;
+}
+
+.page-text h2 {
+padding-top: 3rem;
+padding-bottom: 2rem;
+}
+
+.page-text h3 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+/* The sidebar menu */
 .toc {
   position: -webkit-sticky;
   position: sticky;
@@ -163,6 +184,12 @@ left: 0;
   padding: 1em;
   width: 14em;
   line-height: 2;
+}
+.toc h3 {
+  padding-top: 3rem;
+  padding-bottom: 0.5rem;
+  color: white;
+
 }
 .toc ul {
   list-style: none;
@@ -194,7 +221,17 @@ left: 0;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
+.toc li.visible > a {
+  color: white;
+  transform: translate(5px); /* Remove -webkit- prefix for cross-browser compatibility */
+}
 
+@media (max-width: 1000px) {
+  .toc {
+    position: relative;
+    left: 2rem;
+  }
+}
 
 .sidenav {
   padding: 10px;
