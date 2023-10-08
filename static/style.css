@@ -46,7 +46,8 @@ body {
 /* footer */
 footer a { color: white; font-weight: bold; text-decoration: none; }
 footer a:hover { color: white; text-decoration: underline; }
-footer{padding: 1px; }
+footer{padding: 1px;}
+
 /* Default colour */
 :root {
   --tomato-red: #E65929;
