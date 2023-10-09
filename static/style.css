@@ -11,6 +11,8 @@ body {
   height: 100vh;
   /* padding-bottom: 100px; */
 }
+
+
 .left-aligned { margin-left: auto; }
 .bg-dark { background-color: #343a40 !important; }
 
@@ -202,9 +204,24 @@ padding-bottom: 2rem;
   text-align: justify;
 }
 
+.page-text a {
+  color: #f0ad4e;
+}
+.page-text a:visited {
+  color: #f0ad4e; 
+}
+.page-text a:hover {
+  color: #f0ad4e; 
+}
+
 .page-text figure {
   margin: 6%;
   text-align: center; 
+  display: block;
+}
+
+.page-text img.svg-img {
+  background-color: white;
 }
 
 .page-text img {
@@ -212,12 +229,13 @@ padding-bottom: 2rem;
   height: auto; 
 }
 
-.page-text figcaption{
+.page-text figure figcaption{
     padding-top: 1rem;
     font-style: italic;
     text-align: center;
     color: #ccc;
     font-size: 1rem;
+    display: block;
 }
 .page-text figure.image-container {
   margin: 6%;
