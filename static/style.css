@@ -163,6 +163,10 @@ left: 0;
   color: white;
   width: 100%;
 }
+.page-header h1 {
+  font-family: 'Bahnschrift', sans-serif;
+  font-size: calc(2rem + 1.5vw);
+}
 
 .page-content{
   padding-bottom: 3.5rem;
@@ -196,6 +200,10 @@ padding-bottom: 2rem;
 
 .page-text p {
   text-align: justify;
+}
+
+.page-text figure{
+  margin: 6%;
 }
 
 .page-text figcaption{
@@ -348,54 +356,20 @@ padding-bottom: 2rem;
 
 .gallery-container {
   width: 100%;
-  overflow: hidden;
+  overflow: hidden; /* Hide overflow to create a scrolling effect */
   position: relative;
-  height: 600px;
 }
 
 .gallery {
-  display: flex;
-  transition: transform 0.3s ease-in-out;
-  height: 100%;
-  align-items: center;
-  flex-wrap: nowrap; /* Prevent images from wrapping to the next line */
-  overflow-x: auto; /* Enable horizontal scrolling */
-  scrollbar-width: none; /* Hide the scrollbar for modern browsers */
-  -ms-overflow-style: none; /* Hide the scrollbar for Internet Explorer */
-}
-
-.gallery::-webkit-scrollbar {
-  display: none; /* Hide the scrollbar for Webkit browsers */
+  display: flex; /* Create a horizontal layout for the images */
+  transition: transform 0.3s ease-in-out; /* Add a smooth transition effect for scrolling */
 }
 
 .gallery img {
-  max-height: 100%;
-  max-width: none; /* Allow the image to expand to its original width */
-  margin: 0 auto;
-  display: block;
+  width: 100%; /* Ensure images take up the full container width */
+  max-width: 300px; /* Set a maximum width for each image */
+  height: auto; /* Maintain the aspect ratio */
 }
-
-.prev-button,
-.next-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  font-size: 18px;
-  padding: 10px 20px;
-}
-
-.prev-button {
-  left: 10px;
-}
-
-.next-button {
-  right: 10px;
-}
-
-
 
 .hover-image {
   width: 100%; /* Set the width and height of the container */
