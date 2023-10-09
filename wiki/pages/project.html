@@ -1,86 +1,17 @@
 {% extends "layout.html" %}
 
-<div class="page">
+{% block title %}Project{% endblock %}
+{% block lead %}Project{% endblock %}
 
-    <!-- Change This Header -->
-    <div class="page-header">
-      <h1>Change This Header</h1>  
-    </div>
-    <div class="container page-content">
-      <div class="row h-100">
+{% block page_content %}
+<div class="grad-content h-100 main-content">
 
-        <!-- place for menu generation -->
-        <div class="toc col-lg-5">
-          <h5>Menu</h5>
-          <ul>
-            <li>
-            <!-- h2 level, add this #location, and change this menu -->
-              <a href="#project_description">> Project Description</a>
-              <ul>
-                <!-- h3 level, add this #location, and change this menu, use shorter names, also add ">" in front -->
-                <li><a href="#persistent_pollution">> Persistent Pollution</a></li>
-                <li><a href="#bioinformatics">> Bioinformatics Software</a></li>
-                <li><a href="#citizen">> Citizen Science</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="#references">> References</a>
-            </li>
-          </ul>
-          <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-            <path stroke="#fff" stroke-width="3" fill="transparent" stroke-dasharray="0, 0, 0, 1000" stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)" />
-          </svg>
-        </div>
 
-        <!-- formal text goes under this div, h2, h3 should be labeled  -->
-        <div class="page-text col-lg-9">
-            
-            <!-- add id to h2 -->
-            <h2 id="project_description">Project description</h2>
-            <!-- add <hr> after h2 -->
-            <hr>
 
-            <p><b>Today in Denmark, the question is not where PFAS is, but where PFAS isn't.</b> Recent advances in environmental and health sciences have confirmed that PFAS, a class of "forever chemicals", are extremely detrimental to planetary and human well-being. As efforts are made to identify sites of contamination and sources of pollution, detection methods are not streamlined or efficient. A major obstacle in effectively controlling PFAS lies in sampling bias, where the need for specialized equipment, limited resources, and trained personnel hinders the acquisition of accurate, high-resolution, real-time information on global PFAS concentrations. </p>
-            
-            <!-- figure and figcaption -->
-            <figure>
-              <img src="https://static.igem.wiki/teams/4811/wiki/images/pfoa4b.png" alt="General idea diagram">
-              <figcaption>This is the image caption.</figcaption>
-            </figure>
 
-            <!-- table style -->
-            <table>
-                <thead>
-                <tr>
-                <th><span>BioBrick ID</span></th>
-                <th><span>Description</span></th>
-                <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                <td><a href="http://parts.igem.org/Part:BBa_K4811000" target="_blank" rel="noopener"><span>BBa_K4811000</span></a></td>
-                <td><span>BRA</span></td>
-                </tr>
-                </tbody>
-            </table>
 
-            <!-- add id to h3 -->
-            <h3 id="persistent_pollution">Persistent pollution and the problems of PFAS</h3>
-            <h3 id="bioinformatics">Bioinformatics for better aptamer selection</h3>
-            <h3 id="citizen">Citizen science and environmental protection</h3>
-            
-            <!-- add id to h2 -->
-            <h2 id="references">References</h2>
-            <hr>
-
-            <!-- list -->
-            <ul>
-              <li>Brunn, H., Arnold, G., Körner, W., Rippen, G., Steinhäuser, K. G., & Valentin, I. (2023). PFAS: forever chemicals—persistent, bioaccumulative and mobile. Reviewing the status and the need for their phase out and remediation of contaminated sites. Environmental Sciences Europe 2023 35:1, 35(1), 1–50.</li>
-              <li>Cordner, A., Goldenman, G., Birnbaum, L. S., Brown, P., Miller, M. F., Mueller, R., Patton, S., Salvatore, D. H., & Trasande, L. (2021). The True Cost of PFAS and the Benefits of Acting Now. Environmental Science and Technology,   </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-
+<a href="#" class="buttons">Previous</a>
+<a href="#" class="buttons">Next</a>
+</div>
 {% endblock %}
+
