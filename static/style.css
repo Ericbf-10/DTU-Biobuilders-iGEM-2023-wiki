@@ -204,14 +204,17 @@ padding-bottom: 2rem;
 
 .page-text figure{
   margin: 6%;
+  display: flex;
+  flex-direction: column;
 }
 
-.page-text figcaption{
-    padding-top: 1rem;
-    font-style: italic;
-    text-align: center;
-    color: #ccc;
-    font-size: 1rem;
+.page-text figcaption {
+  align-self: flex-end;
+  padding-top: 1rem;
+  font-style: italic;
+  text-align: center;
+  color: #ccc;
+  font-size: 1rem;
 }
 /* Add these styles under the .page-text style */
 .page-text table {
