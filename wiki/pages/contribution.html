@@ -1,40 +1,45 @@
 {% extends "layout.html" %}
-  
-{% block title %}Contribution{% endblock %}
-{% block lead %}Make a useful contribution for future iGEM teams. Use this page to document that contribution.{% endblock %}
 
 {% block page_content %}
-<!--
-<div class="row mt-4">
-  <div class="col">
-    <div class="bd-callout bd-callout-info">
-      <h4>Bronze Medal Criterion #4</h4>
-      <p>Make a useful contribution for future iGEM teams. Use this page to document that contribution.<p>
-      <p>If you are making a contribution by adding information to an existing Part or creating a new Part, you must document your contribution on the Part's Main Page on the <a href="http://parts.igem.org/Main_Page">Registry</a> for your team to be eligible for this criteria. You can use this page to link to that part and include additional information about your contribution.</p>
-      <hr>
-      <p>Please see the <a href="https://competition.igem.org/judging/medals">2023 Medals Page</a> for more information.</p>
+<div class="page">
+  <div class="page-header">
+    <h1>Contribution</h1>
+  </div>
+  <div class="container page-content">
+    <div class="row h-100">
+      <div class="toc col-lg-5">
+
+
+        <h5>Menu</h5>
+        <ul>
+          <li>
+            <a href="#project_contribution">Project Contribution</a>
+            <ul>
+              <li><a href="#building-on-past-achievements">Building on past achievements</a></li>
+              <li><a href="#pioneering-new-frontiers">Pioneering new frontiers</a></li>
+            </ul>
+          </li>
+        </ul>
+        <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+          <path stroke="#fff" stroke-width="3" fill="transparent" stroke-dasharray="0, 0, 0, 1000" stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)" />
+        </svg>
+      </div>
+
+
+      <div class="page-text col-lg-9">
+          <h2 id="project_contribution">Project Contribution</h2>
+          <hr>
+          <p>As we all know, the iGEM competition represents a pioneering approach to science and collaboration within the realm of synthetic biology. Beyond the quest for scientific excellence, iGEM places a significant emphasis on the power of <strong>cross-team collaboration</strong>, recognizing that it is through the collective effort of diverse teams from around the world that we can achieve groundbreaking advances in science and technology. As a part of this contributing ecosystem, our team made efforts to both build upon the work of former iGEM teams and bring new insights and perspectives to the table. </p>
+          <h2 id="building-on-past-achievements">Building on Past Achievements</h2>
+          <p>One example of such improvements lies in our <strong>software</strong>. We took the challenge of enhancing MAWS, the software developed by the Heidelberg 2015 iGEM team. Although previous improvements were carried out by Heidelberg 2017 and NU Kazakhstan 2022 iGEM teams, we found the code to be non-functional and outdated. Thus, we updated the software to make it functional again and added some new features to it (see <a href="{{ url_for('pages', page='software') }}">Software</a>). In developing our pipeline, we made an emphasis towards accessibility, as we heavily documented our software and code, making it as easy and accessible for future teams to use and improve upon. </p>
+          <h2 id="pioneering-new-frontiers">Pioneering New Frontiers</h2>
+          <p>A noteworthy contribution of our iGEM team is introducing a tRNA Mimicking Structure (TMS) as a <strong>new biological part</strong> to the iGEM registry. The TMS, which was developed by  <em>Paul et al.</em>, is a synthetically designed RNA which folds in the same manner as a tRNA. It acts as a trans-encoded genetic switch which binds to the Ribosome Binding Site (RBS) and represses translation. This allows for a highly modular design, as it does not require upstream modifications of the target RBS. This basic biological part serves as a foundation upon which future iGEM projects can build, paving the way for novel solutions and innovative applications. </p>
+          <p>As we reflect on our journey, we are reminded that our contributions, while significant, are part of a continuum of discovery, innovation, and shared wisdom that defines the iGEM legacy. Together, we look forward to the future of synthetic biology, where each generation builds upon the work of the past, fostering a brighter and more sustainable world.</p>
+          
+              
+      </div>
     </div>
   </div>
 </div>
--->
 
-<div class="grad-content h-100 main-content">
-
-
-
-  <div class="row">
-      <div class="sidenav" style="top: 25%; ">
-          <div  style="font-weight: bold; text-align: center; text-decoration: none; padding-top: 30px; padding-right: 65%;">Tutorial</div>
-          <a href="#">&gt; 1</a>
-          <a href="#">&gt; 2</a>
-          <a href="#">&gt; 3</a>
-          <a href="#">&gt; 4</a>
-          <a href="#">&gt; 5</a>
-          <a href="#">&gt; 6</a>
-      </div>
-  </div>
-  
-  <a href="#" class="buttons">Previous</a>
-  <a href="#" class="buttons">Next</a>
-  </div>
 {% endblock %}
