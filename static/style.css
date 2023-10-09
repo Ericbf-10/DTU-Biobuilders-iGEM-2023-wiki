@@ -130,7 +130,7 @@ left: 0;
 
 /* Main page content */
 .text-background {
-  background: url("https://static.igem.wiki/teams/4811/wiki/images/text-background.svg");
+  background: linear-gradient(#1d97d4,#000614);
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -202,18 +202,24 @@ padding-bottom: 2rem;
   text-align: justify;
 }
 
-.page-text figure{
+.page-text figure {
   margin: 6%;
+  text-align: center; 
 }
 
-.page-text figcaption{
-    padding-top: 1rem;
-    font-style: italic;
-    text-align: center;
-    color: #ccc;
-    font-size: 1rem;
+.page-text img {
+  max-width: 100%; 
+  height: auto; 
 }
-/* Add these styles under the .page-text style */
+
+.page-text figcaption {
+  padding-top: 1rem;
+  font-style: italic;
+  text-align: center;
+  color: #ccc;
+  font-size: 1rem;
+}
+
 .page-text table {
   border-collapse: collapse;
   width: 100%;
@@ -376,25 +382,25 @@ padding-bottom: 2rem;
   height: 600px;
   background-size: cover;
   background-position: top center;
-  transition: background-image 0.3s ease; /* Add a transition for smooth image change */
+  transition: background-image 0.3s ease; 
 }
 
 .hover-image:hover {
-  background-image: url('static/team/team2.jpeg'); /* Change to the second image on hover */
+  background-image: url('static/team/team2.jpeg'); 
 }
 
 .team-member {
-  text-align: center; /* Center-align the content within the .team-member div */
+  text-align: center; 
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center-align the content horizontally */
+  align-items: center; 
   margin: 1rem;
 }
 
 .team-member p {
   margin-left: 1rem;
   margin-right: 1rem;
-  text-align: justify; /* Add some spacing between the image and the heading */
+  text-align: justify; 
 }
 
 .team-member .image-container {
@@ -404,7 +410,15 @@ padding-bottom: 2rem;
   width: 20rem;
   height: 20rem;
 }
-
+@media (max-width: 767px) {
+  .team-member .image-container {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    width: 15rem;
+    height: 15rem;
+  }
+}
   /* Style for circular frame */
 .team-member .img-cropped {
     display: block;
