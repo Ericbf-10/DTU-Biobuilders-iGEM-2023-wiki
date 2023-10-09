@@ -1,27 +1,269 @@
 {% extends "layout.html" %}
-  
-{% block title %}Software{% endblock %}
-{% block lead %}Software in iGEM should make synthetic biology based on standard parts easier, faster, better or more accessible to our community.{% endblock %}
 
 {% block page_content %}
-<div class="grad-content h-100 main-content">
+<div class="page">
+
+    <!-- Change This Header -->
+    <div class="page-header">
+      <h1>AptaLoop</h1>  
+    </div>
+    <div class="container page-content">
+      <div class="row h-100">
+
+        <!-- place for menu generation -->
+        <div class="toc col-lg-5">
+          <h5>Menu</h5>
+          <ul>
+            <li>
+            <!-- h2 level, add this #location, and change this menu -->
+              <a href="#AptaLoop">> AptaLoop</a>
+              <ul>
+                <!-- h3 level, add this #location, and change this menu, use shorter names, also add ">" in front -->
+                <li><a href="#general-introduction">> General Introduction</a></li>
+                <li><a href="#maws">> MAWS</a></li>
+                <li><a href="#docking">> Docking</a></li>
+                <li><a href="#molecular-dynamics">> Molecular Dynamics</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#references">> References</a>
+            </li>
+          </ul>
+          <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+            <path stroke="#fff" stroke-width="3" fill="transparent" stroke-dasharray="0, 0, 0, 1000" stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)" />
+          </svg>
+        </div>
+
+        <!-- formal text goes under this div, h2, h3 should be labeled  -->
+        <div class="page-text col-lg-9">
+            
+            <!-- add id to h2 -->
+            <p id="AptaLoop"></p>
+            </blockquote>
+            <h2 id="general-introduction">General Introduction</h2>
+            <p>Aptamers are single-stranded DNAs and RNAs that can be designed to bind to target molecules with high affinity (Dunn, 2017). They are generally found through a tedious and expensive experimental procedure named Systematic Evolution of Ligands by Exponential Enrichment (SELEX). This experimental selection process is iterative where random sequence libraries are used to find and enrich aptamers that bind to the target molecule (Darmostuk, 2015).</p>
+            <p>Several established <em>in silico</em> methods for aptamer-ligand interactions are currently used in the literature (Bulgak, 2020). These include folding predictions, docking simulations, and molecular dynamics. These methods can be used to further understand how the aptamer binds to the ligand and can aid in optimizing aptamer sequences.</p>
+            <p>Some <em>in silico</em> methods have also been developed by past iGEM teams. For example, the Heidelberg iGEM team in 2015 developed an <em>in silico</em> alternative to SELEX called <strong>MAWS</strong> (Making Aptamers Without SELEX), where <em>de novo</em> aptamer sequences could be generated through an entropy minimization algorithm. This software was then updated in 2017 to include further functionality and adaptability. However, in 2023 the code that this team created was non-functional and outdated.</p>
+            <p>Our team mission was to take the main <em>in silico</em> methods for aptamer-ligand dynamics (folding, docking, and MD) and integrate them into a user-friendly pipeline. Furthermore, we wanted to improve the MAWS software by updating the code, adding new functionality, making the software streamlined for future iGEM teams, and integrating it into our pipeline.</p>
+            <p>To accomplish these objectives, we created a pipeline named <strong>AptaLoop</strong> which consists of 4 modules (more information on our <a href="https://gitlab.igem.org/2023/software-tools/dtu-denmark">gitlab</a>). This pipeline allows the user to: design DNA or RNA aptamers to target a specific molecule (protein, organic or lipid), predict the secondary and tertiary structure of the aptamer, predict the interaction position between the two molecules and simulate their molecular dynamics.</p>
+            <p>There are 2 possibilities to run the pipeline depending on whether the user already has an aptamer sequence or not:</p>
+            <ol>
+            <li><strong>The user already has an aptamer sequence</strong>. Then, the user needs to provide the DNA or RNA sequence as text and run Modules 1a, 2 and 3.</li>
+            <li><strong>The user does not have an aptamer sequence yet</strong>. Then, the user needs to provide the PDB file of their target molecule and run Modules 1b, 2 and 3.</li>
+            </ol>
+            <p><figure>
+              <img src="https://static.igem.wiki/teams/4811/wiki/dry-lab/drylab-diagram.gif" alt="General idea diagram">
+              <figcaption>Figure 1: Schematic representation of the AptaLoop pipeline. This image was created with <a href="https://www.biorender.com/">BioRender.com</a>.</figcaption>
+            </figure></p>
+
+            <p>The ultimate aim of our software is to provide researchers with a holistic view of aptamer-ligand dynamics in order to guide wet lab efforts in finding the <strong>best possible aptamer sequence</strong> for the desired target molecule.</p>
+            <hr>
+            <h2 id="maws">MAWS</h2>
+            <p><strong>MAWS</strong> functions by using an entropy minimization algorithm. This algorithm is based on a paper published in 2011 by Tseng <em>et al.</em> where entropic minimization is used as a metric for binding stability in aptamer-ligand binding dynamics (Tseng, 2011). This approach has been named the <strong>entropic fragment-based approach (EFBA)</strong> and was adapted by the Heidelberg 2015 and 2017 iGEM teams to create the software known as MAWS.</p>
+            <p>The following mathematical explanation of the MAWS algorithm selection process is adapted from the Heidelberg iGEM team <a href="https://2015.igem.org/Team:Heidelberg/software/maws">software page</a> (Heidelberg, 2015). </p>
+            <p>We can begin by taking the equation for relative entropy (Kullback-Leibler divergence), which is a measure of how a probability distribution ( P ) diverges from another distribution ( Q ):</p>
+            <p>$$
+              S[P|Q] = -\int P \cdot \log\left(\frac{P}{Q}\right) d\chi 
+            $$</p>
+          
+            <p>Distribution ( P ), in this case, would be the probability of an aptamer to bind to our target molecule, and ( Q ) would be an uniform distribution to compare our aptamer to.</p>
+            <p>To adapt this concept to include relevant physical parameters, we can replace our theoretical relative entropy equation with a novel entropy-like distance metric based on thermodynamic parameters.</p>
+            <p>$$
+            P(\chi) = \frac{e^{-\beta \cdot \Delta G}}{\mathcal{Z}}
+            $$</p>
+            <p>Here we define the probability $P$ of observing a certain conformation of the aptamer-ligand complex and introduce the inverse temperature $\beta = \frac{1}{T}$ and Gibbs free energy $\Delta G$. We also introduce $\mathcal{Z}$, which is defined as:</p>
+            <p>$$
+            \mathcal{Z} = \int e^{-\beta \Delta G(\chi)} d\chi
+            $$</p>
+            <p>$\mathcal{Z}$, or the partition function, is a key member of the canonical ensemble, which is a way to describe the thermodynamic properties of a system in thermal equilibrium. We can use the canonical ensemble to describe the probability distribution of aptamers in different conformations to assess their thermodynamic feasibility.</p>
+            <p>Specifically, $\mathcal{Z}$ is the sum over all possible states <em>i</em> that the system can be in, and acts as a normalization factor for the expression as it ensures that the probabilities $P(\chi)$ sum to 1 across all states. This makes $P(\chi)$ a valid probability distribution, allowing us to compare the likelihood of different states directly. </p>
+            <p>Thus, given:</p>
+            <p>$$ S[P|Q] = -\int P \cdot \log \left( \frac{P}{Q} \right) d{\chi} $$</p>
+            <p>We can replace Q with our uniform distribution and use a natural logarithm to yield:</p>
+            <p>$$ \overline{S}[P] := -\int -P \cdot \beta \Delta G(\chi) + \ln(QZ) $$</p>
+            <p>From these equations we can derive the following distance metric:</p>
+            <p>$$
+            g[P,P&#39;] = \left| \bar{S}[P&#39;] - \bar{S}[P] \right|
+            $$</p>
+            <p>This distance metric serves to give basis for aptamer selection, as the conformation with the higher probability $P(\chi)$ is selected through its entropic favorability. </p>
+            <p>In essence the selection through entropic criteria can be explained through the example of a rock and a magnet. </p>
+            <p>If a rock is thrown against a magnet, the resultant collision will be highly disordered, which is to say the entropy of this system will be high. If another magnet is thrown instead of a rock, then the resultant system will be less disordered than the rock, as there is a degree of attraction between the two objects. </p>
+            <p>Thus, the selection criteria for the aptamer sequence is the system calculated to have the minimal amount of entropy. What this means is that a lower degree of disorder is taken as a metric for binding stability, as lower entropy indicates more stability in aptamer ligand binding. </p>
+            <p>In summary, lower entropy increases the probability of binding P($\mathcal{x}$), which through the distance metric, is compared to alternative conformations and the best overall conformation is selected for. </p>
+            <h4 id="maws-algorithm">MAWS Algorithm</h4>
+            <p>The MAWS algorithm functions through iterative nucleotide sampling over a target molecule within a bounded box. The process begins with the addition of one of four nucleotides (e.g. A, T, C, G) and iterates each nucleotide over a series of binding positions around the target molecule. The energies calculated for each position are saved, and parameters Z, P, and S are all computed and the minimal entropy aptamer selection criteria is run to choose the aptamer (figure 1). </p>
+            <figure>
+              <img src="https://static.igem.org/mediawiki/2015/d/d3/Algorithm_flowchart.svg" alt="General idea diagram">
+              <figcaption>Figure 2: Flowchart outlining MAWS algorithm as generated by the Heidelberg iGEM team (2015).  (<a href="https://2015.igem.org/Team:Heidelberg/software/maws">https://2015.igem.org/Team:Heidelberg/software/maws</a>)
+              </figcaption>
+            </figure>
+            <p>This results in a nucleotide being chosen based on its overall thermodynamic favorability. This process is repeated by adding another nucleotide module to the previous nucleotide and repeating the process, such that the adjoined 2 nucleotide aptamer has its thermodynamic favorability assessed in each location for each base pair, with the best overall nucleotide being chosen to be the second nucleotide in the aptamer. It is important to note that this method of selection does not yield a binding location, as it selects nucleotides based on a generalized thermodynamic favorability. </p>
+            <figure>
+              <img src="https://static.igem.wiki/teams/4811/wiki/dry-lab/maws-result.jpg" alt="General idea diagram">
+              <figcaption>Figure 3: PFOA-specific aptamer generated using our updated MAWS script. (<a href="https://2015.igem.org/Team:Heidelberg/software/maws">https://2015.igem.org/Team:Heidelberg/software/maws</a>)
+              </figcaption>
+            </figure>
+            <h4 id="our-improvements-to-the-code">Our improvements to the code</h4>
+            <p>We first attempted to run the MAWS algorithm from the <strong>Heidelberg 2017 iGEM team</strong> (<a href="https://github.com/igemsoftware2017/AiGEM_TeamHeidelberg2017/tree/master/sharksome-suite">github repo</a>) following the <a href="https://docs.google.com/document/d/1VpqD0gc2ZrxZVhDIr6PMhXtEJ7jFILcskNtPZiLjlmw/edit">guide</a> that the <strong>iGEM NU Kazakhstan 2022 team</strong> made last year. However, we could not manage to make it work as it was, so we had to do some modifications to make it functional again. Mainly, the problem was related to package version incompatibilities, which was a bit difficult to debug since the original software did not contain a requirements.txt file. Also, some minor changes were needed to some path variables and functions.</p>
+            <p>When we had the first version running, we decided to first improve it by translating the code from python2 to <strong>python3</strong> and correct some indentation issues to make the software easier to use and maintain in the future. We then proceeded by implementing the possibility of generating <strong>DNA aptamers</strong>, so that the user was not limited to RNA. And we also added more types of ligand molecules, specifically <strong>lipids</strong> and <strong>small molecules</strong>, so that the user was not limited to choosing a protein for the aptamer target. In order to properly add all these new capabilities to the software, we also incorporated the <strong>appropriate force fields</strong> to use depending on each case.</p>
+            <p>Other improvements include correcting the output naming, fixing compatibility issues within some functions and updating the argument parser to add more options (type of aptamer, type of ligand and conda environment name). Importantly, we generated an <strong>environment.yml</strong> file in order to make the environment reproducible and compatible in any other machine. Finally, we created a <strong>Jupyter implementation</strong> to make the software easier to use and to prove the reproducibility of our conda environment.</p>
+            <h4 id="future-work">Future work</h4>
+            <p>Although we were capable of making the MAWS software viable again and we provided some improvements, there are still some functionalities we could not implement due to lack of time and resources. Here, we provide insights on what we think it would be a good idea to add in the future.</p>
+            <p>An added functionality we are missing is the ability to <strong>truncate a given aptamer</strong>. This could be useful if the user already has a long aptamer and they want to make it shorter without losing stability or affinity for the target molecule. Another idea is to make MAWS capable of improving a given aptamer by exploring single nucleotide changes that would favor the overall thermodynamic favorability.</p>
+            <p>Additionally, we found out that the program lacks a way of <strong>resuming a long analysis</strong>. It happened to us that the analysis crashed in the middle and we had to start over again. So instead, it would be nice to have a kind of cache that allowed the user to resume the analysis if anything happened. </p>
+            <p>Finally, we identified a <strong>problem related to the threads</strong> the program uses. We believe it has something to do with the openMM package, but we are not sure. This issue makes the program run slower on a queuing system, because it is trying to use more threads than the limit imposed by the user.</p>
+            <p>We hope that the insights we provide here can guide efforts of future iGEM teams that have a project with aptamers.</p>
+            <hr>
+            <h2 id="docking">Docking</h2>
+            <p>Molecular <strong>docking</strong> is a computational technique used in structural biology and drug discovery to predict how two or more molecules interact with each other and form a stable complex (Morris, 2008). Docking algorithms aim to predict the most energetically favorable binding mode or conformation of the ligand within the protein&#39;s binding site (Meng, 2011). In most cases, docking is used to study the <strong>binding site</strong> and <strong>binding affinity</strong> of proteins and ligands, but other molecules can also be explored. In the case of AptaLoop, we performed docking between RNA molecules (our aptamers) and a specific ligand (PFOA).</p>
+            <p>Several software tools have been developed to perform docking. For AptaLoop, we chose <strong>AutoDock Vina</strong>, one of the most widely used docking engines, because of its ease in implementation, known accuracy, and it is open source, allowing for all the users of AptaLoop to perform docking without restrictions. In order to test the accuracy of the results we obtained with AutoDock Vina, we also performed docking between our aptamers and PFOA using <strong>Haddock</strong>. We deemed it possible that Haddock was more reliable, since it allows for the tuning of multiple parameters depending on the input, but it is more complex to configure and requires the users to ask for licenses. Thus, we decided not to include Haddock in AptaLoop, but use it to validate the AutoDock Vina results.</p>
+            <h4 id="autodock-vina">AutoDock Vina</h4>
+            <p>As stated above, AutoDock Vina was chosen to be a part of AptaLoop because of its simple implementation. In contrast with other docking software tools, it only requires three inputs:</p>
+            <ul>
+            <li>A structural file for the receptor</li>
+            <li>A structural file for the ligand</li>
+            <li>The search space on the receptor in which to look for the ligand’s binding site.</li>
+            </ul>
+            <p>Moreover, even if AutoDock Vina is mostly used for protein-ligand docking, it was specifically designed for receptor-ligand docking (Eberhardt, 2021) (Trott, 2009), so it is also applicable to aptamer-ligand docking.</p>
+            <h5 id="scoring-function-autodock-vina">Scoring function Autodock Vina</h5>
+            <p>All docking methods use scoring functions that aim to estimate the binding affinity between the ligand and the receptor. They are designed to capture the intermolecular forces and interactions that affect ligand binding, and their goal is to identify the position and orientation of the ligand with respect to the receptor that allows for more favorable binding (Li, 2019).</p>
+            <p>AutoDock Vina calculates the <strong>energy</strong> associated with each <strong>ligand pose</strong>, considering factors like steric clashes, hydrogen bonds, and electrostatic interactions. Then, it ranks these poses based on their calculated energy scores, looking into the most likely binding modes and estimating the binding affinity between the ligand and protein. To do so, it uses an empirical scoring function that aims to estimate the binding affinity of a receptor-ligand complex (Trott, 2009). The software takes into account Van der Waals interactions (attractive and repulsive forces between atoms), hydrogen bond interactions, and electrostatic interactions (Eberhardt, 2021). Thus, AutoDock Vina combines the advantages of force filed-based and empirical scoring functions, meaning that it uses physical principals and parameters to calculate energy terms, but it also relies on statistical analysis of experimentally determined binding data to derive scoring terms. For more detailed information about the scoring function, refer to Autodock Vina’s official documentation (AutodockVina, 2023).</p>
+            <p>Interestingly, AutoDock Vina ignores the partial charges supplied by the users in the input files. Instead, it addresses electrostatic interactions through the hydrophobic and hydrogen bonding terms (AutodockVina, 2023).</p>
+            <p>The software first places the ligand in an initial position and uses an optimization algorithm (Broyden-Fletcher-Goldfarb-Shanno, or BFGS) to refine its position and orientation within the binding site. For each ligand pose, AutoDock Vina uses the scoring function to calculate the energy. The sites with highest binding affinity get the lower scores (Trott, 2009).</p>
+            <h5 id="running-autodock-vina">Running Autodock Vina</h5>
+            <p>Before running the software, it is important to ascertain that both the receptor and ligand files contain all the hydrogen atoms present in the molecule. While the positions of hydrogens in the output are arbitrary because AutoDock Vina uses a scoring function that only involves the heavy atoms (united-atom scoring function), the hydrogens in the input files are used to determine which atoms can be hydrogens bond donors or acceptors (AutodockVina, 2023). Hence, it is important to <strong>reduce</strong> the input files.</p>
+            <p>AutoDock Vina requires <strong>PDBQT files</strong> for both the receptor and the ligand as input. These files can be obtained both from <strong>PDB</strong> (more suitable for the receptors) or <strong>SDF</strong> (more suitable for small ligands) files using different methods. For AptaLoop, we chose the Open Babel software because its efficiency and ease to implement in a pipeline (O&#39;Boyle, 2011) (Open Babel, 2023). AptaLoop takes PDB files for the receptor, and allows both PDB or SDF files for the ligand. </p>
+            <p>AutoDock Vina searches for possible sites and positions of docking within a <strong>defined grid</strong> that the user must provide as input. The more reduced the volume of the grid is, the less the computational effort and the more accurate the results will be (Trott, 2009). However, as was the case with our aptamers, if the user cannot determine the approximate area where the ligand will bind, it is necessary to define a grid that covers the whole receptor. A very large search space can lead to increased computational demands (and therefore slower docking) but, most importantly, it implies a risk of missing potential binding sites and reduced accuracy. Thus, if possible, it is always recommended to constrain the searching space as much as possible. A good approach for the large grid problem is to first run AutoDock Vina a few times searching for the binding site across the totality of the receptor, and then selecting the best binding site and running the software again, narrowing down the searching space to the area of the predicted binding site.</p>
+            <p>How to define the grid? What values to use? AutoDock Vina asks for <strong>“X center”</strong>, <strong>“Y center”</strong>, and <strong>“Z center”</strong>, the coordinates of the center of the center of the grid in the three-dimensional space; and for <strong>“X size”</strong>, <strong>“Y Size”</strong>, and <strong>“Z size”</strong>, which determine the dimensions of the grid box along each axis. All these values can be determined using Chimera (Tools &gt; Surface/Binding analysis &gt; AutoDock Vina).</p>
+            <h4 id="haddock">Haddock</h4>
+            <p>Haddock is a computational software that stands out for its ability to predict and model biomolecular interactions with exceptional accuracy. Haddock allows customization of the docking run to a particular scenario, such as protein-ligand, protein-protein, protein-nucleic acid, or, as in our case, nucleic acid-ligand.</p>
+            <p>This software works in three main stages. In the first step, it treats the parts that interact with each other as  stiff elements (rigid bodies) that don&#39;t move. In the second stage, it allows these parts to be flexible, allowing them to move, rather than keeping them "frozen" in space. Finally, there&#39;s an optional third stage that refines the results by considering the space and interactions involving water molecules (Van Zundert, 2016) (HADDOCK, 2023) (Honorato, 2021). For more information, refer to Haddock&#39;s documentation.</p>
+            <p>For evaluating the binding affinity between receptor and ligand, Haddock calculates a score using a linear combination of various energies and surface area. For more information, refer to Haddock’s official documentation (HADDOCK2.4, 2023). The scoring function assigns the lowest value to the best structure.</p>
+            <p>Haddock’s official website contains multiple explanations, detailed tutorials, and examples for different docking situations. Furthermore, the users can post any questions on BioExcel, a forum in which experts give detailed feedback promptly (HADDOCK2.4, 2023). Haddock provides free license for non-profit purposes. </p>
+            <p>After asking through BioExcel, Haddock’s researchers enlightened us on the best way to tune parameters for RNA-ligand docking (Table 1 ).</p> 
+            <p><strong>Table 1 : Haddock parameters for RNA-ligand docking</strong></p>
+            <table>
+            <thead>
+            <tr>
+            <th>Parameter</th>
+            <th>default value</th>
+            <th>Protein/Small molecule</th>
+            <th>Protein/DNA</th>
+            <th>DNA/small molecule</th>
+            </tr>
+            </thead>
+            <tbody><tr>
+            <td>Dielectric constant for it0</td>
+            <td>dielec_0</td>
+            <td>rdie</td>
+            <td>cdie</td>
+            <td>rdie</td>
+            </tr>
+            <tr>
+            <td>Dielectric constant for it1</td>
+            <td>dielec_1</td>
+            <td>rdie</td>
+            <td>cdie</td>
+            <td>rdie</td>
+            </tr>
+            <tr>
+            <td>MD steps for rigid body high temperature TAD</td>
+            <td>initiosteps</td>
+            <td>500</td>
+            <td>0</td>
+            <td>500</td>
+            </tr>
+            <tr>
+            <td>MD steps during first rigid body cooling stage</td>
+            <td>cool1_steps</td>
+            <td>500</td>
+            <td>0</td>
+            <td>500</td>
+            </tr>
+            <tr>
+            <td>Initial temperature for second TAD cooling step with flexible side-chain at the interface</td>
+            <td>tadinit2_t</td>
+            <td>1000</td>
+            <td>500</td>
+            <td>1000</td>
+            </tr>
+            <tr>
+            <td>Initial temperature for third TAD cooling step with fully flexible interface</td>
+            <td>tadinit3_t</td>
+            <td>1000</td>
+            <td>300</td>
+            <td>1000</td>
+            </tr>
+            <tr>
+            <td>Weight of the intermolecular van der Waals energy for scoring at the rigid-body docking stage</td>
+            <td>w_vdw_0</td>
+            <td>0.01</td>
+            <td>1</td>
+            <td>0.01</td>
+            </tr>
+            <tr>
+            <td>Weight of the intermolecular electrostatic energy for scoring at the final stage</td>
+            <td>w_elec_2</td>
+            <td>0.2</td>
+            <td>0.1</td>
+            <td>0.2</td>
+            </tr>
+            <tr>
+            <td>Dielectric constant for rigid-body docking</td>
+            <td>epsilon_0</td>
+            <td>10</td>
+            <td>10</td>
+            <td>78</td>
+            </tr>
+            <tr>
+            <td>Dielectric constant for the semi-flexible refinement</td>
+            <td>epsilon_1</td>
+            <td>10</td>
+            <td>10</td>
+            <td>78</td>
+            </tr>
+            </tbody></table>
+            <h2 id="molecular-dynamics">Molecular Dynamics</h2>
+            <p>Molecular dynamics(MD) was performed to understand the behavior of our aptamer in water. It was performed on the aptamer generated by MAWS. </p>
+            <p>For conducting MD simulations, a variety of software programs are available, including both licensed options like MAPS and Discovery Studio, as well as free alternatives like AMBER, CHARMM, and GROMACS. We chose GROMACS for its accessibility, extensive documentation, and compatibility with other tools like PyMol. Moreover, evidence of its effectiveness in aptamer optimization (Song, 2020) (Thevendran, 2023) further supported our choice. </p>
+            <p>In our iGEM project focused on building a PFAS biosensor, we employed MD simulations to model aptamer-small molecule interactions. The simulation workflow begins with the utilization of a 3D model of both the PFAS molecule and the aptamer sequence of interest. Critical components like the molecule&#39;s topology, position restraint files, and processed structure files are generated at this stage.</p>
+            <p>For our specific setup, the parameters chosen are highly curated to match our system:</p>
+            <ul>
+            <li><strong>Force Field</strong>: We employ the amber14sb_OL15 force field, known for its suitability for RNA or DNA aptamers.</li>
+            <li><strong>Water Model</strong>: The TIP3P model is used to replicate water in the system, known for its balanced accuracy and computational efficiency.</li>
+            <li><strong>Box Size</strong>: A cubic simulation box with dimensions 0.5 nm X 0.5 nm X 0.5 nm is initialized.</li>
+            <li><strong>Ions</strong>: To maintain charge neutrality, ions like Na+ or Cl- are added based on the net charge of the system.</li>
+            </ul>
+            <p>Following model construction, the editconf module is utilized to set the box dimensions, and the solvate module adds water molecules to the box, conforming to the chosen TIP3P model.</p>
+            <p>To ensure the system is free from any clashes or geometry-related issues, energy minimization (EM) is carried out. The EM process consolidates the aptamer structure, topology, and other simulation parameters into an input file, thus preparing the system for dynamic simulations.</p>
+            <p>Temperature and pressure equilibration steps are subsequently carried out to rule out any potential anomalies in the system. Given that our objective is to analyze the stability of aptamers in water, we run the MD simulations for a duration of 2 ns.</p>
+            <p>After these extensive preliminary steps, the MD simulation is executed. The resulting data, which includes key observables like aptamer conformation and PFAS binding affinity, is then analyzed to draw conclusions relevant to our biosensor project. The results of this specific analysis can be seen in the simulation tab. </p>
+            
+            <h2 id="references">References</h2>
+            <p>AutoDock Vina Documentation. (2023). Frequently asked questions. <a href="https://autodock-vina.readthedocs.io/en/latest/faq.html">https://autodock-vina.readthedocs.io/en/latest/faq.html</a></p>
+            <p>Buglak, A. A., Samokhvalov, A. V., Zherdev, A. V., &amp; Dzantiev, B. B. (2020). Methods and applications of in silico aptamer design and modeling. International Journal of Molecular Sciences, 21(22), 8420. <a href="https://doi.org/10.3390/ijms21228420">https://doi.org/10.3390/ijms21228420</a></p>
+            <p>Darmostuk, M., Rimpelova, S., Gbelcova, H., &amp; Ruml, T. (2015). Current approaches in Selex: An update to Aptamer Selection Technology. Biotechnology Advances, 33(6), 1141–1161. <a href="https://doi.org/10.1016/j.biotechadv.2015.02.008">https://doi.org/10.1016/j.biotechadv.2015.02.008</a></p>
+            <p>Dunn, M. R., Jimenez, R. M., &amp; Chaput, J. C. (2017). Analysis of Aptamer Discovery and Technology. Nature Reviews Chemistry, 1(10). <a href="https://doi.org/10.1038/s41570-017-0076">https://doi.org/10.1038/s41570-017-0076</a></p>
+            <p>Eberhardt, J., Santos-Martins, D., Tillack, A. F., &amp; Forli, S. (2021). AutoDock Vina 1.2.0: New docking methods, expanded force field, and Python bindings. Journal of Chemical Information and Modeling, 61, 3891–3898.</p>
+            <p>HADDOCK 2.4. (2023). <a href="https://wenmr.science.uu.nl/haddock2.4/">https://wenmr.science.uu.nl/haddock2.4/</a></p>
+            <p>HADDOCK 2.4 scoring function. (2023). <a href="https://www.bonvinlab.org/software/haddock2.4/scoring/">https://www.bonvinlab.org/software/haddock2.4/scoring/</a></p>
+            <p>Heidelberg University iGEM Team. (2015). MAWS software. <a href="https://2015.igem.org/Team:Heidelberg/software/maws">https://2015.igem.org/Team:Heidelberg/software/maws</a></p>
+            <p>Honorato, R. V., et al. (2021). Structural biology in the clouds: The WeNMR-EOSC ecosystem. Frontiers in Molecular Biosciences, 8, 729513.</p>
+            <p>Li, J., Fu, A., &amp; Zhang, L. (2019). An overview of scoring functions used for protein–ligand interactions in molecular docking. Interdisciplinary Sciences, Computational Life Sciences, 11, 320–328.</p>
+            <p>Meng, X.-Y., Zhang, H.-X., Mezei, M., &amp; Cui, M. (2011). Molecular docking: A powerful approach for structure-based drug discovery. Current Computer-Aided Drug Design, 7, 146–157.</p>
+            <p>Morris, G. M., &amp; Lim-Wilby, M. (2008). Molecular docking. In A. Kukol (Ed.), Molecular modeling of proteins (Vol. 443, pp. 365–382). Humana Press.</p>
+            <p>O’Boyle, N. M., et al. (2011). Open Babel: An open chemical toolbox. Journal of Cheminformatics, 3, 33.</p>
+            <p>Open Babel. (2023). <a href="https://github.com/openbabel/openbabel">https://github.com/openbabel/openbabel</a></p>
+            <p>Park, J., Yang, K.-A., Choi, Y., &amp; Choe, J. K. (2022). Novel ssDNA aptamer-based fluorescence sensor for perfluorooctanoic acid detection in water. Environmental International, 158, 107000.</p>
+            <p>Song, M., Li, G., Zhang, Q., Liu, J., &amp; Huang, Q. (2020). De novo post-SELEX optimization of a G-quadruplex DNA aptamer binding to marine toxin gonyautoxin 1/4. Computational and Structural Biotechnology Journal, 18, 3425–3433. <a href="https://doi.org/10.1016/j.csbj.2020.10.041">https://doi.org/10.1016/j.csbj.2020.10.041</a></p>
+            <p>Thevendran, R., Tang, T., &amp; Citartan, M. (2023). in‐silico selection employing rigid docking and molecular dynamic simulation in selecting DNA aptamers against androgen receptor. Biotechnology Journal, 18(4). <a href="https://doi.org/10.1002/biot.202200092">https://doi.org/10.1002/biot.202200092</a></p>
+            <p>Trott, O., &amp; Olson, A. J. (2009). AutoDock Vina: Improving the speed and accuracy of docking with a new scoring function, efficient optimization, and multithreading. Journal of Computational Chemistry. <a href="https://doi.org/10.1002/jcc.21334">https://doi.org/10.1002/jcc.21334</a></p>
+            <p>Van Zundert, G. C. P., et al. (2016). The HADDOCK2.2 web server: User-friendly integrative modeling of biomolecular complexes. Journal of Molecular Biology, 428, 720–725.</p>
 
 
-
-  <div class="row">
-      <div class="sidenav" style="top: 25%;">
-          <div  style="font-weight: bold; text-align: center; text-decoration: none; padding-top: 30px; padding-right: 65%;">AptaLoop</div>
-          <a href="#">&gt; Subsection1</a>
-          <a href="#">&gt; Subsection2</a>
-          <a href="#">&gt; Subsection3</a>
-          <a href="#">&gt; Subsection4</a>
-          <a href="#">&gt; Subsection5</a>
-          <a href="#">&gt; Subsection6</a>
+        </div>
       </div>
-  </div>
-  
-  <a href="#" class="buttons">Previous</a>
-  <a href="#" class="buttons">Next</a>
+    </div>
   </div>
 
 {% endblock %}
