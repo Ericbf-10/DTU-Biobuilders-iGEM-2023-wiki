@@ -318,6 +318,15 @@ padding-bottom: 2rem;
   }
 }
 
+figure {
+  display: flex; /* Use flexbox to make the images side by side */
+}
+
+figure img {
+  width: 300px;
+  height: 500px;
+  margin: 0 10px 15px 0; /* Adjust margin for spacing between images */
+}
 
 
 /* Style page content */
