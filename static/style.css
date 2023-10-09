@@ -345,6 +345,58 @@ padding-bottom: 2rem;
 }
 
 /* Team Page */
+
+.gallery-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  height: 600px;
+}
+
+.gallery {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+  height: 100%;
+  align-items: center;
+  flex-wrap: nowrap; /* Prevent images from wrapping to the next line */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  scrollbar-width: none; /* Hide the scrollbar for modern browsers */
+  -ms-overflow-style: none; /* Hide the scrollbar for Internet Explorer */
+}
+
+.gallery::-webkit-scrollbar {
+  display: none; /* Hide the scrollbar for Webkit browsers */
+}
+
+.gallery img {
+  max-height: 100%;
+  max-width: none; /* Allow the image to expand to its original width */
+  margin: 0 auto;
+  display: block;
+}
+
+.prev-button,
+.next-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 10px 20px;
+}
+
+.prev-button {
+  left: 10px;
+}
+
+.next-button {
+  right: 10px;
+}
+
+
+
 .hover-image {
   width: 100%; /* Set the width and height of the container */
   height: 600px;
