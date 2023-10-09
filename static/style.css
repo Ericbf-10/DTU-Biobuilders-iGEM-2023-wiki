@@ -317,7 +317,7 @@ padding-bottom: 2rem;
     height: 100%; /* Set a max height for the TOC */
   }
 }
-
+/* figures on other pages*/
 figure {
   display: flex; /* Use flexbox to make the images side by side */
 }
@@ -485,4 +485,48 @@ figure img {
     flex-direction: column; /* Stack images vertically on small screens */
     align-items: center; /* Center-align images vertically on small screens */
   }
+}
+
+
+/* Slide show*/
+.mySlides {display: none;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 800px;
+  position: relative;
+  margin: auto;
+}
+
+/* Number text (1/6 etc) */
+.numbertext {
+  color: black;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
 }
