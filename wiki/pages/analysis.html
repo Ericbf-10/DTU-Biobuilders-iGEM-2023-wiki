@@ -1,37 +1,233 @@
 {% extends "layout.html" %}
 
-{% block title %}Analysis{% endblock %}
-{% block lead %}Keep it simple to have it simple.{% endblock %}
-
 {% block page_content %}
+<div class="page">
 
+    <!-- Change This Header -->
+    <div class="page-header">
+      <h1>Software Simulation</h1>  
+    </div>
+    <div class="container page-content">
+      <div class="row h-100">
 
-<div class="grad-content h-100 main-content">
-
-
-
-    <div class="row">
-        <div class="sidenav">
-            <div  style="font-weight: bold; text-align: center; text-decoration: none; padding-top: 30px; padding-right: 65%;">Analysis</div>
-                        <a href="#">&gt; Subsection1</a>
-                        <a href="#">&gt; Subsection2</a>
-                        <a href="#">&gt; Subsection3</a>
+        <!-- place for menu generation -->
+        <div class="toc col-lg-5">
+          <h5>Menu</h5>
+          <ul>
+            <li>
+            <!-- h2 level, add this #location, and change this menu -->
+              <a href="#simulation">> Simulation</a>
+              <ul>
+                <!-- h3 level, add this #location, and change this menu, use shorter names, also add ">" in front -->
+                <li><a href="#docking-results">> Docking Results</a></li>
+                <li><a href="#md-results">> MD Results</a></li>
+                <li><a href="#docking-and-md">> Docking and MD</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#references">> References</a>
+            </li>
+          </ul>
+          <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+            <path stroke="#fff" stroke-width="3" fill="transparent" stroke-dasharray="0, 0, 0, 1000" stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)" />
+          </svg>
         </div>
-    </div>
-    
-<div class="container mt-5">
-  
 
-  <div class="main">
-    <img src="https://static.igem.wiki/teams/4811/wiki/apatmerpfoadynamics.gif" alt="Apatmer Pfoa">
+        <!-- formal text goes under this div, h2, h3 should be labeled  -->
+        <div class="page-text col-lg-9"> 
+          <p id="simulation"></p>
+          </blockquote>   
+          <h2 id="docking-results">Docking results</h2>
+          <hr>
+          <p>FluoroLoop is based on the binding of an aptamer to PFOA, an event that triggers the conformational change of the TMS and allows for PFAS detection. Thus, it was very important to perform docking between PFOA and the aptamers we wanted to work with and evaluate if the experiments would be successful according to computational tools.</p>
+          <p>Thus, we performed docking using AutoDock Vina for all ten aptamers described by Park <em>et al</em>, selected after performing systematic evolution of ligands by exponential enrichment (SELEX) as well as for two aptamers that MAWS specifically designed for PFOA. &quot;Aptamer MAWS I&quot; was performed as a first try but was not optimized, as it used a proteins&#39; force field. &quot;Aptamer MAWS II&quot; was the final and optimized MAWS result, after changing the force fields to suit it to nucleotides and small molecules.</p>
+          <p>To test the veracity and reproducibility of the results, performed docking with the same molecules using Haddock. The results are displayed in Table 1. </p>
+          <p><strong>Table 1: Haddock and AutoDock Vina results for the aptamers of interest</strong></p>
+          <table>
+          <thead>
+          <tr>
+          <th></th>
+          <th>Haddock</th>
+          <th>AutoDock Vina</th>
+          </tr>
+          </thead>
+          <tbody><tr>
+          <td>Aptamer 1</td>
+          <td>6.9 ± 6.4</td>
+          <td>-6.693</td>
+          </tr>
+          <tr>
+          <td>Aptamer 2</td>
+          <td>-0.1 ± 5.6</td>
+          <td>-6.547</td>
+          </tr>
+          <tr>
+          <td>Aptamer 3</td>
+          <td>3.3 ± 7.5</td>
+          <td>-6.574</td>
+          </tr>
+          <tr>
+          <td>Aptamer 4</td>
+          <td>2.7 ± 3.7</td>
+          <td>-6.626</td>
+          </tr>
+          <tr>
+          <td>Aptamer 5</td>
+          <td>-4.1 ± 2.4</td>
+          <td>-6.446</td>
+          </tr>
+          <tr>
+          <td>Aptamer 6</td>
+          <td>3.1 ± 5.5</td>
+          <td>-6.271</td>
+          </tr>
+          <tr>
+          <td>Aptamer 7</td>
+          <td>8.0 ± 2.1</td>
+          <td>-5.323</td>
+          </tr>
+          <tr>
+          <td><strong>Aptamer 8</strong></td>
+          <td><strong>-1.6 ± 1.0</strong></td>
+          <td><strong>-7.439</strong></td>
+          </tr>
+          <tr>
+          <td>Aptamer 9</td>
+          <td>21.1 ± 4.1</td>
+          <td>-5.665</td>
+          </tr>
+          <tr>
+          <td>Aptamer 10</td>
+          <td>-0.7 ±-1.9</td>
+          <td>-6.657</td>
+          </tr>
+          <tr>
+          <td>Aptamer MAWS I</td>
+          <td>9.1 ± 6.2</td>
+          <td>-6.082</td>
+          </tr>
+          <tr>
+          <td><strong>Aptamer MAWS II</strong></td>
+          <td><strong>-9.6 ± 1.3</strong></td>
+          <td><strong>-6.928</strong></td>
+          </tr>
+          </tbody></table>
+          <p>As can be observed in Table 1, the aptamer that binds PFOA with the highest affinity according to AutoDock Vina is Aptamer 8, while Haddock points to the aptamer generated by MAWS, which appears to be considerably better than Aptamer 5, the second-best one. It is remarkable that Haddock considers this aptamer to be the best one to bind PFOA and that AutoDock Vina also calculates a very good score for it. This is a very positive sign for the purpose of AptaLoop.</p>
+          <p>Remarkably, the score for Aptamer MAWS II is considerably better than the score for Aptamer I. This validates the work done to optimize MAWS.</p>
+          <p>Taking into account both docking methods, it is possible to conclude that <strong>aptamers 8, 5, 10, 2</strong>, and <strong>MAWS II</strong> bind PFOA with the highest affinity, while aptamers 9 and 7 do a terrible job at it. These results differ to the conclusions found by Park <em>et al</em>, who stated that the aptamers with the highest affinity to PFOA were 2, 8, and 3, and the aptamers with the lowest binding affinity to said ligand were 1, 5, and 6.</p>
+          <p>After the docking results, we decided to analyze the predicted binding sites for the best aptamers (i.e., aptamers 2, 5, 8, 10, and MAWS II). For aptamers 5, 8, 10, and MAWS II, Haddock and AutoDock Vina predict very similar binding sites for PFOA, but they orient the ligand in opposite directions. In the case of aptamer 2, the binding sites for the best results are different, but the second-best binding site for AutoDock Vina agrees with Haddock’s best prediction. The fact that the predictions from AutoDock Vina and Haddock are not far from each other allows us to rely on the AutoDock Vina results for AptaLoop. </p>
+          <p>The results for the best aptamers (2, 5, 8, 10, and MAWS II) are displayed below (Figures 1-5):</p>
+
+          <figure style="border: 1px solid #ffffff; padding: 10px;">
+            <div class="image-container">
+              <img src="https://static.igem.wiki/teams/4811/wiki/images/docking/aptamer-2-haddock.gif" alt="Haddock" style="max-width: 100%; height: 400px;">
+              <figcaption> Haddock's best result</figcaption>
+            </div>
+            <div class="image-container">
+              <img src="https://static.igem.wiki/teams/4811/wiki/images/docking/aptamer-2-vina-smaller.gif" alt="AutoDock Vina" style="max-width: 100%; height: 400px; margin-top: 10px;">
+              <figcaption>AutoDock Vina's best result</figcaption>
+            </div>
+            <figcaption style="align-self: center;"> Figure 1: Docking results for <strong>Aptamer 2</strong></figcaption>
+          </figure>
+
+          <figure style="border: 1px solid #ffffff; padding: 10px;">
+            <div class="image-container">
+              <img src="https://static.igem.wiki/teams/4811/wiki/images/docking/aptamer-5-haddock.gif" alt="Haddock" style="max-width: 100%; height: 400px;">
+              <figcaption> Haddock's best result</figcaption>
+            </div>
+            <div class="image-container">
+              <img src="https://static.igem.wiki/teams/4811/wiki/images/docking/aptamer-5-vina.gif" alt="AutoDock Vina" style="max-width: 100%; height: 400px; margin-top: 10px;">
+              <figcaption>AutoDock Vina's best result</figcaption>
+            </div>
+            <figcaption style="align-self: center;"> Figure 2: Docking results for <strong>Aptamer 5</strong></figcaption>
+          </figure>
+
+          <figure style="border: 1px solid #ffffff; padding: 10px;">
+            <div class="image-container">
+              <img src="https://static.igem.wiki/teams/4811/wiki/images/docking/aptamer-8-haddock-smaller.gif" alt="Haddock" style="max-width: 100%; height: 400px;">
+              <figcaption> Haddock's best result</figcaption>
+            </div>
+            <div class="image-container">
+              <img src="https://static.igem.wiki/teams/4811/wiki/images/docking/aptamer-8-vina-smaller.gif" alt="AutoDock Vina" style="max-width: 100%; height: 400px; margin-top: 10px;">
+              <figcaption>AutoDock Vina's best result</figcaption>
+            </div>
+            <figcaption style="align-self: center;"> Figure 3: Docking results for <strong>Aptamer 8</strong></figcaption>
+          </figure>
+
+          <figure style="border: 1px solid #ffffff; padding: 10px;">
+            <div class="image-container">
+              <img src="https://static.igem.wiki/teams/4811/wiki/images/docking/aptamer-10-haddock.gif" alt="Haddock" style="max-width: 100%; height: 400px;">
+              <figcaption> Haddock's best result</figcaption>
+            </div>
+            <div class="image-container">
+              <img src="https://static.igem.wiki/teams/4811/wiki/images/docking/aptamer-10-vina.gif" alt="AutoDock Vina" style="max-width: 100%; height: 400px; margin-top: 10px;">
+              <figcaption>AutoDock Vina's best result</figcaption>
+            </div>
+            <figcaption style="align-self: center;"> Figure 4: Docking results for <strong>Aptamer 10</strong></figcaption>
+          </figure>
+
+          <figure style="border: 1px solid #ffffff; padding: 10px;">
+            <div class="image-container">
+              <img src="https://static.igem.wiki/teams/4811/wiki/images/docking/aptamer-maws-haddock.gif" alt="Haddock" style="max-width: 100%; height: 400px;">
+              <figcaption> Haddock's best result</figcaption>
+            </div>
+            <div class="image-container">
+              <img src="https://static.igem.wiki/teams/4811/wiki/images/docking/aptamer-maws-vina-smaller.gif" alt="AutoDock Vina" style="max-width: 100%; height: 400px; margin-top: 10px;">
+              <figcaption>AutoDock Vina's best result</figcaption>
+            </div>
+            <figcaption style="align-self: center;"> Figure 5: Docking results for <strong>Aptamer MAWS II</strong></figcaption>
+          </figure>          
+          <h2 id="md-results">MD results</h2>
+          <p>We performed molecular dynamics using the first RNA aptamer generated by MAWS (Aptamer MAWS I) and a PFOA molecule. We ran the simulation for 2 ns of aptamer and PFOA. We also simulated aptamer for 50 ns to check the stability in water. The RMSD graph 2 (Figure 6) illustrates that the aptamer goes through major conformational changes, unlike what is displayed in graph 1 (Figure 7), which does not include PFOA. </p>
+          <p>RMSD graphs <strong>Figures 7 and 8</strong></p>
+          <p>Had we had the possibility of running the simulation for more time, we would have been able to see more conformational changes and stability of the reaction. Unfortunately, we didn&#39;t get much time as the MD simulations were too computationally demanding and time consuming. Figure 8 shows how the aptamer and PFOA react in water for 2 ns according to simulation we ran.</p>
+          <figure>
+            <img src="https://static.igem.wiki/teams/4811/wiki/apatmerpfoadynamics.gif" alt="MD simulation">
+            <figcaption style="align-self: center;">Figure 8: Molecular Dynamics simulation for Aptamer MAWS I and PFOA</figcaption>
+          </figure>
+          
+          <h2 id="docking-and-md">Docking and MD</h2>
+          <p>Molecular dynamics simulations demand a substantial amount of time for execution. Consequently, it was unfeasible to obtain results for all the aptamers of interest and compare them with the binding sites predicted by docking. Nevertheless,as stated in the above section, we were able to conduct a comparison for one aptamer, Aptamer MAWS I, and we obtained promising results</p>
+          <p>As displayed in Figure 9 , both Haddock and AutoDock Vina predict a binding site that aligns with the trajectory predicted by MAWS (Figure 8). This suggests that both methods hold utility to predict and study the binding between PFOA and an aptamer.</p>
+          <figure style="border: 1px solid #ffffff; padding: 10px;">
+            <div class="image-container">
+              <img src="https://static.igem.wiki/teams/4811/wiki/images/docking/aptamermaws1-haddock.png" alt="Haddock" style="max-width: 100%; height: 400px;">
+              <figcaption> Haddock's best result</figcaption>
+            </div>
+            <div class="image-container">
+              <img src="https://static.igem.wiki/teams/4811/wiki/images/docking/aptamermaws1-vina.png" alt="AutoDock Vina" style="max-width: 100%; height: 400px; margin-top: 10px;">
+              <figcaption>AutoDock Vina's best results</figcaption>
+            </div>
+            <figcaption style="align-self: center;"> Figure 9: Docking results for <strong>Aptamer MAWS I</strong></figcaption>
+          </figure>
+                    
+          <p>Further research could be performed to study whether the results for Molecular Dynamics also match the docking predictions for the most promising aptamers.</p>
+          <h2 id="references">References</h2>
+          <p>AutoDock Vina Documentation. (2023). Frequently asked questions. <a href="https://autodock-vina.readthedocs.io/en/latest/faq.html">https://autodock-vina.readthedocs.io/en/latest/faq.html</a></p>
+          <p>Buglak, A. A., Samokhvalov, A. V., Zherdev, A. V., &amp; Dzantiev, B. B. (2020). Methods and applications of in silico aptamer design and modeling. International Journal of Molecular Sciences, 21(22), 8420. <a href="https://doi.org/10.3390/ijms21228420">https://doi.org/10.3390/ijms21228420</a></p>
+          <p>Darmostuk, M., Rimpelova, S., Gbelcova, H., &amp; Ruml, T. (2015). Current approaches in Selex: An update to Aptamer Selection Technology. Biotechnology Advances, 33(6), 1141–1161. <a href="https://doi.org/10.1016/j.biotechadv.2015.02.008">https://doi.org/10.1016/j.biotechadv.2015.02.008</a></p>
+          <p>Dunn, M. R., Jimenez, R. M., &amp; Chaput, J. C. (2017). Analysis of Aptamer Discovery and Technology. Nature Reviews Chemistry, 1(10). <a href="https://doi.org/10.1038/s41570-017-0076">https://doi.org/10.1038/s41570-017-0076</a></p>
+          <p>Eberhardt, J., Santos-Martins, D., Tillack, A. F., &amp; Forli, S. (2021). AutoDock Vina 1.2.0: New docking methods, expanded force field, and Python bindings. Journal of Chemical Information and Modeling, 61, 3891–3898.</p>
+          <p>HADDOCK 2.4. (2023). <a href="https://wenmr.science.uu.nl/haddock2.4/">https://wenmr.science.uu.nl/haddock2.4/</a></p>
+          <p>HADDOCK 2.4 scoring function. (2023). <a href="https://www.bonvinlab.org/software/haddock2.4/scoring/">https://www.bonvinlab.org/software/haddock2.4/scoring/</a></p>
+          <p>Heidelberg University iGEM Team. (2015). MAWS software. <a href="https://2015.igem.org/Team:Heidelberg/software/maws">https://2015.igem.org/Team:Heidelberg/software/maws</a></p>
+          <p>Honorato, R. V., et al. (2021). Structural biology in the clouds: The WeNMR-EOSC ecosystem. Frontiers in Molecular Biosciences, 8, 729513.</p>
+          <p>Li, J., Fu, A., &amp; Zhang, L. (2019). An overview of scoring functions used for protein–ligand interactions in molecular docking. Interdisciplinary Sciences, Computational Life Sciences, 11, 320–328.</p>
+          <p>Meng, X.-Y., Zhang, H.-X., Mezei, M., &amp; Cui, M. (2011). Molecular docking: A powerful approach for structure-based drug discovery. Current Computer-Aided Drug Design, 7, 146–157.</p>
+          <p>Morris, G. M., &amp; Lim-Wilby, M. (2008). Molecular docking. In A. Kukol (Ed.), Molecular modeling of proteins (Vol. 443, pp. 365–382). Humana Press.</p>
+          <p>O’Boyle, N. M., et al. (2011). Open Babel: An open chemical toolbox. Journal of Cheminformatics, 3, 33.
+          Open Babel. (2023). <a href="https://github.com/openbabel/openbabel">https://github.com/openbabel/openbabel</a></p>
+          <p>Park, J., Yang, K.-A., Choi, Y., &amp; Choe, J. K. (2022). Novel ssDNA aptamer-based fluorescence sensor for perfluorooctanoic acid detection in water. Environmental International, 158, 107000.</p>
+          <p>Song, M., Li, G., Zhang, Q., Liu, J., &amp; Huang, Q. (2020). De novo post-SELEX optimization of a G-quadruplex DNA aptamer binding to marine toxin gonyautoxin 1/4. Computational and Structural Biotechnology Journal, 18, 3425–3433. <a href="https://doi.org/10.1016/j.csbj.2020.10.041">https://doi.org/10.1016/j.csbj.2020.10.041</a></p>
+          <p>Thevendran, R., Tang, T., &amp; Citartan, M. (2023). in‐silico selection employing rigid docking and molecular dynamic simulation in selecting DNA aptamers against androgen receptor. Biotechnology Journal, 18(4). <a href="https://doi.org/10.1002/biot.202200092">https://doi.org/10.1002/biot.202200092</a></p>
+          <p>Trott, O., &amp; Olson, A. J. (2009). AutoDock Vina: Improving the speed and accuracy of docking with a new scoring function, efficient optimization, and multithreading. Journal of Computational Chemistry. <a href="https://doi.org/10.1002/jcc.21334">https://doi.org/10.1002/jcc.21334</a></p>
+          <p>Van Zundert, G. C. P., et al. (2016). The HADDOCK2.2 web server: User-friendly integrative modeling of biomolecular complexes. Journal of Molecular Biology, 428, 720–725.</p>
+          
+
+            
+        </div>
+      </div>
+    </div>
   </div>
-
-
-
-    <a href="#" class="buttons">Previous</a>
-    <a href="#" class="buttons">Next</a>
-    </div>
-
-
 
 {% endblock %}
