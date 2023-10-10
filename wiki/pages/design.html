@@ -1,27 +1,279 @@
 {% extends "layout.html" %}
 
-{% block title %}Design{% endblock %}
-{% block lead %}Keep it simple to have it simple.{% endblock %}
-
 {% block page_content %}
 
-<div class="grad-content h-100 main-content">
+<div class="page">
 
+    <!-- Change This Header -->
+    <div class="page-header">
+      <h1>Design</h1>  
+    </div>
+    <div class="container page-content">
+      <div class="row h-100">
 
-
-    <div class="row">
-        <div class="sidenav" style="top: 25%;">
-            <div  style="font-weight: bold; text-align: center; text-decoration: none; padding-top: 30px; padding-right: 65%;">Design</div>
-            <a href="#">&gt; 1</a>
-            <a href="#">&gt; 2</a>
-            <a href="#">&gt; 3</a>
-            <a href="#">&gt; 4</a>
-            <a href="#">&gt; 5</a>
-            <a href="#">&gt; 6</a>
+        <!-- place for menu generation -->
+        <div class="toc col-lg-5">
+          <h5>Menu</h5>
+          <ul>
+            <li>
+            <!-- h2 level, add this #location, and change this menu -->
+              <a href="#design">> Design</a>
+              <ul>
+                <!-- h3 level, add this #location, and change this menu, use shorter names, also add ">" in front -->
+                <li><a href="#validation-of-the-tms-system">> Validation of the TMS system</a></li>
+                <li><a href="#characterization-of-a-pfoa-aptamer">> Characterization of a PFOA aptamer</a></li>
+                <li><a href="#construction-of-the-pfoa-responsive-tms-system">> Construction of the PFOA-responsive TMS system</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#references">> References</a>
+            </li>
+          </ul>
+          <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+            <path stroke="#fff" stroke-width="3" fill="transparent" stroke-dasharray="0, 0, 0, 1000" stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)" />
+          </svg>
         </div>
+
+        <!-- formal text goes under this div, h2, h3 should be labeled  -->
+        <div class="page-text col-lg-9">
+            <h2 id="design">Design</h2>
+            <p>The goal of our project this year is to create an analytical tool for PFAS quantification that is cheap, quick, and easy to use with the help of synthetic biology. Our design is based on regulation of the expression of a fluorescent protein by a trans-encoded, PFOA-responsive regulator. The laboratory work was based on three main areas:</p>
+            <figure>
+                <img src="https://static.igem.wiki/teams/4811/wiki/design/project-areas.svg" alt="The main work areas of our wet lab.">
+                <figcaption>Figure 1: The main work areas of our wet lab work.</figcaption>
+            </figure>
+
+            <h3 id="validation-of-the-tms-system">Validation of the TMS system</h3>
+            <p>In order to create our PFOA test, we first needed to establish a <strong>biosensing system</strong>. A simple way to monitor cellular activity is by using a visible or <strong>fluorescent protein</strong> as it allows direct measurements without requiring cell lysis or uncommon instruments. We thus wanted to connect the PFOA concentration to the regulation of such a reporter gene. The gene regulation can be targeted either at the level of transcription or translation. As expression at both levels is dependent on a range of cellular factors, translation is more directly linked to the actual protein expression in a cell at a given time. To avoid the additional complexities of transcription, we decided to focus on building a <strong>translational regulator</strong>. </p>
+            <p>A versatile tool for regulation of translation is the use of riboswitches. However, being cis-encoded, riboswitches require upstream modifications of the reporter gene. This presents two disadvantages: the conformational space achievable by a sequence located on its native RNA, and thus its programmability, can be dependent on the RNA-specific formation of secondary structures, i.e., this is sequence-constrained and can be gene-specific. On the engineering side, this can translate to multiple attempts before the modification is optimized and genome-encoded, and crucially it doesn&#39;t offer a generalized platform to create new ligand-responsive inhibitors <em>de novo</em>.</p>
+            <p>An alternative approach that avoids these problems is to construct a <strong>trans-encoded switch</strong>, i.e., this is located on a different site from the reporter gene, and exerts its function by sequestration of the reporter mRNA-RBS, thereby removing the sequence constrain. Furthermore, insertion of an <strong>aptamer sequence</strong>, i.e. an RNA sequence capable of binding to a specific ligand introduces ligand-dependency to the TMS inhibition mechanism. Such a system is first presented by Paul <em>et al.</em> (2020), where they create a trans-encoded switch by insertion of a GFP aptamer, as described in the box below.</p>
+            
+
+            <div class="text-container">
+                <h4>A New Trans-Encoded Regulation System (based on Paul <i>et al.</i>, 2020)</h4>
+                <p>
+                  In 2020, a collaborative study from University of Groningen, Netherlands, and Aachen, Germany, presents the use of a <b>tRNA-mimicking structure (TMS)</b> to inhibit protein translation by sequestration of the ribosome binding site (RBS) of the reporter mRNA. <br><br>
+                  The TMS structure is based on bacterial tRNAs, which are normally used for bringing amino acids to a growing peptide chain. Two primary modifications have been introduced: 1) a <b>repressor domain</b> has been incorporated into the anticodon loop, and 2) an <b>aptamer</b> has been inserted into the D-loop. The repressor domain is designed to match the sites next to the RBS and can be modified to target other RBS regions and genomic DNA. Complementarity allows sequestration of RBS achieving repression of the translation, as the tRNA effectively blocks binding of ribosomes. In the original study, the function of the TMS is that of a conditional repressor, and results can be explained by a simple de-inhibition mechanism model. According to this model, upon binding of the ligand, the TMS structure is compromised. To create a useful regulation system, the repression must be reversible. This is achieved by the aptamer insertion into the D-loop of the tRNA-like structure, which seems to be crucial for proper folding. Ligand-binding will thus induce a conformational change, forcing the TMS back to its unbound tertiary structure and releasing the mRNA. <br><br>
+                </p>
+                <figure>
+                    <img src="https://static.igem.wiki/teams/4811/wiki/design/trna-darkv7.svg" style="background-color: transparent">
+                    <figcaption>Figure X: The left side shows a normal bacterial tRNA, which in the right side has been changed into a tRNA-mimicking structure. The TMS binds and represses a gene until the addition of a ligand, which induces conformational changes and release of the mRNA. Based on Paul <i>et al.</i> (2020).</figcaption>
+                </figure>
+                <p>
+                  The system is <b>highly versatile</b> as both the aptamer and repressor domain can be changed by modifying the TMS only. Additionally, the article demonstrates functionality for a <b>range of ligands</b>, including small molecules, proteins, and other RNA structures.
+                </p>
+            </div>
+
+            <p>While trans-regulation circumvents the problems described earlier, the strategy presents its own disadvantages. Separation of the regulator and the reporter gene gives rise to the risk of a reporter gene simply not being repressed at a given moment. To address this, we decided to express the <strong>TMS regulator in a high copy number plasmid</strong>, while the <strong>reporter genes were placed in a low copy number plasmid</strong>. This results in a much larger number of repressors than genes to repress, which should reduce the leakiness of the system significantly. Overall, we evaluated the advantages of trans-regulation to be highly interesting for our project and the disadvantages to be manageable. </p>
+            <figure>
+				<img src="https://static.igem.wiki/teams/4811/wiki/design/copy-numberv2.svg" alt="The effect of copy numbers">
+                <figcaption>Figure X: By using a high copy number origin for the TMS plasmid and a low copy number origin for the reporter, we ensure an excess of TMSs compared to reporter mRNAs.</figcaption>
+            </figure>
+
+            <p>Exploiting its function of a trans-encoded tool that can be customized for various ligands to alter a physiological response in a dose-dependent manner, we adopted the TMS system and designed it as a platform for the construction of biosensors, demonstrating it first on two compounds, Mn^2+^ and theophylline, and then used the gained knowledge to design our PFOA biosensor. </p>
+            <p>Our next step was to validate the described system. To do this, we needed to <strong>set up our workflow</strong> from plasmid generation to fluorescence measurements.</p>
+            <p>For our setup and tests of the TMS system, we started from the genetic sequences in Paul <em>et al.</em> (2020) and built the appropriate plasmids via USER-cloning. <strong>Uracil-Specific Uracil-Specific Excision Reagent (USER) cloning</strong> is a PCR-based, ligation-free cloning technique that allows one-step plasmid construction with multiple insertions. First, the desired parts are PCR-amplified using specially designed primers that add a 5&#39; overhang with a uracil. This must be done using a uracil-compatible polymerase, such as X7. Following this, the PCR products are cleaned and treated with USER reagent. The reaction consists of uracil excision and subsequent removal of the 5&#39; overhang prior to the removed base, followed by hybridization of the specific sticky overhangs. As the sticky ends can be designed freely, the technique can be used in a highly modular fashion by creating different complementary overhangs (Nour-Eldin <em>et al.</em>, 2010). We cloned the resultant mix into DH5$\alpha$ <em>E. coli</em>, in which the cellular machinery ensured ligation of the plasmid.</p>
+
+            <figure id="animation"></figure>
+
+            <p>After propagation in <em>E. coli</em>, purification, and validation by PCR and Sanger sequencing, the plasmids were co-transformed into <strong><em>E. coli</em> BL21(DE3)</strong> for protein expression. This strain was chosen as it contains the IPTG-inducible T7 polymerase. The experiments were then conducted by overnight incubation of the relevant strains, reinoculuation, followed by induction at late log-phase. The fluorescence of the cells was measured five hours after induction. An overview of the workflow can be seen in Fig. X, and an in-depth description of our full experimental processes and protocols can be found on our <a href="https://2023.igem.wiki/dtu-denmark/experiments">Experiments</a> page.</p>
+            <figure>
+				<img src="https://static.igem.wiki/teams/4811/wiki/design/workflow.svg" alt="Workflow">
+                <figcaption>Figure X: Simplified overview of our workflow for the fluorescence experiments. </figcaption>
+            </figure>
+            <p>Our first experiment was a <strong>replication of an experiment with green fluorescent protein (GFP)</strong> using a TMS with a GFP aptamer (Shui <em>et al.</em>, 2012). incorporated in the D-loop (Paul <em>et al.</em>, 2020). The co-transformed strain contained the two plasmids seen in Fig. X. The mCherry gene is expressed by an araB promoter (pBAD) with an RBS flanked by complementary sequences to the TMS repressor domain. The same plasmid expresses GFP with a tet promoter (pTet), and the second plasmid contains a T7 promoter followed by the TMS. As the TMS sequence is controlled by a T7 promoter (pT7), expression required the presence of the T7 polymerase, which is found in the BL21(DE3) strain. By using <strong>inducible promoters</strong>, we can investigate the repression and anti-repression effects of different concentrations of inducers. At the same time, inducible expression allows the cells to grow without the added pressure of unnecessary protein production. The figure also shows the effects of the necessary inducers: L-arabinose, anhydrotetracycline, and IPTG. The overall effect of the setup is that <strong>increasing anhydrotetracycline</strong> should result in increased GFP production, which in turn relieves the TMS repression and thus facilitates <strong>mCherry expression</strong>.</p>
+            <figure>
+				<img src="https://static.igem.wiki/teams/4811/wiki/design/pu03-07-mrna.svg" alt="Overview of the GFP experiment">
+                <figcaption>Figure X: Overview of the plasmids used for replication of the experiment with a GFP aptamer in Paul <i>et al.</i> (2020) as well as the effect of inducers and gene expression. Abbreviations: aTc = anhydrotetracycline, L-ara = L-arabinose, IPTG = isopropyl ß-D-1-thiogalactopyranoside, RBS = ribosome binding site, P = constitutive promoter, T = terminator. </figcaption>
+            </figure>
+            <p>In addition to our biosensor, we were also intrigued by <strong>the potential for modularity</strong> presented by the system and the potential for targeting other environmental pollutants. We decided to investigate this aspect and the ease with which the TMS can be adapted to new ligands. With the sequence of TMSs with neomycin and kanamycin aptamers already incorporated described by Paul <em>et al.</em> (2020), we expanded the TMSs toolbox by insertion of <strong>well-established aptamers</strong>, one for manganese already present in the iGEM parts registry as a biobrick (<a href="http://parts.igem.org/Part:BBa_K902074">BBa_K902074</a>), and one for theophylline taken from literature (Suess <em>et al.</em>, 2004). These were incorporated into the D-loops of TMSs and USER-cloned into plasmids, similarly to what described with the GFP aptamer above. The TMSs were co-expressed with a reporter plasmid containing only the L-arabinose inducible and TMS-repressible mCherry from the first experiment. An overview of the plasmids can be seen in Fig. X.</p>
+            <figure>
+				<img src="https://static.igem.wiki/teams/4811/wiki/design/pu01-0xai.svg" alt="The effects of inducers on additional experiments">
+                <figcaption>Figure X: Generalized overview of the modularity experiments. The inducers are dependent on the aptamer inserted in the TMS and include neomycin, kanamycin, manganese, and theophylline.</figcaption>
+            </figure>
+            <table>
+                <thead>
+                <tr>
+                <th><span >ID</span></th>
+                <th><span >Content</span></th>
+                <th><span >BioBrick</span></th>
+                <th><span >Origin</span></th>
+                <th><span >Resistance</span></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                <td><span >pIDT01</span></td>
+                <td><span >GFP tet-on</span></td>
+                <td><a href="http://parts.igem.org/Part:BBa_K4811004" target="_blank" rel="noopener"><span >BBa_K4811004</span></a></td>
+                <td><span >pUC19</span></td>
+                <td><span >Kan</span></td>
+                </tr>
+                <tr>
+                <td><span >pIDT02</span></td>
+                <td><span >mCherry reporter</span></td>
+                <td><a href="http://parts.igem.org/Part:BBa_K4811003" target="_blank" rel="noopener"><span >BBa_K4811003</span></a></td>
+                <td><span >pUC19</span></td>
+                <td><span >Kan</span></td>
+                </tr>
+                <tr>
+                <td><span >pU01</span></td>
+                <td><span >pACYC184-pBAD-mCherry</span></td>
+                <td><a href="http://parts.igem.org/Part:BBa_K4811003" target="_blank" rel="noopener"><span >BBa_K4811003</span></a></td>
+                <td><span >pACYC184</span></td>
+                <td><span >Cam</span></td>
+                </tr>
+                <tr>
+                <td><span >pU02</span></td>
+                <td><span >pACYC184-Ptet-GFP</span></td>
+                <td><a href="http://parts.igem.org/Part:BBa_K4811004" target="_blank" rel="noopener"><span >BBa_K4811004</span></a></td>
+                <td><span >pACYC184</span></td>
+                <td><span >Cam</span></td>
+                </tr>
+                <tr>
+                <td><span >pU03</span></td>
+                <td><span >pACYC184-Ptet-GFP-pBAD-mCherry</span></td>
+                <td><a href="http://parts.igem.org/Part:BBa_K4811005" target="_blank" rel="noopener"><span >BBa_K4811005</span></a></td>
+                <td><span >pACYC184</span></td>
+                <td><span >Cam</span></td>
+                </tr>
+                <tr>
+                <td><span >pU04</span></td>
+                <td><span >pUC19 (KanR)</span></td>
+                <td><span >N/A</span></td>
+                <td><span >pUC19</span></td>
+                <td><span >Kan</span></td>
+                </tr>
+                <tr>
+                <td><span >pU07</span></td>
+                <td><span >pUC19 (AmpR)-TMS-GFP1</span></td>
+                <td><a href="http://parts.igem.org/Part:BBa_K4811018" target="_blank" rel="noopener"><span >BBa_K4811018</span></a></td>
+                <td><span >pUC19</span></td>
+                <td><span >Amp</span></td>
+                </tr>
+                <tr>
+                <td><span >pU05</span></td>
+                <td><span >pUC19 (KanR)-TMS-Neo1</span></td>
+                <td><a href="http://parts.igem.org/Part:BBa_K4811020" target="_blank" rel="noopener"><span >BBa_K4811020</span></a></td>
+                <td><span >pUC19</span></td>
+                <td><span >Kan</span></td>
+                </tr>
+                <tr>
+                <td><span >pU06</span></td>
+                <td><span >pUC19 (KanR)-TMS-Kan1</span></td>
+                <td><a href="http://parts.igem.org/Part:BBa_K4811019" target="_blank" rel="noopener"><span >BBa_K4811019</span></a></td>
+                <td><span >pUC19</span></td>
+                <td><span >Kan</span></td>
+                </tr>
+                <tr>
+                <td><span >pU08</span></td>
+                <td><span >pUC19 (AmpR)-TMS-Mn1</span></td>
+                <td><a href="http://parts.igem.org/Part:BBa_K4811021" target="_blank" rel="noopener"><span >BBa_K4811021</span></a></td>
+                <td><span >pUC19</span></td>
+                <td><span >Amp</span></td>
+                </tr>
+                <tr>
+                <td><span >pU14</span></td>
+                <td><span >pUC19 (AmpR)-TMS-Mn2</span></td>
+                <td><a href="http://parts.igem.org/Part:BBa_K4811031" target="_blank" rel="noopener"><span >BBa_K4811031</span></a></td>
+                <td><span >pUC19</span></td>
+                <td><span >Amp</span></td>
+                </tr>
+                <tr>
+                <td><span >pU09</span></td>
+                <td><span >pUC19 (AmpR)-TMS-Theo1</span></td>
+                <td><a href="http://parts.igem.org/Part:BBa_K4811022" target="_blank" rel="noopener"><span >BBa_K4811022</span></a></td>
+                <td><span >pUC19</span></td>
+                <td><span >Amp</span></td>
+                </tr>
+                <tr>
+                <td><span >pU10</span></td>
+                <td><span >pUC19 (AmpR)-TMS-Theo2</span></td>
+                <td><a href="http://parts.igem.org/Part:BBa_K4811026" target="_blank" rel="noopener"><span >BBa_K4811026</span></a></td>
+                <td><span >pUC19</span></td>
+                <td><span >Amp</span></td>
+                </tr>
+                <tr>
+                <td><span >pU11</span></td>
+                <td><span >pUC19 (AmpR)-TMS-PFOAbubble (1)</span></td>
+                <td><a href="http://parts.igem.org/Part:BBa_K4811027" target="_blank" rel="noopener"><span >BBa_K4811027</span></a></td>
+                <td><span >pUC19</span></td>
+                <td><span >Amp</span></td>
+                </tr>
+                <tr>
+                <td><span >pU12</span></td>
+                <td><span >pUC19 (AmpR)-TMS-PFOAaptamer (2)</span></td>
+                <td><a href="http://parts.igem.org/Part:BBa_K4811028" target="_blank" rel="noopener"><span >BBa_K4811028</span></a></td>
+                <td><span >pUC19</span></td>
+                <td><span >Amp</span></td>
+                </tr>
+                <tr>
+                <td><span >pU13</span></td>
+                <td><span >pUC19 (AmpR)-TMS-PFOAaptamer (3, 8bp stem)</span></td>
+                <td><a href="http://parts.igem.org/Part:BBa_K4811032" target="_blank" rel="noopener"><span >BBa_K4811032</span></a></td>
+                <td><span >pUC19</span></td>
+                <td><span >Amp</span></td>
+                </tr>
+                </tbody>
+            </table>
+            <p>FIGURE</p>
+            <h3 id="characterization-of-a-pfoa-aptamer">Characterization of a PFOA aptamer</h3>
+            <p>Following the TMS validation experiments, the next step was to identify a suitable PFOA aptamer for the TMS. Aptamers respond to target molecules by conformational changes in their tertiary structure, ideally binding their ligands with <strong>high specificity and affinity</strong>. While the aptamer identification is a complex process, a recent paper identified an aptamer capable of binding PFOA, as described in the following box.</p>
+            <div class="text-container">
+                    <h4>The Discovery of a PFOA Aptamer (based on Park <i>et al.</i>, 2022)</h4>
+                    <p>
+                    In 2022, a collaboration between the Department of Civil and Environmental Engineering and the Institute of Construction and Environmental Engineering in Seoul National University, Korea, together with the Division of Experimental Therapeutics, Department of Medicine in Columbia University, USA, investigated the production of a <b>PFOA-affine aptamer</b>, the major representative of the PFAS molecules class. <br><br> 
+                    Through <b>Sequential Evolution of Ligands by Exponential Enrichment (SELEX)</b>, the researchers identified 10 different single-stranded DNA with the ability to bind PFOA. The sequences were analyzed for secondary structure formation <i>in silico</i>, showing conservation of 3 regions across multiple aptamers.<br><br>
+                        The binding affinities of the aptamers was assessed with a <b>fluorescence assay</b> based on attaching a fluorophore to the aptamer and a quencher to a capture strand. The best aptamer was found to bind PFOA with a dissociation constant K<sub>D</sub> of 5.5 µM in pure solution. In wastewater, the constant had a similar K<sub>D</sub> of 7.4 µM. The final version of the aptamer has a <b>limit of detection of 0.17 µM</b> in water. The aptamer was further analyzed with NMR and circular dichroism to determine PFOA-dependent conformational changes in the secondary structure.
+                    </p>
+            </div>
+
+            <p>However, ssDNA is difficult to work with and an RNA-based mechanism would be far more convenient to use, as it is naturally produced during transcription. To ensure functionality of the original aptamer and to test the potential for conversion to ssRNA, we planned to <strong>test the binding affinity</strong> of PFOA to several aptamer versions. </p>
+            <p>We investigated two options for conducting such an experiment: isothermal titration calorimetry (ITC) and surface plasmon resonance (SPR). Both methods can be used for determining the binding affinity of a ligand to an aptamer. However, ITC requires extensive experimentation in order to determine the appropriate reaction conditions to measure the binding. Unfortunately, we were unable to access an ITC for a sufficient amount of time to perform the condition testing and characterization of the aptamers. As SPR also is a complicated technique to perform, we initiated a collaboration with the Centre for Diagnostics at DTU Health that has both the necessary equipment and expertise. The initial experimentation gave a higher rate of false positives than expected. This could be due to various reasons, such as PFOA binding to the plate, PFOA coagulation, or the plate not being properly regenerated after each test. The troubleshooting is still ongoing, which sadly means that we have been unable to conclude the characterization of the PFOA aptamers. </p>
+            <h3 id="construction-of-the-pfoa-responsive-tms-system">Construction of the PFOA-responsive TMS system</h3>
+            <p>Next to our work on the aptamer characterization, we proceeded to work with the best aptamer identified in the paper from Park <em>et al.</em> (2022), PFOA_JYP_2, for <strong>incorporation into the TMS system</strong>. </p>
+            <p>While the change from ssDNA to ssRNA might cause structural changes that will impair the binding affinity to PFOA, if the folding of the aptamer is conserved, there may still be the relevant binding pocket for PFOA.
+            Furthermore, G-quadruplexes are present in the conserved regions of the PFOA aptamer (Park <em>et al.</em>, 2022), and G-quadruplexes are also known to form in RNA aptamers (Roxo <em>et al.</em>, 2019). We therefore believe that it is worth exploring the possibility that an RNA aptamer may still bind to PFOA.</p>
+            <p>In an attempt to accommodate the switch from the original identification method to the TMS system, we built 3 plasmids with <strong>different stem lengths</strong> included in the TMS. The stem length of an aptamer is an important part of how the sequence will fold and thus whether it will be responsive to its ligand. Based on the predicted secondary structure of the original aptamer, we iteratively removed parts of the sequence to test the effect of the stems. As a subset of the aptamers found to bind PFOA in the paper shows conservation across regions of the sequences, we used this to guide our approach. Fig. X shows the three chosen aptamers with the <strong>conserved regions</strong> highlighted in orange. In the first iteration, only the nucleotides used for fluorophore binding in the paper were removed. Next, the predicted stem regions that showed no conservation across the different aptamers were eliminated. Lastly, the aptamer was cut down to only a conserved loop-like structure to see whether a minimal aptamer would be viable. These structures were tested for PFOA-dependent reporter expression-inhibition, see Engineering and Results sections for futher details.</p>
+            <figure>
+				<img src="https://static.igem.wiki/teams/4811/wiki/design/aptamers-all.svg" alt="Our PFOA aptamers">
+                <figcaption>Figure X: An overview of the PFOA aptamers. Areas conserved across multiple of the identified aptamers are highlighted in orange. a) The full structure found in Park *et al.* (2022). b) Our first PFOA aptamer including the stems. c) Our second PFOA aptamer without the stems. d) Our final, minimal PFOA aptamer.</figcaption>
+            </figure>
+            <h2 id="references">References</h2>
+            <br>
+            <ol>
+                <li><p>A. Paul, E. M. Warszawik, M. Loznik, A. J. Boersma, A. Herrmann, Modular and Versatile Trans-Encoded Genetic Switches, Angew. Chem. Int. Ed. 2020, 59, 20328.</p>
+                </li>
+                <li><p>Junyoung Park, Kyung-Ae Yang, Yongju Choi, Jong Kwon Choe, Novel ssDNA aptamer-based fluorescence sensor for perfluorooctanoic acid detection in water, Environment International, 2022, 158 107000.</p>
+                </li>
+                <li><p>Dambach, M., Sandoval, M., Updegrove, T. B., Anantharaman, V., Aravind, L., Waters, L. S., &amp; Storz, G. (2015). The ubiquitous yybP-ykoY riboswitch is a manganese-responsive regulatory element. Molecular cell, 57(6), 1099-1109.</p>
+                </li>
+                <li><p>Suess, B., Fink, B., Berens, C., Stentz, R., &amp; Hillen, W. (2004). A theophylline responsive riboswitch based on helix slipping controls gene expression in vivo. Nucleic acids research, 32(4), 1610-1614.</p>
+                </li>
+                <li><p>B. Shui, A. Ozer, W. Zipfel, N. Sahu, A. Singh, J. T. Lis, H. Shi, M. I. Kotlikoff, RNA aptamers that functionally interact with green fluorescent protein and its derivatives, Nucleic Acids Res. 2012, 40, e39.</p>
+                </li>
+                <li><p>Beatrix Suess, Barbara Fink, Christian Berens, Régis Stentz, Wolfgang Hillen, A theophylline responsive riboswitch based on helix slipping controls gene expression in vivo, Nucleic Acids Research, Volume 32, Issue 4, 15 February 2004, Pages 1610–1614.</p>
+                </li>
+                <li><p>Roxo C, Kotkowiak W, Pasternak A. G-Quadruplex-Forming Aptamers-Characteristics, Applications, and Perspectives. Molecules. 2019 Oct 21;24(20):3781.</p>
+                </li>
+            </ol>
+        </div>
+      </div>
     </div>
-    
-    <a href="#" class="buttons">Previous</a>
-    <a href="#" class="buttons">Next</a>
-    </div>
+  </div>
+
+  <script>
+// Load the first animation
+lottie.loadAnimation({
+  container: document.getElementById('animation'),
+  renderer: 'svg', // You can choose 'svg', 'canvas', or 'html' based on your preference
+  loop: true, // Set to true for looping
+  autoplay: true, // Set to true for auto playback
+  path: 'static/images/1st_Animation_Final.json', // URL to your first Lottie animation
+  animationSpeed: 0.8,
+});
+
+  </script>
+  
+
 {% endblock %}

@@ -93,10 +93,51 @@
             <figcaption>Figure 8:The results showed PFOA concentration leading to a lower fluorescence. The model shown here would explain these results, with the TMS binding to the RBS <a href="http://parts.igem.org/Part:BBa_K4811000">BBa_K4811000</a> in presence of PFOA.
             </figcaption>
           </figure>
-            
+
+          <h2 id="discussion-and-future-perspectives">Discussion and future perspectives</h2>
+          <p>As mentioned in <a href="https://2023.igem.wiki/dtu-denmark/engineering">Engineering</a>, although contrary to what was expected from the original TMS paper, all the TMS biobricks produced in this work show a ligand-dependent inhibition of protein translation. This suggests a need to revise the mechanistic model of how the TMS structures exert their function. Overall, the produced TMSs show a concentration-dependent inhibitory activity whose specificity is conferred by the inserted aptamer sequence. Assuming that the observed correlation between PFOA and fluorescence is based upon a change in the structure of the TMS, a stabilization of the most stable inhibitory structure would explain the observed results.</p>
+          <figure>
+            <div id="animation"></div>
+            <figcaption>
+              Revised mechanistic model based on the findings of this work. In this example, theophylline binds to its TMS onto the D-loop inserted aptamer, and after binding on the reporter mRNA, fluorescence is reduced.</p>
+            </figcaption>
+          </figure>
+
+          <p>Although the creation of various ligand-responsive TMSs was generally successful, it is worth noting that these behave in contradiction compared to what was initially expected. This is when only taken the work by Paul <em>et al.</em> (2020) into account. Thus, this might signal that reproducibility is dependent on other factors, which might have had an influence on our experimental. setup. Some variables that could have had an influence are pH, solubilized ions, and change in surface tension. </p>
+          <p><strong>Theophylline is a weak base</strong>, so both the medium and intracellular pH might exert a slight effect across the theophylline experiments. The increase in effectiveness of the second version of the TMS compared to the first might shed light on the role of the structural features to look for during the part design. The original aptamer sequence selected contained a stem that connects the aptamer RNA sequence to the translated mRNA. This stem has the functional role of transmitting the conformational change of the aptamer upon theophylline binding to the mRNA by changing the accessibility of the RBS cassette through a one-nucleotide slipping mechanism. Although this mechanism exerts a response <em>in vivo</em> on the native mRNA, its function in a TMS design is unknown, and could make the TMS structure less sensitive to the ligand binding. Furthermore, its removal during the designing of TMS(Theo2) is seen to increase its sensitivity.</p>
+          <p><strong>Manganese is a solubilized ion</strong>, which would change the osmotic pressure. One factor to be considered is that, the original aptamer inserted in the TMS structure was taken as a biobrick from the iGEM registry (<a href="http://parts.igem.org/Part:BBa_K902074">BBa_K902074</a>), and this sequence is native of <em>E. coli</em>, where it controls the production of the efflux pump for the export of manganese ions themselves. Hence, the intracellular concentration levels of manganese will appear broad on a population level, not only making <em>E. coli</em> not the best organism to characterize this structures into, but also likely leading to an organism-dependent effectiveness of the two Mn TMSs.</p>
+          <p><strong>PFOA changes the surface tension of water</strong>, which may lead to better shaking of the culture during induction. Furthermore, association of PFOA to the bacterial cell membrane has been suggested in the literature but not deeply investigated, and possible disruption of cell membranes or membrane-associated proteins might impose additional stress conditions that should be accounted for while designing experiments. </p>
+          <p>All these factors could be explored to determine the mechanism of action of the TMS. Having said this, we managed to obtain a statistically significant, dose-dependant response for both theophylline TMSs, of which <a href="http://parts.igem.org/Part:BBa_K481101">BBa_K4811011</a> shows the highest response, and two PFOA TMSs, with <a href="http://parts.igem.org/Part:BBa_K4811030">BBa_K4811030</a> showing the highest response. Naturally, further experimental confirmation is needed before definite conclusions about the produced TMSs can be reached. Specifically, a deeper insight into the mechanistic action of TMSs is necessary, and could aid the design of more TMSs in the future.
+          We therefore encourage future teams to work with the TMS system to elucidate the exact method of action, as there is potential for elucidation and we have seen a wide variablity between operators. For future experiments, the addition of rigorous negative controls might be advisable in order test the specificity of the system and to eliminate contributions of false positives. Further factors to be tested might include:</p>
+          <ul>
+          <li>toxicity of the selected ligands</li>
+          <li>toxicity of reporter production-associated stress</li>
+          <li>expression of efflux pumps</li>
+          <li>culturing conditions</li>
+          <li>strain-dependency of the system</li>
+          <li>functionality in other types of organisms</li>
+          <li>effect of ligand-associated conformational change on TMS-mRNA interactions</li>
+          <li>re-design of the aptamer insertion area onto the TMS body</li>
+          </ul>
+          <p>We strongly believe that with the contribution and validation of the scientific community, this technology can become a valuable tool for the designing of various biosensors, as well as a bioengineering tool for the study of gene function.</p>
+
+                      
         </div>
       </div>
     </div>
   </div>
+
+  
+  <script>
+    // Load the first animation
+    lottie.loadAnimation({
+      container: document.getElementById('animation'),
+      renderer: 'svg', // You can choose 'svg', 'canvas', or 'html' based on your preference
+      loop: true, // Set to true for looping
+      autoplay: true, // Set to true for auto playback
+      path: 'static/images/2nd_Animation_Final.json', // URL to your first Lottie animation
+      animationSpeed: 0.8,
+    });
+  </script>
 
 {% endblock %}
