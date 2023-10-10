@@ -1,14 +1,14 @@
 /* Fonts */
 @font-face {
   font-family: 'Bahnschrift';
-  src: url('https://uploads.igem.org/teams/4811/wiki/fonts/bahnschrift.ttf') format('truetype');
+  src: url('https://static.igem.wiki/teams/4811/wiki/fonts/bahnschrift.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'PublicSans';
-  src: url('https://uploads.igem.org/teams/4811/wiki/fonts/publicsans-blackitalic.ttf') format('truetype');
+  src: url('https://static.igem.org/teams/4811/wiki/fonts/publicsans-blackitalic.ttf') format('truetype');
   font-weight: normal;
   font-style: italic;
 }
@@ -219,12 +219,6 @@ padding-bottom: 2rem;
   color: #f0ad4e; 
 }
 
-.page-text figure {
-  margin: 6%;
-  text-align: center; 
-  display: block;
-}
-
 .page-text img.svg-img {
   background-color: white;
   padding: 1rem;
@@ -235,12 +229,25 @@ padding-bottom: 2rem;
   height: auto; 
 }
 
+.page-text .album{
+  border: 5px solid rgb(255, 255, 255); /* Add a white border */
+  border-radius: 1rem; /* Add rounded corners */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.page-text figure {
+  margin: 4%;
+  text-align: center;
+  display: block;
+}
+
+
 .page-text figure figcaption{
-    padding-top: 1rem;
+    padding-top: 0.8rem;
     font-style: italic;
     text-align: center;
     color: #ccc;
-    font-size: 1rem;
+    font-size: 0.9rem;
     display: block;
 }
 .page-text figure.image-container {
@@ -254,10 +261,10 @@ padding-bottom: 2rem;
 }
 
 .page-text img.image {
-  width: 48%; /* Each image takes half of the square container */
+  width: 50%; /* Each image takes half of the square container */
   height: 100%; /* Make the images take the full height of the container */
   object-fit: cover; /* Crop the images to fit within the square container */
-  margin-bottom: 1rem; /* Add spacing between images */
+  margin: 0; /* Add spacing between images */
 }
 
 @media (max-width: 767px) {
@@ -267,6 +274,24 @@ padding-bottom: 2rem;
   }
 }
 
+.page-text .text-container {
+  background-color: #99CCFF;
+  border-radius: 1rem;
+  padding: 2rem;
+  width: 90%;
+  margin: 2rem auto; /* Center the container horizontally */
+  color: #000614;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Add a subtle box shadow */
+}
+
+.page-text .text-container figure {
+  margin: 3%;
+}
+
+.page-text .text-container figcaption {
+  font-size: 0.9rem;
+  color: #010440;
+}
 
 .page-text table {
   border-collapse: collapse;
@@ -540,27 +565,25 @@ figure img {
   justify-content: space-between;
 }
 .sponsor-group {
-  text-align: center; /* Center-align images within the group */
-  margin-bottom: 10px; /* Add some vertical spacing between groups */
+  text-align: center; 
+  margin-bottom: 10px; 
   justify-content: space-evenly;
 }
 .sponsor-group img {
-  max-width: 120px;
-  margin-bottom: 10px; /* Add some spacing between images */
+  max-width: 115px;
+  margin-bottom: 10px; 
   display: block;
 }
-/* Custom CSS for reducing the size of "sponsor 4" */
 .sponsor-group img[src*="DTU_sq.jpg"] {
-  max-width: 70px; /* Adjust the max width to make it smaller */
+  max-width: 70px; 
 }
-/* Custom CSS for reducing the size of "sponsor 5" */
 .sponsor-group img[src*="New_England_Biolabs_sq.jpg"] {
-  max-width: 70px; /* Adjust the max width to make it smaller */
+  max-width: 70px; 
 }
 @media (max-width: 767px) {
   .sponsor-group {
-    flex-direction: column; /* Stack images vertically on small screens */
-    align-items: center; /* Center-align images vertically on small screens */
+    flex-direction: column; 
+    align-items: center; 
   }
 }
 
