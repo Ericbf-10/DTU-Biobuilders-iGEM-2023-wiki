@@ -219,12 +219,6 @@ padding-bottom: 2rem;
   color: #f0ad4e; 
 }
 
-.page-text figure {
-  margin: 6%;
-  text-align: center; 
-  display: block;
-}
-
 .page-text img.svg-img {
   background-color: white;
   padding: 1rem;
@@ -235,8 +229,21 @@ padding-bottom: 2rem;
   height: auto; 
 }
 
+.page-text .album{
+  border: 5px solid rgb(255, 255, 255); /* Add a white border */
+  border-radius: 1rem; /* Add rounded corners */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.page-text figure {
+  margin: 4%;
+  text-align: center;
+  display: block;
+}
+
+
 .page-text figure figcaption{
-    padding-top: 1rem;
+    padding-top: 0.8rem;
     font-style: italic;
     text-align: center;
     color: #ccc;
@@ -254,10 +261,10 @@ padding-bottom: 2rem;
 }
 
 .page-text img.image {
-  width: 48%; /* Each image takes half of the square container */
+  width: 50%; /* Each image takes half of the square container */
   height: 100%; /* Make the images take the full height of the container */
   object-fit: cover; /* Crop the images to fit within the square container */
-  margin-bottom: 1rem; /* Add spacing between images */
+  margin: 0; /* Add spacing between images */
 }
 
 @media (max-width: 767px) {

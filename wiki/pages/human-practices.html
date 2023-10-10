@@ -1,72 +1,87 @@
 {% extends "layout.html" %}
-  
-{% block title %}Human Practices{% endblock %}
-{% block lead %}We ask every team to think deeply and creatively about whether their project is responsible and good for the world. Consider how the world affects your work and how your work affects the world.{% endblock %}
-
 {% block page_content %}
-<!--
-<div class="row mt-4">
-  <div class="col">
-    <div class="bd-callout bd-callout-info">
-      <h4>Silver Medal Criterion #2</h4>
-      <p>Explain how you have determined your work is responsible and good for the world.</p>
-      <hr>
-      <p>Please see the <a href="https://competition.igem.org/judging/medals">2023 Medals Page</a> for more information.</p>
+
+<div class="page">
+
+    <!-- Change This Header -->
+    <div class="page-header" style="background-image: url('https://static.igem.wiki/teams/4811/wiki/images/header-project-01.png');">
+      <h1>Human Practices</h1>  
     </div>
-  
-    <div class="bd-callout bd-callout-info">
-      <h4>Best Integrated Human Practices</h4>
-      <p>To compete for the Best Integrated Human Practices prize, please describe your work on this page and also fill out the description on the <a href="https://competition.igem.org/deliverables/judging-form">judging form</a>.</p>
-      <p>How does your project affect society and how does society influence the direction of your project? How might ethical considerations and stakeholder input guide your project purpose and design and the experiments you conduct in the lab? How does this feedback enter into the process of your work all through the iGEM competition? Document a thoughtful and creative approach to exploring these questions and how your project evolved in the process to compete for this award!</p>
-      <hr>
-      <p>Please see the <a href="https://competition.igem.org/judging/awards">2023 Awards Page</a> for more information.</p>
-    </div>
-  </div>
-</div>
+    <div class="container page-content">
+      <div class="row h-100">
 
-<div class="row mt-4">
-  <div class="col-lg-8">
-    <h2>Overview</h2>
-    <hr>
-    <p>At iGEM we believe societal considerations should be upfront and integrated throughout the design and execution of synthetic biology projects. “Human Practices” refers to iGEM teams' efforts to actively consider how the world affects their work and their work affects the world. Through your Human Practices activities, your team should demonstrate how you have thought carefully and creatively about whether your project is responsible and good for the world. We invite you to explore issues relating (but not limited) to the ethics, safety, security, and sustainability of your project, and to show how this exploration feeds back into your project purpose, design, and execution.</p>
-    <p>Please note you can compete for the Silver Medal criterion #2 and the Best Integrated Human Practices prize with this page.</p>
-    <p>For more information, please see the <a href="https://responsibility.igem.org/human-practices/what-is-human-practices">Human Practices Hub</a>.
-    <p>On this page, your team should document all of your Human Practices work and activities. You should write about the Human Practices topics you considered in your project, document any activities you conducted to explore these topics (such as engaging with experts and stakeholders), describe why you took a particular approach (including referencing any work you built upon), and explain if and how you integrated takeaways from your Human Practices work back into your project purpose, design and/or execution.</p>
-  </div>
-  <div class="col-lg-4">
-    <h2>Inspirations</h2>
-    <hr>
-    <ul>
-      <li><a href="https://2019.igem.org/Team:Thessaly/Human_Practices">2019 Thessaly</a></li>
-      <li><a href="https://2019.igem.org/Team:Linkoping_Sweden/Human_Practices">2019 Linkoping Sweden</a></li>
-      <li><a href="https://2019.igem.org/Team:FDR-HB_Peru/Human_Practices">2019 FDR HB Peru</a></li>
-      <li><a href="https://2020.igem.org/Team:William_and_Mary/Human_Practices">2020 William and Mary</a></li>
-      <li><a href="https://2020.igem.org/Team:Rochester/Human_Practices">2020 Rochester</a></li>
-      <li><a href="https://2020.igem.org/Team:Leiden/Human_Practices">2020 Leiden</a></li>
-      <li><a href="https://2020.igem.org/Team:Baltimore_BioCrew/Human_Practices">2020 Baltimore BioCrew</a></li>
-    </ul>
-  </div>
-</div>
--->
-<div class="grad-content h-100 main-content">
+        <!-- place for menu generation -->
+        <div class="toc col-lg-5">
+          <h5>Menu</h5>
+          <ul>
+            <li>
+            <!-- h2 level, add this #location, and change this menu -->
+              <a href="#project_description">> Project Description</a>
+              <ul>
+                <!-- h3 level, add this #location, and change this menu, use shorter names, also add ">" in front -->
+                <li><a href="#persistent_pollution">> Persistent Pollution</a></li>
+                <li><a href="#bioinformatics">> Bioinformatics Software</a></li>
+                <li><a href="#citizen">> Citizen Science</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#references">> References</a>
+            </li>
+          </ul>
+          <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+            <path stroke="#fff" stroke-width="3" fill="transparent" stroke-dasharray="0, 0, 0, 1000" stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)" />
+          </svg>
+        </div>
 
+        <!-- formal text goes under this div, h2, h3 should be labeled  -->
+        <div class="page-text col-lg-9">
+            
+            <!-- add id to h2 -->
+            <h2 id="project_description">Project description</h2>
+            <!-- add <hr> after h2 -->
+            <hr>
 
+            <p><b>Today in Denmark, the question is not where PFAS is, but where PFAS isn't.</b> Recent advances in environmental and health sciences have confirmed that PFAS, a class of "forever chemicals", are extremely detrimental to planetary and human well-being. As efforts are made to identify sites of contamination and sources of pollution, detection methods are not streamlined or efficient. A major obstacle in effectively controlling PFAS lies in sampling bias, where the need for specialized equipment, limited resources, and trained personnel hinders the acquisition of accurate, high-resolution, real-time information on global PFAS concentrations. </p>
+            
+            <!-- figure and figcaption -->
+            <figure>
+              <img src="https://static.igem.wiki/teams/4811/wiki/images/pfoa4b.png" alt="General idea diagram">
+              <figcaption>This is the image caption.</figcaption>
+            </figure>
 
-  <div class="row">
-      <div class="sidenav" style="top: 25%;">
-          <div  style="font-weight: bold; text-align: center; text-decoration: none; padding-top: 30px; padding-right: 65%;">Integrated Human Practices</div>
-          <a href="#">&gt; 1</a>
-          <a href="#">&gt; 2</a>
-          <a href="#">&gt; 3</a>
-          <a href="#">&gt; 4</a>
-          <a href="#">&gt; 5</a>
-          <a href="#">&gt; 6</a>
+            <!-- table style -->
+            <table>
+                <thead>
+                <tr>
+                <th><span>BioBrick ID</span></th>
+                <th><span>Description</span></th>
+                <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                <td><a href="http://parts.igem.org/Part:BBa_K4811000" target="_blank" rel="noopener"><span>BBa_K4811000</span></a></td>
+                <td><span>BRA</span></td>
+                </tr>
+                </tbody>
+            </table>
+
+            <!-- add id to h3 -->
+            <h3 id="persistent_pollution">Persistent pollution and the problems of PFAS</h3>
+            <h3 id="bioinformatics">Bioinformatics for better aptamer selection</h3>
+            <h3 id="citizen">Citizen science and environmental protection</h3>
+            
+            <!-- add id to h2 -->
+            <h2 id="references">References</h2>
+            <hr>
+
+            <!-- list -->
+            <ul>
+              <li>Brunn, H., Arnold, G., Körner, W., Rippen, G., Steinhäuser, K. G., & Valentin, I. (2023). PFAS: forever chemicals—persistent, bioaccumulative and mobile. Reviewing the status and the need for their phase out and remediation of contaminated sites. Environmental Sciences Europe 2023 35:1, 35(1), 1–50.</li>
+              <li>Cordner, A., Goldenman, G., Birnbaum, L. S., Brown, P., Miller, M. F., Mueller, R., Patton, S., Salvatore, D. H., & Trasande, L. (2021). The True Cost of PFAS and the Benefits of Acting Now. Environmental Science and Technology,   </ul>
+        </div>
       </div>
+    </div>
   </div>
-  
-  <a href="#" class="buttons">Previous</a>
-  <a href="#" class="buttons">Next</a>
-  </div>
-
 
 {% endblock %}
