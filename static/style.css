@@ -1,17 +1,22 @@
+/* Fonts */
+@font-face {
+  font-family: 'Bahnschrift';
+  src: url('https://uploads.igem.org/teams/4811/wiki/fonts/bahnschrift.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OpenSauceSans';
+  src: url('https://uploads.igem.org/teams/4811/wiki/fonts/OpenSauceSans-BlackItalic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+
 body { 
   padding-top: 80px;
 }
-.grad-header{
-  background-image: linear-gradient(white, #264187); 
-  height: 100vh;
-  padding-bottom: 100px;
-}
-.grad-content{
-  background-image: linear-gradient(#264187,#000614); 
-  height: 100vh;
-  /* padding-bottom: 100px; */
-}
-
 
 .left-aligned { margin-left: auto; }
 .bg-dark { background-color: #343a40 !important; }
@@ -78,7 +83,7 @@ footer{padding: 1px; }
 }
 
 .main-title {
-    font-family: 'Bahnschrift', sans-serif;
+    font-family: 'Bahnschrift';
     font-size: 2rem;;
     position: relative;
 
