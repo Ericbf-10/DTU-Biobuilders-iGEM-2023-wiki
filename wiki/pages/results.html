@@ -3,103 +3,121 @@
 {% block page_content %}
 <div class="page">
 
-    <!-- Change This Header -->
-    <div class="page-header">
-      <h1>Results</h1>  
-    </div>
-    <div class="container page-content">
-      <div class="row h-100">
+  <!-- Change This Header -->
+  <div class="page-header">
+    <h1>Results</h1>  
+  </div>
+  <div class="container page-content">
+    <div class="row h-100">
 
-        <!-- place for menu generation -->
-        <div class="toc col-lg-5">
-          <h5>Menu</h5>
-          <ul>
-            <li>
-            <!-- h2 level, add this #location, and change this menu -->
-              <a href="#results">> Results</a>
-              <ul>
-                <!-- h3 level, add this #location, and change this menu, use shorter names, also add ">" in front -->
-                <li><a href="#validation-of-the-tmsgfp">> Validation of the TMS (GFP)</a></li>
-                <li><a href="#validation-of-new-tmss">> Validation of the new TMSs</a></li>
-                <li><a href="#validation-of-pfoa-tmss">> Validation of PFOA TMSs</a></li>
-              </ul>
-            </li>
-          </ul>
-          <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-            <path stroke="#fff" stroke-width="3" fill="transparent" stroke-dasharray="0, 0, 0, 1000" stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)" />
-          </svg>
-        </div>
+      <!-- place for menu generation -->
+      <div class="toc col-lg-5">
+        <h5>Menu</h5>
+        <ul>
+          <li>
+          <!-- h2 level, add this #location, and change this menu -->
+            <a href="#results">> Results</a>
+            <ul>
+              <!-- h3 level, add this #location, and change this menu, use shorter names, also add ">" in front -->
+              <li><a href="#Introduction">> Introduction (GFP)</a></li>
+              <li><a href="#validation-of-the-tmsgfp">> Validation of the TMS (GFP)</a></li>
+              <li><a href="#validation-of-new-tmss">> Validation of the new TMSs</a></li>
+              <li><a href="#validation-of-pfoa-tmss">> Validation of PFOA TMSs</a></li>
+            </ul>
+          </li>
+        </ul>
+        <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+          <path stroke="#fff" stroke-width="3" fill="transparent" stroke-dasharray="0, 0, 0, 1000" stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)" />
+        </svg>
+      </div>
 
-        <!-- formal text goes under this div, h2, h3 should be labeled  -->
-        <div class="page-text col-lg-9"> 
-          <p id="results"></p>
-          </blockquote>
-          <h2 id="validation-of-the-tmsgfp">Validation of the TMS(GFP)</h2>
-          <p>The TMS(GFP) from A. Paul, <a href="http://parts.igem.org/Part:BBa_K4811002">BBa_K4811002</a>, was tested as the composite part <a href="http://parts.igem.org/Part:BBa_K4811018">BBa_K4811018</a> in <i>E. coli</i> BL21(DE3), where the TMS is induced by IPTG. This construct was USER cloned into the high copy number pUC19 backbone for testing.
-          A reporter, consisting of <a href="http://parts.igem.org/Part:BBa_K4811005">BBa_K4811005</a> was USER cloned into the low copy number pACYC184 backbone. This has GFP under control of Ptet promoter, and therefore induced by anhydrotetracycline(aTc). It also has mCherry, under control of the pBAD promoter, meaning L-arabinose will induce mCherry transcription. The mCherry transcript has the RBS <a href="http://parts.igem.org/Part:BBa_K4811000">BBa_K4811000</a> incorporated, meaning that translation of mCherry should be inhibited by the TMS(GFP).</p>
-          <p>A schematic of the system to be tested can be seen in Figure 1.</p>
-          <figure>
-            <img src="https://static.igem.wiki/teams/4811/wiki/parts-registry/pu03-pu07.png" alt="System scheme" style="background-color: white;">
-            <figcaption>Figure 1: GFP is induced by aTc, mCherry is induced by L-ara, and the TMS is induced by IPTG. The hypothesis is that the TMS is able to repress translation of mCherry, by binding to the RBS, and that GFP is able to bind to the TMS, releasing the mCherry RBS of the TMS, allowing translation to begin.
-            </figcaption>
-          </figure>
-          <p>First, the system was tested by induction with varying levels of L-arabinose and IPTG, to find the optimal induction conditions. The results of this can be seen below:</p>
-          <p>As described in <a href="https://2023.igem.wiki/dtu-denmark/engineering">Engineering</a>, 1 mM IPTG and 0.1 % w/v L-ara were found to be sufficient conditions for simultaneous expression of mCherry and the TMS. Using these conditions, GFP was induced by aTc, which showed the following (Figure 2, 3):</p>
-          <figure>
-            <img src="https://static.igem.wiki/teams/4811/wiki/data/finalgraphs/gfp-tms-gfp-varying-atc.png" alt="TMS-GFP" width="70%">
-            <figcaption>Figure 2: OD normalized relative GFP fluorescence, 488 nm excitation/545 nm emission, as a function of anhydrotetracycline (aTc) concentration. All measurements were with 1 mM IPTG and 0.1 % w/v L-arabinose, except the controls. As controls there is a culture induced with only 1 mM IPTG (IPTG), one only induced by L-arabinose (L-ara), and one with no inducers present (uninduced).
-            </figcaption>
-          </figure>
-          <figure>
-            <img src="https://static.igem.wiki/teams/4811/wiki/data/finalgraphs/gfp-tms-mcherry-varying-atc.png" alt="TMS-GFP2" width="70%">
-            <figcaption>Figure 3: OD normalized relative mCherry fluorescence, 561 nm excitation/617 nm emission, as a function of anhydrotetracycline (aTc) concentration. All measurements were with 1 mM IPTG and 0.1 % w/v L-arabinose, except the controls. As controls there is a culture induced with only 1 mM IPTG (IPTG), one only induced by L-arabinose (L-ara), and one with no inducers present (uninduced).
-            </figcaption>
-          </figure>
-          <p>The results showed that aTc induced GFP, with 0.5 &mu;M having the highest fluorescence. We would have expected 1 &mu;$M GFP to have even higher fluorescence, however it seems to be lower, but with a much higher standard deviation associated with the data.
-          With respect to mCherry fluorescence, we were not able to recreate the results of A. Paul, and the only statistical significance was for the measurement of 1 &mu;M of aTc, which had higher fluorescence than the other measurements. However, the corresponding GFP fluorescence was lower for 1 &mu;M aTc than for 0.5 &mu;M aTc. This may be an experimental error associated with the 1 &mu;M aTc measurement. There is also no statistical significance between the 0 &mu;M aTc measurement and the L-ara control, with only L-ara as inducer, and no IPTG.</p>
-          <h2 id="validation-of-new-tmss">Validation of new TMS&#39;s</h2>
-          <p>Using existing aptamers from the litterature, new TMSs were constructed. This includes two manganese responsive TMSs and two theophylline responsive TMSs. They were characterized by as the composite parts <a href="http://parts.igem.org/Part:BBa_K4811021">BBa_K4811021</a>(PT7-TMS(Mn1)-TT7),  <a href="http://parts.igem.org/Part:BBa_K4811031">BBa_K4811031</a> (PT7-TMS(Mn2)-TT7), <a href="http://parts.igem.org/Part:BBa_K4811022">BBa_K4811022</a>(PT7-TMS(Theo1)-TT7), and <a href="http://parts.igem.org/Part:BBa_K4811026">BBa_K4811026</a>(PT7-TMS(Theo2)-TT7) in <em>E. coli</em> BL21(DE3), where the TMS is induced by IPTG. The constructs were USER cloned into the high copy number pUC19 backbone for testing.
-          A reporter, consisting of <a href="http://parts.igem.org/Part:BBa_K4811003">BBa_K4811003</a> was USER cloned into the low copy number pACYC184 backbone. This has mCherry under control of the pBAD promoter, meaning L-arabinose will induce mCherry transcription. The mCherry transcript has the RBS <a href="http://parts.igem.org/Part:BBa_K4811000">BBa_K4811000</a> incorporated, meaning that translation of mCherry should be inhibited by the TMS, if the inhibiting capabilities are conserved upon changing the D-loop.</p>
-          <p>A general schematic of the system to be tested can be seen in Figure 4</p>
-          <figure>
-            <img src="https://static.igem.wiki/teams/4811/wiki/parts-registry/pu01-pu0x.png" alt="Val new TMS" style="background-color: white;" width="70%">
-            <figcaption>Figure 4: mCherry is induced by L-ara, and the TMS is induced by IPTG. The hypothesis is, that the TMS is able to repress translation of mCherry, by binding to the RBS, and that the ligand is able to bind to the TMS aptamer in the D-loop, releasing the mCherry RBS of the TMS, allowing translation to begin.
-            </figcaption>
-          </figure>
-          <p>Two theophylline TMSs were tested for mcherry fluorescence based on concentration of theophylline, and we achived the results displayed in Figure 5.</p>
-          <figure>
-            <img src="https://static.igem.wiki/teams/4811/wiki/data/finalgraphs/theo-tmss-combined.png" alt="Results new TMS" width="70%">
-            <figcaption>Figure 5: OD normalized relative mCherry fluorescence, 561 nm excitation/617 nm emission, as a function of theophylline concentration. All measurements were with 1 mM IPTG and 0.1 % w/v L-arabinose.
-            </figcaption>
-          </figure>
-          <p>The results showed a statistically significant decrease in mCherry fluorescence based on theophylline concentration for TMS(theo2), but no statistical significance for TMS(theo1), which had a much higher standard deviation associated with its results.</p>
-          <p>Additionally, two manganese TMSs were tested, and the results can be seen in Figure 6.</p>
-          <figure>
-            <img src="https://static.igem.wiki/teams/4811/wiki/data/finalgraphs/mn-tms-combined.png" alt="Results new TMS" width="70%">
-            <figcaption>Figure 6: OD normalized relative mCherry fluorescence, 561 nm excitation/617 nm emission, as a function of manganese concentration. All measurements were with 1 mM IPTG and 0.1 % w/v L-arabinose.
-            </figcaption>
-          </figure>
-          <p>Although a decrease in mCherry fluorescence can be seen based on manganese concentration, the results are not as statistically significant as for TMS(Theo2).</p>
-          <h2 id="validation-of-pfoa-tmss">Validation of PFOA TMS&#39;s</h2>
-          <p>3 different PFOA aptamers were incorporated into the D-loop of the TMS&#39;s <a href="http://parts.igem.org/Part:BBa_K4811024">TMS(PFOA1) - BBa_K4811024</a>, <a href="http://parts.igem.org/Part:BBa_K4811030">TMS(PFOA2) - BBa_K4811030</a>, and <a href="http://parts.igem.org/Part:BBa_K4811025">TMS(PFOA3) - BBa_K4811025</a>. These were tested in quadruplicates with varying concentration of PFOA to create the graph displayed in Figure 7.</p>
-          <figure>
-            <img src="https://static.igem.wiki/teams/4811/wiki/data/finalgraphs/pfoa-tmss-combined.png" alt="PFOA TMS rsults" width="70%">
-            <figcaption>Figure 7: OD normalized relative mCherry fluorescence, 561 nm excitation/617 nm emission, as a function of PFOA concentration. All measurements were with 1 mM IPTG and 0.1 % w/v L-arabinose.
-            </figcaption>
-          </figure>
-          <p>All PFOA TMSs showed a decrease in mCherry fluorescence based on PFOA concentration. As mentioned in <a href="https://2023.igem.wiki/dtu-denmark/engineering">Engineering</a>, this was the opposite as the expected, leading us to revise the model for how the TMS functions with these specific aptamers. Assuming that the observed correlation between PFOA and fluorescence is based upon a change in the structure of the TMS, the model shown in Figure 8 would explain the observed results.</p>
-          <figure>
-            <img src="https://static.igem.wiki/teams/4811/wiki/images/mcherry-graph.svg" alt="PFOA TMS model" style="background-color: white;">
-            <figcaption>Figure 8:The results showed PFOA concentration leading to a lower fluorescence. The model shown here would explain these results, with the TMS binding to the RBS <a href="http://parts.igem.org/Part:BBa_K4811000">BBa_K4811000</a> in presence of PFOA.
-            </figcaption>
-          </figure>
-
+      <!-- formal text goes under this div, h2, h3 should be labeled  -->
+      <div class="page-text col-lg-9"> 
+        <p id="results"></p>
+        <hr> 
+        </blockquote>
+        <h2 id="introduction">Introduction</h2>
+        <hr>
+        <p>The original tRNA-Mimicking Sequence (TMS) comes from the work conducted by Paul <em>et al.</em> (2020). Here, they achieve ligand-selective protein translation-inhibition by creating a tRNA-like struture modified by insertion of an aptamer sequence. Across our project, we tried to reproduce part of the work by Paul <em>et al.</em> (2020), and we expanded the TMS family with several new structures to be used as biobricks applicable mainly for biosensor production, and specifically for PFOA detection in water.</p>
+        <h2 id="validation-of-the-tmsgfp">Validation of the TMS(GFP)</h2>
+        <hr>
+        <p>The first step of our project was the reproduction of the TMS (GFP) from Paul <em>et al.</em> (2020), <a href="http://parts.igem.org/Part:BBa_K4811002">BBa_K4811002</a>. This was tested as the composite part <a href="http://parts.igem.org/Part:BBa_K4811018">BBa_K4811018</a> in <i>E. coli</i> BL21(DE3), where the TMS is induced by addition of Isopropyl β-d-1-thiogalactopyranoside (IPTG). This construct was USER cloned into the high copy number pUC19 backbone for testing (see <a href="https://2023.igem.wiki/dtu-denmark/design">Design</a> and <a href="https://2023.igem.wiki/dtu-denmark/engineering">Engineering</a>).
+         A reporter, consisting of <a href="http://parts.igem.org/Part:BBa_K4811005">BBa_K4811005</a> was USER cloned into the low copy number pACYC184 backbone. This has GFP under the control of the P<sub>tet</sub> promoter, and therefore is induced by anhydrotetracycline (aTc). It also has mCherry, under the control of the pBAD promoter, meaning L-arabinose will induce mCherry transcription. The mCherry transcript has the RBS <a href="http://parts.igem.org/Part:BBa_K4811000">BBa_K4811000</a> incorporated, meaning that translation of mCherry should be inhibited by the TMS (GFP). With a GFP aptamer incorporated in the D-loop, Paul <em>et al.</em> (2020) showed GFP interfering with this inhibition. Higher levels of GFP lead to more mCherry fluorescence.</p>  
+        <p>A schematic of the system to be tested can be seen in Figure 1.</p>
+        <figure>
+          <img src="https://static.igem.wiki/teams/4811/wiki/parts-registry/pu03-pu07.png" alt="System scheme" style="background-color: white;">
+          <figcaption>Figure 1: GFP is induced by aTc, mCherry is induced by L-ara, and the TMS is induced by IPTG. The hypothesis is that the TMS is able to repress translation of mCherry, by binding to the RBS, and that GFP is able to bind to the TMS, releasing the mCherry RBS of the TMS, allowing translation to begin.
+          </figcaption>
+        </figure>
+        <p>First, the system was tested by induction with varying levels of L-arabinose and IPTG, to find the optimal induction conditions. The results of this can be seen in Figures 2 and 3.</p>
+        <figure>
+          <img src="https://static.igem.wiki/teams/4811/wiki/data/finalgraphs/gfp-tms-varying-iptg.png" alt="GFP-resultsIPTG">
+          <figcaption>Figure 2: mCherry fluorescence normalized relative to OD, 561 nm excitation/617 nm emission, as a function of IPTG concentration. All measurements were with 0.1 % w/v L-arabinose, except the controls. As controls there is a culture induced with no inducers present (uninduced).
+          </figcaption>
+        </figure>
+        <figure>
+          <img src="https://static.igem.wiki/teams/4811/wiki/data/finalgraphs/gfp-tms-varying-arabinose.png" alt="GFP-resultsAra">
+          <figcaption>Figure 3: mCherry fluorescence normalized relative to OD, 561 nm excitation/617 nm emission, as a function of L-arabinose concentration. All measurements were with 1 mM IPTG and 0.1 % w/v L-arabinose, except the controls. As controls there is a culture induced with only 1 mM IPTG (IPTG), one only induced by L-arabinose (L-ara), and one with no inducers present (uninduced).
+          </figcaption>
+        </figure>
+        <p>As described in <a href="https://2023.igem.wiki/dtu-denmark/engineering">Engineering</a>, 1 mM IPTG and 0.1 % w/v L-arabinose were found to be sufficient conditions for simultaneous expression of mCherry and the TMS. Using these conditions, GFP was induced by aTc, which showed the results displayed in Figure 4.</p>
+        <figure>
+          <img src="https://static.igem.wiki/teams/4811/wiki/data/finalgraphs/gfp-tms-gfp-varying-atc.png" alt="TMS-GFP" width="70%">
+          <figcaption>Figure 4: GFP fluorescence normalized relative to OD, 488 nm excitation/545 nm emission, as a function of anhydrotetracycline (aTc) concentration. All measurements were with 1 mM IPTG and 0.1 % w/v L-arabinose, except the controls. As controls there is a culture induced with only 1 mM IPTG, one only induced by L-arabinose (L-ara), and one with no inducers present (uninduced).
+          </figcaption>
+        </figure>
+        <p>The results showed that aTc induced GFP, with 0.5 &mu;M having the highest fluorescence. We would have expected 1 &mu;M GFP to have even higher fluorescence, however it seems to be lower, but with a much higher standard deviation associated with the data.
+          With respect to mCherry fluorescence, we were not able to recreate the results of  Paul <em>et al.</em> (2020), and the only statistical significance was for the measurement of 1 &mu;M of aTc, which had higher fluorescence than the other measurements. However, the corresponding GFP fluorescence was lower for 1 &mu;M aTc than for 0.5 &mu;M aTc. This may be an experimental error associated with the 1 &mu;M aTc measurement. There is also no statistical significance between the 0 &mu;M aTc measurement and the L-ara control, with only L-ara as inducer, and no IPTG (Figure 5).</p>
+        <figure>
+          <img src="https://static.igem.wiki/teams/4811/wiki/data/finalgraphs/gfp-tms-mcherry-varying-atc.png" alt="TMS-GFP2" width="70%">
+          <figcaption>Figure 5: mCherry fluorescence normalized relative to OD, 561 nm excitation/617 nm emission, as a function of anhydrotetracycline (aTc) concentration. All measurements were with 1 mM IPTG and 0.1 % w/v L-arabinose, except the controls. As controls there is a culture induced with only 1 mM (IPTG), one only induced by L-arabinose (L-ara), and one with no inducers present (uninduced).
+          </figcaption>
+        </figure>
+        <h2 id="validation-of-new-tmss">Validation of new TMSs</h2>
+        <hr>
+        <p>Using existing aptamers from the literature, new TMSs were constructed. This includes two manganese responsive TMSs and two theophylline responsive TMSs. They were characterized as the following composite parts: </p>
+        <ul>
+        <li><a href="http://parts.igem.org/Part:BBa_K4811021">BBa_K4811021</a>(PT7-TMS(Mn1)-TT7)</li>
+        <li><a href="http://parts.igem.org/Part:BBa_K4811031">BBa_K4811031</a> (PT7-TMS(Mn2)-TT7)</li>
+        <li><a href="http://parts.igem.org/Part:BBa_K4811022">BBa_K4811022</a>(PT7-TMS(Theo1)-TT7)</li>
+        <li><a href="http://parts.igem.org/Part:BBa_K4811026">BBa_K4811026</a>(PT7-TMS(Theo2)-TT7)</li>
+        </ul>
+        <p>All TMSs were characterized in <em>E. coli</em> BL21(DE3), where the TMS is induced by IPTG through the T7 polymerase of the DE3 system. The constructs were USER cloned into the high copy number pUC19 backbone for testing.
+        A reporter, consisting of <a href="http://parts.igem.org/Part:BBa_K4811003">BBa_K4811003</a> was USER cloned into the low copy number pACYC184 backbone. This has mCherry under control of the pBAD promoter, meaning L-arabinose will induce mCherry transcription. The mCherry transcript has the RBS <a href="http://parts.igem.org/Part:BBa_K4811000">BBa_K4811000</a> incorporated, meaning that translation of mCherry should be inhibited by the TMS, if the inhibiting capabilities are conserved upon changing the D-loop.</p>
+        <p>A general schematic of the system to be tested can be seen in Figure 6.</p>
+        <figure>
+          <img src="https://static.igem.wiki/teams/4811/wiki/parts-registry/pu01-pu0x.png" alt="Val new TMS" style="background-color: white;" width="70%">
+          <figcaption>Figure 6: mCherry is induced by L-ara, and the TMS is induced by IPTG. The hypothesis is, that the TMS is able to repress translation of mCherry, by binding to the RBS, and that the ligand is able to bind to the TMS aptamer in the D-loop, releasing the mCherry RBS of the TMS, allowing translation to begin.
+          </figcaption>
+        </figure>
+        <p>The two theophylline TMSs were designed using the paper published by Suess *et al.* (2004) for the aptamer sequence, and these were tested for mCherry fluorescence based on concentration of the compound theophylline. The results showed a statistically significant decrease in mCherry fluorescence dependent on theophylline concentration for TMS(theo2), but no statistical significance for TMS(theo1), which had a much higher standard deviation associated with its results. Together, this shows that it is possible to insert an aptamer sequence from literature and, with the appropriate design changes, adapt it to the TMS platform in order to create a TMS system that is responsive to the desired ligand in a dose-controllable way. Results are summarized in Figure 7.</p>
+        <figure>
+          <img src="https://static.igem.wiki/teams/4811/wiki/data/finalgraphs/theo-tmss-combined.png" alt="Results Theo TMS" width="70%">
+          <figcaption>Figure 7: mCherry fluorescence normalized relative to OD, 561 nm excitation/617 nm emission, as a function of theophylline concentration. All measurements were with 1 mM IPTG and 0.1 % w/v L-arabinose.
+          </figcaption>
+        </figure>
+        <p>Additionally, two manganese TMSs were tested, and the results are summarized in Figure 8. A decrease in mCherry fluorescence can be seen in TMS(Mn1). To improve the Mn-dependent reporter translation inhibition, the principles that were successful in the design of TMS(Theo2) were applied to TMS(Mn2). This construct, however, had a less significant decrease in fluorescence than the first iteration of the engineering cycle.</p>
+        <figure>
+          <img src="https://static.igem.wiki/teams/4811/wiki/data/finalgraphs/mn-tms-combined.png" alt="Results Mn TMS" width="70%">
+          <figcaption>Figure 8: mCherry fluorescence normalized relative to OD, 561 nm excitation/617 nm emission, as a function of manganese concentration. All measurements were with 1 mM IPTG and 0.1 % w/v L-arabinose.
+          </figcaption>
+        </figure>
+        <h2 id="validation-of-pfoa-tmss">Validation of PFOA TMSs</h2>
+        <p>Applying the principles learned from the design of the above TMSs, 3 different PFOA aptamer designs were incorporated into the D-loop of the TMS structure starting from the aptamer described in Park <em>et al.</em> (2022), creating <a href="http://parts.igem.org/Part:BBa_K4811024">TMS(PFOA1) - BBa_K4811024</a>, <a href="http://parts.igem.org/Part:BBa_K4811030">TMS(PFOA2) - BBa_K4811030</a>, and <a href="http://parts.igem.org/Part:BBa_K4811025">TMS(PFOA3) - BBa_K4811025</a>. These were tested in quadruplicates with varying concentration of PFOA and the results are summarized in Figure 9.
+          All PFOA TMSs showed a decrease in mCherry fluorescence based on PFOA concentration. The best TMS designed is the one produced in the second iteration of the engineering cycle. Crucially, and perhaps interestingly, the original inserted aptamer sequence from the Park <em>et al.</em> (2022), selected through a PCR-dependent technique such as SELEX, is a DNA sequence, but our TMS(PFOA)s seem to work despite being in RNA form.</p>
+        <figure>
+          <img src="https://static.igem.wiki/teams/4811/wiki/data/finalgraphs/pfoa-tmss-combined.png" alt="PFOA TMS rsults" width="70%">
+          <figcaption>Figure 9: mCherry fluorescence normalized relative to OD, 561 nm excitation/617 nm emission, as a function of PFOA concentration. All measurements were with 1 mM IPTG and 0.1 % w/v L-arabinose.
+          </figcaption>
+        </figure>
+          
+          
           <h2 id="discussion-and-future-perspectives">Discussion and future perspectives</h2>
-          <p>As mentioned in <a href="https://2023.igem.wiki/dtu-denmark/engineering">Engineering</a>, although contrary to what was expected from the original TMS paper, all the TMS biobricks produced in this work show a ligand-dependent inhibition of protein translation. This suggests a need to revise the mechanistic model of how the TMS structures exert their function. Overall, the produced TMSs show a concentration-dependent inhibitory activity whose specificity is conferred by the inserted aptamer sequence. Assuming that the observed correlation between PFOA and fluorescence is based upon a change in the structure of the TMS, a stabilization of the most stable inhibitory structure would explain the observed results.</p>
+          <p>As mentioned in <a href="https://2023.igem.wiki/dtu-denmark/engineering">Engineering</a>, although contrary to what was expected from the original TMS paper, all the TMS biobricks produced in this work show a ligand-dependent inhibition of protein translation. This suggests a need to revise the mechanistic model of how the TMS structures exert their function. Overall, the produced TMSs show a concentration-dependent inhibitory activity whose specificity is conferred by the inserted aptamer sequence. Assuming that the observed correlation between PFOA and fluorescence is based upon a change in the structure of the TMS, a stabilization of the most stable inhibitory structure would explain the observed results (Figure 10).</p>
           <figure>
             <div id="animation"></div>
             <figcaption>
-              Revised mechanistic model based on the findings of this work. In this example, theophylline binds to its TMS onto the D-loop inserted aptamer, and after binding on the reporter mRNA, fluorescence is reduced.</p>
+              Figure 10: Revised mechanistic model based on the findings of this work. In this example, theophylline binds to its TMS onto the D-loop inserted aptamer, and after binding on the reporter mRNA, fluorescence is reduced.</p>
             </figcaption>
           </figure>
 
