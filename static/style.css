@@ -601,3 +601,7 @@ figure img {
   from {opacity: .4} 
   to {opacity: 1}
 }
+
+.cell-text{
+  display: none;
+}
