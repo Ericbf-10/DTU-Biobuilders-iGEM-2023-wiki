@@ -23,6 +23,7 @@
               <li><a href="#validation-of-the-tmsgfp">> Validation of the TMS (GFP)</a></li>
               <li><a href="#validation-of-new-tmss">> Validation of the new TMSs</a></li>
               <li><a href="#validation-of-pfoa-tmss">> Validation of PFOA TMSs</a></li>
+              <li><a href="#discussion-and-future-perspectives">> Discussion and future perspectives</a></li>            
             </ul>
           </li>
         </ul>
@@ -37,10 +38,8 @@
         <hr> 
         </blockquote>
         <h2 id="introduction">Introduction</h2>
-        <hr>
         <p>The original tRNA-Mimicking Sequence (TMS) comes from the work conducted by Paul <em>et al.</em> (2020). Here, they achieve ligand-selective protein translation-inhibition by creating a tRNA-like struture modified by insertion of an aptamer sequence. Across our project, we tried to reproduce part of the work by Paul <em>et al.</em> (2020), and we expanded the TMS family with several new structures to be used as biobricks applicable mainly for biosensor production, and specifically for PFOA detection in water.</p>
         <h2 id="validation-of-the-tmsgfp">Validation of the TMS(GFP)</h2>
-        <hr>
         <p>The first step of our project was the reproduction of the TMS (GFP) from Paul <em>et al.</em> (2020), <a href="http://parts.igem.org/Part:BBa_K4811002">BBa_K4811002</a>. This was tested as the composite part <a href="http://parts.igem.org/Part:BBa_K4811018">BBa_K4811018</a> in <i>E. coli</i> BL21(DE3), where the TMS is induced by addition of Isopropyl β-d-1-thiogalactopyranoside (IPTG). This construct was USER cloned into the high copy number pUC19 backbone for testing (see <a href="https://2023.igem.wiki/dtu-denmark/design">Design</a> and <a href="https://2023.igem.wiki/dtu-denmark/engineering">Engineering</a>).
          A reporter, consisting of <a href="http://parts.igem.org/Part:BBa_K4811005">BBa_K4811005</a> was USER cloned into the low copy number pACYC184 backbone. This has GFP under the control of the P<sub>tet</sub> promoter, and therefore is induced by anhydrotetracycline (aTc). It also has mCherry, under the control of the pBAD promoter, meaning L-arabinose will induce mCherry transcription. The mCherry transcript has the RBS <a href="http://parts.igem.org/Part:BBa_K4811000">BBa_K4811000</a> incorporated, meaning that translation of mCherry should be inhibited by the TMS (GFP). With a GFP aptamer incorporated in the D-loop, Paul <em>et al.</em> (2020) showed GFP interfering with this inhibition. Higher levels of GFP lead to more mCherry fluorescence.</p>  
         <p>A schematic of the system to be tested can be seen in Figure 1.</p>
@@ -74,7 +73,6 @@
           </figcaption>
         </figure>
         <h2 id="validation-of-new-tmss">Validation of new TMSs</h2>
-        <hr>
         <p>Using existing aptamers from the literature, new TMSs were constructed. This includes two manganese responsive TMSs and two theophylline responsive TMSs. They were characterized as the following composite parts: </p>
         <ul>
         <li><a href="http://parts.igem.org/Part:BBa_K4811021">BBa_K4811021</a>(PT7-TMS(Mn1)-TT7)</li>
@@ -109,9 +107,7 @@
           <img src="https://static.igem.wiki/teams/4811/wiki/data/finalgraphs/pfoa-tmss-combined.png" alt="PFOA TMS rsults" width="70%">
           <figcaption>Figure 9: mCherry fluorescence normalized relative to OD, 561 nm excitation/617 nm emission, as a function of PFOA concentration. All measurements were with 1 mM IPTG and 0.1 % w/v L-arabinose.
           </figcaption>
-        </figure>
-          
-          
+        </figure>   
           <h2 id="discussion-and-future-perspectives">Discussion and future perspectives</h2>
           <p>As mentioned in <a href="https://2023.igem.wiki/dtu-denmark/engineering">Engineering</a>, although contrary to what was expected from the original TMS paper, all the TMS biobricks produced in this work show a ligand-dependent inhibition of protein translation. This suggests a need to revise the mechanistic model of how the TMS structures exert their function. Overall, the produced TMSs show a concentration-dependent inhibitory activity whose specificity is conferred by the inserted aptamer sequence. Assuming that the observed correlation between PFOA and fluorescence is based upon a change in the structure of the TMS, a stabilization of the most stable inhibitory structure would explain the observed results (Figure 10).</p>
           <figure>
