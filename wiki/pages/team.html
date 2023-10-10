@@ -1,18 +1,12 @@
 {% extends "layout.html" %}
 
 {% block page_content %}
-<div class="page">
-  <div class="background-image"
-  style="background-image: url('https://static.igem.wiki/teams/4811/wiki/team/team4.jpeg');
-         background-size: cover;
-         background-position: top center;
-         height: 600px;
-         width: 100%;
-         transition: background-image 0.3s ease-in-out;">
+<div class="page" style="background-position-y: 0rem;">
+  <div class="hover-image">
 </div>
 
 <script>
-  const backgroundElement = document.querySelector('.background-image');
+  const backgroundElement = document.querySelector('.hover-image');
   let hoverTimeout;
 
   backgroundElement.addEventListener('mouseenter', function() {

@@ -428,16 +428,31 @@ figure img {
   height: auto; /* Maintain the aspect ratio */
 }
 
-.hover-image {
-  width: 100%; /* Set the width and height of the container */
-  height: 600px;
+.page .hover-image {
   background-size: cover;
+  background-repeat: no-repeat;
   background-position: top center;
-  transition: background-image 0.3s ease; 
+  height: 600px;
+  width: 100%;
+  transition: background-image 0.3s ease-in-out;
+  background-image: url('https://static.igem.wiki/teams/4811/wiki/team/team4.jpeg')
 }
 
-.hover-image:hover {
-  background-image: url('static/team/team2.jpeg'); 
+/* Media query for screens with a maximum width of 768px */
+@media (max-width: 960px) {
+  .page .hover-image {
+    background-size: cover;
+    background-position: top center;
+    height: 20rem;
+  }
+}
+
+@media (max-width: 550px) {
+  .page .hover-image {
+    background-size: cover;
+    background-position: top center;
+    height: 10rem;
+  }
 }
 
 .team-member {
