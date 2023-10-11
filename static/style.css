@@ -653,6 +653,57 @@ footer a:hover { color: white; text-decoration: underline; }
   to {opacity: 1}
 }
 
+/*Tables for experiment page*/
 .cell-text{
   display: none;
 }
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-ycr8{background-color:#ffffff;text-align:left;vertical-align:top;border-color:inherit;}
+.tg .tg-lxkz{background-color:#FEECD9;border-color:inherit;text-align:left;vertical-align:top;}
+.tg .tg-jcg2{background-color:#FEECD9;text-align:left;vertical-align:top;border-color:inherit;}
+.tg .tg-c6of{background-color:#ffffff;border-color:inherit;text-align:left;vertical-align:top;}
+.tg .tg-0lax{text-align:left;vertical-align:top;border-color:inherit;}
+.tg .tg-xdti{background-color:#FCF5D1;border-color:inherit;text-align:left;vertical-align:top;}
+.tg .tg-2mxx{background-color:#FCF5D1;text-align:left;vertical-align:top;border-color:inherit;}
+.tg .tg-4i0c{background-color:#DDDBF0;text-align:left;vertical-align:top;border-color:inherit;}
+.tg .tg-nefs{background-color:#D4F6E1;text-align:left;vertical-align:top;border-color:inherit;}
+.tg .tg-ktyi{background-color:#FFF;text-align:left;vertical-align:top;border-color:inherit;}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;}
+.tg .tg-rr3b{background-color:#DDDBF0;border-color:inherit;text-align:left;vertical-align:top;}
+.tg .tg-nskj{background-color:#D4F6E1;border-color:inherit;text-align:left;vertical-align:top;}
+.tg .tg-mq52{background-color:#D5F0AD;text-align:left;vertical-align:top;border-color:inherit;}
+.tg .tg-btco{background-color:#F2BBBB;text-align:left;vertical-align:top;border-color:inherit;}
+.tg .tg-f6vz{background-color:#D2B7D4;text-align:left;vertical-align:top;border-color:inherit;}
+.tg .tg-6hra{background-color:#E8F9CF;border-color:inherit;text-align:left;vertical-align:top;}
+.tg .tg-h0mt{background-color:#E8F9CF;text-align:left;vertical-align:top;border-color:inherit;}
+.tg .tg-cly1{text-align:left;vertical-align:middle;}
+.tg .tg-ghha{background-color:#FCF5D1;border-color:#000000;text-align:left;vertical-align:middle;}
+.tg .tg-44gr{background-color:#FCF5D1;text-align:left;vertical-align:middle;}
+.tg .tg-yptd{background-color:#DDDBF0;border-color:#000000;text-align:left;vertical-align:middle;}
+.tg .tg-9eks{background-color:#DDDBF0;text-align:left;vertical-align:middle;}
+.tg .tg-ajf8{background-color:#C2EDF8;text-align:left;vertical-align:middle;}
+.tg .tg-2y0e{background-color:#E8F9CF;border-color:#000000;text-align:left;vertical-align:middle;}
+.tg .tg-87mj{background-color:#F9DAD0;border-color:#000000;text-align:left;vertical-align:middle;}
+.tg .tg-axrs{background-color:#D4F6E1;text-align:left;vertical-align:middle;}
+.tg .tg-g1rt{background-color:#F6C7B9;text-align:left;vertical-align:middle;}
+.tg .tg-z2ag{background-color:#F9DAD0;text-align:left;vertical-align:middle;}
+.tg .tg-yk8m{background-color:#D5F0AD;text-align:left;vertical-align:middle;}
+.tg .tg-5423{background-color:#E8F9CF;text-align:left;vertical-align:middle;}
+.tg .tg-7kyp{background-color:#ABEFC4;text-align:left;vertical-align:middle;}
+.tg .tg-ajf8{background-color:#C2EDF8;text-align:left;vertical-align:middle;}
+.tg .tg-81u1{background-color:#ffffff;border-color:#000000;text-align:left;vertical-align:middle;}
+.tg .tg-y0hg{background-color:#ffffff;text-align:left;vertical-align:middle;}
+.tg .tg-cfuy{background-color:#0DAF49;text-align:left;vertical-align:middle;}
+.tg .tg-9eks{background-color:#DDDBF0;text-align:left;vertical-align:middle;}
+.tg .tg-yptd{background-color:#DDDBF0;border-color:#000000;text-align:left;vertical-align:middle;}
+.tg .tg-9wuf{background-color:#EB820F;text-align:left;vertical-align:middle;}
+.tg .tg-z2ag{background-color:#F9DAD0;text-align:left;vertical-align:middle;}
+.tg .tg-x3ok{background-color:#F6C7B9;border-color:#000000;text-align:left;vertical-align:middle;}
+.tg .tg-ijk7{background-color:#D5F0AD;border-color:#000000;text-align:left;vertical-align:middle}
+.tg-djgr{background-color:#D4F6E1;border-color:#000000;text-align:left;vertical-align:middle}
+.tg .tg-mol4{background-color:#F2BBBB;text-align:left;vertical-align:middle}
+.tg .tg-qfs1{background-color:#D2B7D4;text-align:left;vertical-align:middle}
