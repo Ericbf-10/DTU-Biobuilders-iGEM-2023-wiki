@@ -14,15 +14,16 @@
         <div class="toc col-lg-5">
           <h5>Menu</h5>
           <ul>
-            <li>
               <!-- h3 level, add this #location, and change this menu, use shorter names, also add ">" in front -->
-              <li><a href="#persistent_pollution">> Persistent Pollution</a></li>
-              <li><a href="#bioinformatics">> Bioinformatics Software</a></li>
-              <li><a href="#citizen">> Citizen Science</a></li>
-            </li>
-            <li>
-              <a href="#references">> References</a>
-            </li>
+              <li><a href="#background">> Background</a></li>
+              <li><a href="#pfas-detection">> PFAS detection</a></li>
+              <li><a href="#designing-our-test">> Designing our test</a></li>
+              <li><a href="#considerations-of-our-design">> Considerations of our design</a></li>
+              <li><a href="#ethical-impact">> Ethical impact</a></li>
+              <li><a href="#perception-and-future">> Perception and Future</a></li>
+              <li><a href="#methodology">> Methodology</a></li>
+              <li><a href="#references">> References</a></li>
+
           </ul>
           <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
             <path stroke="#fff" stroke-width="3" fill="transparent" stroke-dasharray="0, 0, 0, 1000" stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)" />
@@ -31,51 +32,109 @@
 
         <!-- formal text goes under this div, h2, h3 should be labeled  -->
         <div class="page-text col-lg-9">
-            
-            <!-- add id to h2 -->
-            <h2 id="project_description">Project description</h2>
-            <!-- add <hr> after h2 -->
-            <hr>
 
-            <p><b>Today in Denmark, the question is not where PFAS is, but where PFAS isn't.</b> Recent advances in environmental and health sciences have confirmed that PFAS, a class of "forever chemicals", are extremely detrimental to planetary and human well-being. As efforts are made to identify sites of contamination and sources of pollution, detection methods are not streamlined or efficient. A major obstacle in effectively controlling PFAS lies in sampling bias, where the need for specialized equipment, limited resources, and trained personnel hinders the acquisition of accurate, high-resolution, real-time information on global PFAS concentrations. </p>
-            
-            <!-- figure and figcaption -->
-            <figure>
-              <img src="https://static.igem.wiki/teams/4811/wiki/images/pfoa4b.png" alt="General idea diagram">
-              <figcaption>This is the image caption.</figcaption>
+          <h3 id="background">Background</h3>
+          <p>Our team’s involvement with the principles of Human Practices started from the beginning of our project, after identifying PFAS as an issue we could tackle with our knowledge of synthetic biology. This was prompted by the various reports around Denmark regarding its emerging concern and the conversations we had with several experts, including <strong>Philippe Grandjean</strong>, who has been studying the long-term effects of PFAS on human health at SDU Health, and <strong>BioFos</strong>, a wastewater treatment plant that is working towards solving pollution issues in their plants.</p>
+          <p>However, PFAS is an extensive issue, so we decided to focus on a part of the problem we would be able to make improvements upon (Wackett 2021, Wackett 2022). For PFAS, the two sides of the proverbial coin are, namely, their detection and their degradation. Therefore, we started contacting experts who have worked with this class of compounds during the last decade. Thankfully, research efforts at DTU have been focused towards this matter in our own Novo Nordisk Center for Biosustainability. </p>
+          <p>From our conversations with <strong>Pablo Nikel and Jinbei Li</strong>, the leader of the Systems Environmental Biology and a researcher at the Strain Design Team, respectively, we understood that the biological degradation of PFAS is the least feasible aspect of this issue, due to their own nature as <strong>forever chemicals</strong>. Furthermore, extensive work has already been conducted by <strong>previous iGEM teams</strong> to improve our knowledge of halogenases, the enzymes at the forefront of this process (<a href="https://parts.igem.org/Part:BBa_K2073000">BBa_K2073000</a>,<a href="https://parts.igem.org/Part:BBa_K2073011">BBa_K2073011</a>,<a href="https://parts.igem.org/Part:BBa_K2073012">BBa_K2073012</a>). Thus, in order to expand our knowledge on a different side of the issue, and taking inspiration from a riboswitch that reacts to fluorine discovered and characterized by the Systems Environmental Microbiology group, we decided to focus our efforts on designing and applying a biological test for PFAS in liquid samples (Calero <em>et al.</em>, 2020).</p>
+          <div class="text-container">
+            <figure class="square">
+              <img src="https://static.igem.wiki/teams/4811/wiki/images/hp/grandjean.png" alt="image">    
+            </figure>
+            <h4>Philippe Grandjean</h4>
+            <p>In the conversation with Philippe Grandjean, it became evident that PFAS contamination is <b>a pressing concern with far-reaching implications</b>. He emphasized the long-term nature of PFAS exposure, as these persistent chemicals accumulate in the human body over time. While acute toxicity is not a primary concern, the conversation focused on the potential health risks associated with chronic exposure, particularly in the context of the next generation. He highlighted <b>various adverse effects</b>, including weakened immune systems, increased risk of diseases such as cancer, elevated cholesterol, and skeletal issues, particularly among children. Additionally, we discussed <b>the need for widespread PFAS testing</b>, with the doctor suggesting that society has a responsibility to provide citizens with information about their exposure levels. The conversation revealed the need for further research and awareness regarding PFAS contamination and its impact on public health.</p>
+          </div>
+          <div class="text-container">
+            <figure class="square" >
+              <img src="https://static.igem.wiki/teams/4811/wiki/images/hp/biofos.jpg" alt="image">
+            </figure>
+            <h4>BioFos</h4>
+            <p>According to data provided by one of Denmark's largest water treatment facilities, even the best technologies are <b>unable to remove PFAS</b> during their process. We also learned that the concentration of PFAS in the effluent is higher than is necessary. Another issue is the fact that the permitted concentration of PFAS is 0.2-1 ng/L, which is <b>below the detection limit</b>. The numerous sources of PFAS contamination are still being identified, and searches are still being conducted. Other problematic substances are also being checked for in the wastewater. To investigate the wastewater produced by businesses near a contamination area, some initiatives were developed. Research is being done to find effective PFAS removal from wastewater. PFAS are found in landfill of ash, treated sludge, internal flows from incinerators, and wastewater. The outlet water is where most PFAS end up. A small portion is lost in the sludge and ends up in the sea. Teflon (non-stick cookware), water-repellent clothing, firefighting foam, products that resist grease, water, and oil, and car washes were identified as the sources of PFAS. Additionally stated was that contamination could be brought on by contaminated grounds and landfills.</p> 
+          </div>
+
+          
+          
+          <h3 id="pfas-detection">PFAS detection</h3>
+          <p>Before designing such a test, we needed to understand the current landscape of PFAS detection. For this, our first step was to get in touch with <strong>Kit Grandby</strong>, the lead researcher that broke the story regarding high concentrations of PFAS present in Danish eggs (Grandby <em>et al.</em>, 2023). From her, we learned the extent of the issue and the current ways PFAS can be quantified. </p>
+          <p>We also got in touch with the <strong>Water Technology and Processes group</strong> at DTU Sustain, our environmental engineering department. This group is setting up a state of the art detection protocol for PFAS, based on the current best approach towards its quantification: a Liquid Chromatography with tandem Mass Spectrometry (LC-MS/MS) system. Nevertheless, to not only engage with the issue theoretically and learn the practical details of the detection process, we collaborated with them to contribute to the current efforts towards mapping the extent of PFAS contamination. For this, we carried out an analysis of our own, <strong>sampling various bodies of water across Denmark</strong> and using the aforementioned LC-MS/MS to quantify them. </p>
+          <iframe width="100%" height="800" frameborder="0"
+          src="https://observablehq.com/embed/61ed8f6e640b6a80@434?cells=chart"></iframe>          
+            <div class="image-container album">
+              <img class="image" src="https://static.igem.wiki/teams/4811/wiki/images/hp/samplinga1.jpg" alt="Image 1" width="300">
+              <img class="image" src="https://static.igem.wiki/teams/4811/wiki/images/hp/samplingb1.jpg" alt="Image 2" width="300">      
+            </div>
+          
+          
+          <h3 id="designing-our-test">Designing our test</h3>
+          <p>The <strong>LC-MS/MS detection</strong> set-up, together with the protocol developed by Grandby’s team, is also used for the same purpose by the Ministry of Food, Agriculture and Fisheries of Denmark in their analysis of biological samples, including serum and tissue. However, even though improvements are being made towards lowering the limit of detection, the treatment and quantification of these samples is notoriously expensive, <strong>averaging a cost of 1000 DKK ($140) per sample</strong>. Moreover, the whole procedure takes up to 24 hours of work. Thus, even though this is the acknowledged best way to detect PFAS, we identified time and cost as serious limitations.</p>
+          <p>With this in mind, our objective was set: the development of a faster and cheaper test that, despite possibly having a lower sensibility, could work as means to conduct widespread analysis with the help of the population. Thus, we aim at working from a citizen science framework, akin to the strategy implemented with COVID-19 tests during the 2019 pandemic.</p>
+          <div class="text-container">
+            <h4>Ministry of Food, Agriculture and Fisheries</h4>
+            <figure >
+              <img src="https://static.igem.wiki/teams/4811/wiki/images/hp/ministry.png" alt="image" width="70%">             
+            </figure>
+            <p>
+            The conversation with a chemist at the Danish Ministry of Food, Agriculture and Fish revolved around the <b>detection of PFAS in various matrices</b>, including food and water. They mentioned that their primary field is veterinary drug analysis but that they also analyze samples of animal origin, such as blood, liver, and meat, from different types of animals like cattle, pigs, poultry, and fish, as well as fruits and vegetables. They explained that their lab uses <b>advanced methods for sample cleanup and analysis</b>, which have become faster over the years. When asked about how PFAS came to their attention, the chemist mentioned that their laboratory started analyzing PFAS in 2010 and that the number of samples they analyzed increased significantly after a case involving contaminated cattle in a specific area. They emphasized the importance of PFAS analysis due to the contamination of several areas and matrices. The conversation then shifted to discussing the potential application of a faster and more user-friendly PFAS detection method, like the one being developed by us. The chemist expressed interest in the idea but <b>highlighted the importance of considering who would collect the samples</b> and how results would be communicated, especially for matrices like water where individuals might test their own samples. Overall, the chemist acknowledged the potential benefits of a rapid screening method for PFAS, but emphasized <b>the need to address practical aspects</b>, including sample collection and result interpretation, to make it accessible and effective for the public.    <br>              
+            </p>
+          </div>
+
+          <h3 id="considerations-of-our-design">Considerations of our design</h3>
+          <p>The final design must meticulously consider the inherent constraints associated with conducting tests within the realm of synthetic biology, especially when these applications will be introduced into the environment or society at large. Consequently, we made the strategic choice to conceptualize our design as a cell-free system, consciously refraining from the use of genetically modified organisms, and instead relying solely on the addition of samples to trigger its activation. In this regard, we were advised by <strong>Rasmus Norrild</strong> from the DTU Protein Biophysics Core. The chosen approach not only streamlines the design but also simplifies the operation of any future hardware device.</p>
+          <p>Moreover, in deference to the standardization principles of iGEM, we chose to base our test on a tRNA-Mimicking Structure (TMS) system of RNA recognition, introducing to the Registry a standard system that can be applied for the design of aptamer based biosensors and coupled with <a href="https://2023.igem.wiki/dtu-denmark/software">AptaLoop</a>, our software solution, for the <em>in silico</em> design of aptamers (Paul <em>et al.</em>, 2020). </p>
+          <p>It must be noted, however, that designs must be validated to ensure that the interactions one expects actually occur. Throughout our own work, we have kept this in mind, but unexpected events may come to pass. For example, for the validation of the PFOA aptamer we have used, that is, to ensure that it did in fact bind to our target compound, we were advised by <strong>Kristine Clausen</strong> on Isothermal Titration Calorimetry (ITC), but later chose to reach out to <strong>Jesper Sørensen</strong>, assay developer at the Center for Diagnostics at DTU Health, who had offered a Surface Plasmon Resonance (SPR) assay for the validation. We initially chose Surface Plasmon Resonance (SPR) over Isothermal Titration Calorimetry (ITC) due to SPR&#39;s greater reliability and fewer required parameters, making it seem more feasible for our project. However, just days before the scheduled experiment, Jesper informed us that new data released that week suggested that SPR is not suitable for measuring interactions between small molecules like PFOA and our RNA aptamer. As a result, we were unable to conduct the planned validation experiment.</p>
+
+          <div class="text-container">
+            <h4>Jesper Sørensens</h4>
+            <figure >
+              <img src="https://static.igem.wiki/teams/4811/wiki/images/hp/jesper.jpg" alt="image">             
             </figure>
 
-            <!-- table style -->
-            <table>
-                <thead>
-                <tr>
-                <th><span>BioBrick ID</span></th>
-                <th><span>Description</span></th>
-                <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                <td><a href="http://parts.igem.org/Part:BBa_K4811000" target="_blank" rel="noopener"><span>BBa_K4811000</span></a></td>
-                <td><span>BRA</span></td>
-                </tr>
-                </tbody>
-            </table>
+            <p>
+              A variety of important issues related to Jesper's research were thoroughly discussed during the meeting. He elaborated on the details of his investigation, focusing in particular on the <b>interaction of PFOA with a cortisol aptamer</b> and drawing comparisons to earlier work by Park et al (2022). In order to minimize mass transfer difficulties, he emphasized the necessity of lowering concentrations. He also told us about <b>difficulties that come with small molecule interaction</b> on the carboxymethylated chip surface.<br>
+              To enhance precision, the proposition of transitioning the reference channel to an irrelevant aptamer bearing a resemblance to the Park aptamer was introduced. The dialogue also touched upon chip manufacturers, the attachment of BIOtin-tags to the 5' end, concerns regarding chip regeneration, and the potential presence of lingering PFOA residues. 
+              The conversation then pivoted to the feasibility of a cell-free system and the prospects for commercial lateral flow assays employing aptamers, with cost considerations, material factors, and sensitivity requirements all taken into account. Jesper highlighted the value of employing lower concentrations while also acknowledging the costliness of LC/MS as an analytical technique.    <br>              
+                </p>
+          </div>
 
-            <!-- add id to h3 -->
-            <h3 id="persistent_pollution">Persistent pollution and the problems of PFAS</h3>
-            <h3 id="bioinformatics">Bioinformatics for better aptamer selection</h3>
-            <h3 id="citizen">Citizen science and environmental protection</h3>
-            
-            <!-- add id to h2 -->
-            <h2 id="references">References</h2>
-            <hr>
-
-            <!-- list -->
-            <ul>
-              <li>Brunn, H., Arnold, G., Körner, W., Rippen, G., Steinhäuser, K. G., & Valentin, I. (2023). PFAS: forever chemicals—persistent, bioaccumulative and mobile. Reviewing the status and the need for their phase out and remediation of contaminated sites. Environmental Sciences Europe 2023 35:1, 35(1), 1–50.</li>
-              <li>Cordner, A., Goldenman, G., Birnbaum, L. S., Brown, P., Miller, M. F., Mueller, R., Patton, S., Salvatore, D. H., & Trasande, L. (2021). The True Cost of PFAS and the Benefits of Acting Now. Environmental Science and Technology,   </ul>
-        </div>
+          <h3 id="ethical-impact">Ethical impact</h3>
+          <p>As with any project involving synthetic biology, ethical considerations regarding both the idea and the way the experimental work is conducted must be taken into account. In regards to the latter, our work was conducted in the GMO Class 1 DTU Bioengineering laboratories (see <a href="https://2023.igem.wiki/dtu-denmark/safety">Safety</a>). Since these facilities are part of an operational research department, they are compliant with all the necessary requirements for the development of scientific research. This was also corroborated in our conversations with DTU’s Research Integrity Officer, <strong>Merian Skouw Haugwitz-Hardenberg-Reventlow</strong>, who is responsible for ensuring that Good Scientific Practices are followed during our project. </p>
+          <p>Having said this, the more important, and philosophically involved, issue is that of the project idea. As we have mentioned, during the design phases, we have sought to integrate the limitations necessary to make it safe and secure. Upon consulting Merian, she verified that these restrictions do account for the majority of what is required when it comes to safety in Synthetic Biology. </p>
+          <p>Nonetheless, we have equated our idea to a COVID-test that could be shared with the general public, which raises questions regarding misinformation and bad use. In fact, when presenting our work at the <strong>Nordic iGEM Conference</strong>, we were challenged on this by our colleagues at the <a href="https://2023.igem.wiki/sdu-denmark/">SDU team</a>, who highlighted that one must take into account the different levels of technical knowledge that the public may have. To ensure that the impact of our idea beyond the lab would be studied to the maximum of our ability, we followed the modified Anticipating, Reflecting, Engaging and Acting (AREA) framework implemented by the <a href="https://2020.igem.org/Team:UCopenhagen/Human_Practices">UCopenhagen 2020 team</a>, named the <strong>CID framework</strong>. In short, the modified framework aims to integrate the AREA steps, therefore turning into Consider, Interview, and Decide, as seen in Figure 1. Thus, we considered the different stakeholders that would be involved in the use of our test, such as citizens, farmers, doctors and governmental agencies, and, when engaging with the experts and students we reached out to, we asked for their opinion. During this process, particular insight was provided by <strong>Sofia Osmani</strong>, Mayor of Kongens Lyngby, the municipality where DTU is located. She anticipated that empowering the general public might not be as productive as expected, since in many instances there will not be an action that can be taken to improve the issue. Furthermore, the PFAS responsible from <strong>Lyngby-Taarbaek Forsyning</strong>, the subcontractor that supplies drinking water to the households of the municipality, ensured that after raising concerns of PFAS in Denmark they have implemented rigorous testing on their water supply. </p>
+          <figure class="small">
+            <img src="https://static.igem.wiki/teams/4811/wiki/cid-final.svg" alt="CID">
+            <figcaption>Figure 1: The CID framework as implemented by the UCopenhagen iGEM team in 2020.</figcaption>
+          </figure>
+          
+          
+          <p>After gathering all the contributions made by the stakeholders, and in accordance with the last step of the CID cycle, we wanted to ensure that our test will work as a complementary tool for environmental pre-testing of potentially contaminated areas in a fast and cheap manner. Furthermore, it will also be directed to people using water not connected to regulated supplies, such as farmers (Christensen, 2023). Nonetheless, our team is very aware that we are operating inside a highly regulated country and many other places around the world are not equipped with the infrastructure to ensure that PFAS is not present in water bodies. Our test, then, would be very relevant as a tool to speed up the process of mapping the extent of PFAS contamination worldwide.</p>
+          <div class="text-container">
+            <figure class="square" >
+              <img src="https://static.igem.wiki/teams/4811/wiki/images/hp/merian.jpeg" alt="image">
+            </figure>
+            <h4>Merian Skouw Haugwitz-Hardenberg-Reventlow </h4>
+            <p>In the realm of ethics, Merian highlighted several crucial points. She underscored the necessity of crafting a well-structured data management plan and the paramount importance of securely storing interview data while adhering to GDPR regulations. The concept of pseudonymization emerged as a means to safeguard sensitive information while retaining a degree of identifiability. Furthermore, Merian stressed the fundamental value of research integrity, urging researchers to consistently uphold principles of openness, transparency, and accountability throughout their work. It was also noted that, despite the potential for the project&#39;s findings to be politically leveraged, such utilization would not be construed as misuse, provided the research adhered to ethical standards and presented its results impartially. In summation, Merian provided invaluable insights into ethical research practices, data management, and the potential political implications of the project&#39;s outcomes.</p>
+          </div>
+          <h3 id="perception-and-future">Perception and Future</h3>
+          <p>Lastly, as a widely distributed test, we were concerned with its perception. So, as a part of our interviews, we asked both the personal and professional opinion of our interlocutors. After extensive discussions, our project has garnered recognition as a valuable addition to the existing solutions. It has become evident that there is a <strong>substantial demand for an affordable and precise screening tool</strong> to identify contamination sources, a need that our project is exceptionally well-suited to fulfil. </p>
+          <p>However, despite the clear advantages of a fast and cheap test, we also identified the next steps that must be taken to finalize the solution. Here, we had the privilege of being counseled by the judges of the <strong>Green Challenge</strong>, who brought up our strategy for scaling this test so that it can be properly distributed. Furthermore, they pointed out the fact that distributing a test can create a pollution issue on its own, as exemplified by the inappropriate disposal of face masks during the last years. Thus, we can see that the role of Human Practices must still be considered as a project continues to move forward.</p>
+          <figure class="small">
+            <img class="album" src="https://static.igem.wiki/teams/4811/wiki/images/hp/greenchallenge.jpg" alt=""></p>
+          </figure>
+          <p>All in all, we have worked towards a test that can provide support to the current best available techniques to detect PFAS, in an effort to speed up the mapping of its contamination and further our knowledge of the modular design of biosensors.</p>
+          <h3 id="methodology">Methodology</h3>
+          <p>In order to integrate Human Practices in the development of our project, we have conducted interviews and meetings with experts, both inside and outside DTU. Throughout its whole lifetime, we have shared the steps we have taken with various stakeholders in order to incorporate different points of view. </p>
+          <p>Additionally, to account for due process in our documentations, we adhere to stringent data management and privacy protocols, protecting sensitive information and respecting the rights of individuals involved in our studies. The  interviewees were provided with a consent form prior to the use of their information, where anonymity was offered. Through these measures, we aim to <strong>foster trust, collaboration, and a sense of responsibility</strong>, ultimately contributing to the responsible development of synthetic biology solutions.</p>
+          <h3 id="references">References</h3>
+          <ul>
+          <li>Calero, P., Volke, D. C., Lowe, P. T., Gotfredsen, C. H., O&#39;Hagan, D., &amp; Nikel, P. I. (2020). A fluoride-responsive genetic circuit enables in vivo biofluorination in engineered Pseudomonas putida. Nature communications, 11(1), 5045. <a href="https://doi.org/10.1038/s41467-020-18813-x">https://doi.org/10.1038/s41467-020-18813-x</a></li>
+          <li>Christensen, Maiken Brusgaard. (2023). PFAS-fund i græs og blod sætter stop græssende kvæg (PFAS findings in grass and blood put an endo to grazing cattle). TV2. <a href="https://nyheder.tv2.dk/politik/2023-04-14-pfas-fund-i-graes-og-blod-saetter-stop-for-graessende-kvaeg">https://nyheder.tv2.dk/politik/2023-04-14-pfas-fund-i-graes-og-blod-saetter-stop-for-graessende-kvaeg</a></li>
+          <li>Grandby, Kit. (2023). PFAS found in organic eggs in Denmark. DTU National Food Institute. <a href="https://www.food.dtu.dk/english/newsarchive/2023/01/pfas-found-in-organic-eggs-in-denmark">https://www.food.dtu.dk/english/newsarchive/2023/01/pfas-found-in-organic-eggs-in-denmark</a></li>
+          <li>Park, J., Yang, K. A., Choi, Y., &amp; Choe, J. K. (2022). Novel ssDNA aptamer-based fluorescence sensor for perfluorooctanoic acid detection in water. Environment international, 158, 107000. <a href="https://doi.org/10.1016/j.envint.2021.107000">https://doi.org/10.1016/j.envint.2021.107000</a></li>
+          <li>Paul, A., Warszawik, E. M., Loznik, M., Boersma, A. J., &amp; Herrmann, A. (2020). Modular and Versatile Trans-Encoded Genetic Switches. Angewandte Chemie (International ed. in English), 59(46), 20328–20332. <a href="https://doi.org/10.1002/anie.202001372">https://doi.org/10.1002/anie.202001372</a></li>
+          <li>Wackett L. P. (2021). Why Is the Biodegradation of Polyfluorinated Compounds So Rare?. mSphere, 6(5), e0072121. <a href="https://doi.org/10.1128/mSphere.00721-21">https://doi.org/10.1128/mSphere.00721-21</a></li>
+          <li>Wackett L. P. (2022). Nothing lasts forever: understanding microbial biodegradation of polyfluorinated compounds and perfluorinated alkyl substances. Microbial biotechnology, 15(3), 773–792. <a href="https://doi.org/10.1111/1751-7915.13928">https://doi.org/10.1111/1751-7915.13928</a></li>
+          </ul>
+                  </div>
       </div>
     </div>
   </div>
