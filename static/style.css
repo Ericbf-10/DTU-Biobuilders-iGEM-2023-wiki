@@ -231,8 +231,7 @@ left: 0;
 
 .page-text{
   color: white;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding: 2rem;
 }
 
 .page-text img {
