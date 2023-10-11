@@ -32,10 +32,10 @@
         <div class="page-text col-lg-9">
             
             <!-- add id to h2 -->
-            <p id="AptaLoop"></p>          
+            <h2 id="AptaLoop">AptaLoop</h2>
+            <hr>          
             </blockquote>
             <h2 id="general-introduction">General Introduction</h2>
-            <hr>
             <p>Aptamers are single-stranded DNAs and RNAs that can be designed to bind to target molecules with high affinity (Dunn, 2017). They are generally found through a tedious and expensive experimental procedure named Systematic Evolution of Ligands by Exponential Enrichment (SELEX). This experimental selection process is iterative where random sequence libraries are used to find and enrich aptamers that bind to the target molecule (Darmostuk, 2015).</p>
             <p>Several established <em>in silico</em> methods for aptamer-ligand interactions are currently used in the literature (Bulgak, 2020). These include folding predictions, docking simulations, and molecular dynamics. These methods can be used to further understand how the aptamer binds to the ligand and can aid in optimizing aptamer sequences.</p>
             <p>Some <em>in silico</em> methods have also been developed by past iGEM teams. For example, the Heidelberg iGEM team in 2015 developed an <em>in silico</em> alternative to SELEX called <strong>MAWS</strong> (Making Aptamers Without SELEX), where <em>de novo</em> aptamer sequences could be generated through an entropy minimization algorithm. This software was then updated in 2017 to include further functionality and adaptability. However, in 2023 the code that this team created was non-functional and outdated.</p>
@@ -60,17 +60,17 @@
               S[P|Q] = -\int P \cdot \log\left(\frac{P}{Q}\right) d\chi 
             $$</p>
           
-            <p>Distribution ( P ), in this case, would be the probability of an aptamer to bind to our target molecule, and ( Q ) would be an uniform distribution to compare our aptamer to.</p>
+            <p>Distribution (P), in this case, would be the probability of an aptamer to bind to our target molecule, and (Q) would be an uniform distribution to compare our aptamer to.</p>
             <p>To adapt this concept to include relevant physical parameters, we can replace our theoretical relative entropy equation with a novel entropy-like distance metric based on thermodynamic parameters.</p>
             <p>$$
             P(\chi) = \frac{e^{-\beta \cdot \Delta G}}{\mathcal{Z}}
             $$</p>
-            <p>Here we define the probability $P$ of observing a certain conformation of the aptamer-ligand complex and introduce the inverse temperature $\beta = \frac{1}{T}$ and Gibbs free energy $\Delta G$. We also introduce $\mathcal{Z}$, which is defined as:</p>
+            <p>Here we define the probability P of observing a certain conformation of the aptamer-ligand complex and introduce the inverse temperature &beta;=1/T and Gibbs free energy &Delta;=G. We also introduce &Zscr;, which is defined as:</p>
             <p>$$
             \mathcal{Z} = \int e^{-\beta \Delta G(\chi)} d\chi
             $$</p>
-            <p>$\mathcal{Z}$, or the partition function, is a key member of the canonical ensemble, which is a way to describe the thermodynamic properties of a system in thermal equilibrium. We can use the canonical ensemble to describe the probability distribution of aptamers in different conformations to assess their thermodynamic feasibility.</p>
-            <p>Specifically, $\mathcal{Z}$ is the sum over all possible states <em>i</em> that the system can be in, and acts as a normalization factor for the expression as it ensures that the probabilities $P(\chi)$ sum to 1 across all states. This makes $P(\chi)$ a valid probability distribution, allowing us to compare the likelihood of different states directly. </p>
+            <p>&Zscr;, or the partition function, is a key member of the canonical ensemble, which is a way to describe the thermodynamic properties of a system in thermal equilibrium. We can use the canonical ensemble to describe the probability distribution of aptamers in different conformations to assess their thermodynamic feasibility.</p>
+            <p>Specifically, &Zscr; is the sum over all possible states <em>i</em> that the system can be in, and acts as a normalization factor for the expression as it ensures that the probabilities P(&chi;) sum to 1 across all states. This makes P(&chi;) a valid probability distribution, allowing us to compare the likelihood of different states directly. </p>
             <p>Thus, given:</p>
             <p>$$ S[P|Q] = -\int P \cdot \log \left( \frac{P}{Q} \right) d{\chi} $$</p>
             <p>We can replace Q with our uniform distribution and use a natural logarithm to yield:</p>
@@ -79,11 +79,11 @@
             <p>$$
             g[P,P&#39;] = \left| \bar{S}[P&#39;] - \bar{S}[P] \right|
             $$</p>
-            <p>This distance metric serves to give basis for aptamer selection, as the conformation with the higher probability $P(\chi)$ is selected through its entropic favorability. </p>
+            <p>This distance metric serves to give basis for aptamer selection, as the conformation with the higher probability P(&chi;) is selected through its entropic favorability. </p>
             <p>In essence the selection through entropic criteria can be explained through the example of a rock and a magnet. </p>
             <p>If a rock is thrown against a magnet, the resultant collision will be highly disordered, which is to say the entropy of this system will be high. If another magnet is thrown instead of a rock, then the resultant system will be less disordered than the rock, as there is a degree of attraction between the two objects. </p>
             <p>Thus, the selection criteria for the aptamer sequence is the system calculated to have the minimal amount of entropy. What this means is that a lower degree of disorder is taken as a metric for binding stability, as lower entropy indicates more stability in aptamer ligand binding. </p>
-            <p>In summary, lower entropy increases the probability of binding P($\mathcal{x}$), which through the distance metric, is compared to alternative conformations and the best overall conformation is selected for. </p>
+            <p>In summary, lower entropy increases the probability of binding P(&xscr;), which through the distance metric, is compared to alternative conformations and the best overall conformation is selected for. </p>
             <h4 id="maws-algorithm">MAWS Algorithm</h4>
             <p>The MAWS algorithm functions through iterative nucleotide sampling over a target molecule within a bounded box. The process begins with the addition of one of four nucleotides (e.g. A, T, C, G) and iterates each nucleotide over a series of binding positions around the target molecule. The energies calculated for each position are saved, and parameters Z, P, and S are all computed and the minimal entropy aptamer selection criteria is run to choose the aptamer (figure 1). </p>
             <figure>
