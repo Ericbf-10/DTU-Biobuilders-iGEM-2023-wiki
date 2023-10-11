@@ -58,7 +58,7 @@ body {
 @media (max-width: 767px) {
   .navbar {
     background-color: transparent;
-    height: 7rem;
+    height: 5rem;
     transition: background-color 0.2s linear, height 0.2s linear;
   }
   .navbar-brand img {
@@ -108,11 +108,38 @@ body {
   }
   .main-title {
       font-size: 30px; 
-      height: 250px;
+      height: 220px;
   }
 }
 
+/* duck */
+
+/* Styling for the floating duck */
+.floating-duck {
+  position: relative;
+  top: 50%;
+  left: -100px; /* Start the duck off-screen on the left */
+  width: 60px; /* Adjust the duck's size */
+  height: 60px;
+  animation: floatAnimation 10s linear infinite; /* Adjust animation duration */
+}
+
+/* Define the animation for the floating duck */
+@keyframes floatAnimation {
+  0% {
+    left: -60px; /* Start off-screen on the left */
+  }
+  100% {
+    left: 100%; /* Move off-screen on the right */
+  }
+}
+
+
 /* ocean */
+.sky {
+  height: 80px;
+  background-color: linear-gradient(#24B8F2,#9CD8EF) ;
+}
 .ocean {
   left: 0px;
   height: 48px;
@@ -151,7 +178,7 @@ left: 0;
 
 /* Main page content */
 .text-background {
-  background: linear-gradient(#1d97d4,#000614);
+  background: linear-gradient(#3399CCf0,#000614);
   height: 100%;
   width:100%;
   background-position: center;
@@ -161,7 +188,7 @@ left: 0;
 
 .main-content {
   position: relative;
-  top: 2rem;
+  top: 1.7rem;
   width: 100%;
   height: 100%;
 }

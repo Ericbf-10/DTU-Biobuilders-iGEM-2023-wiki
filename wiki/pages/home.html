@@ -11,11 +11,16 @@
   </div>
 </div>
 
-<div class="container-fluid ocean">
-  <div class="wave"></div>
-  <div class="wave"></div>
-  <div class="wave"></div>
+<div class="sky">
+  <div id="duck" class="floating-duck"></div>
+
+  <div class="container-fluid ocean">
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+  </div>
 </div>
+
 
 <div class="main-content">
   <div class="text-background">
@@ -67,10 +72,14 @@
 
     typewriter();
 
-    document.getElementById("button").addEventListener("click", function() {
-        // Redirect to the desired URL when the button is clicked
-        window.location.href = "https://www.example.com";
-    });
+    lottie.loadAnimation({
+  container: document.getElementById('duck'),
+  renderer: 'svg', // You can choose 'svg', 'canvas', or 'html' based on your preference
+  loop: true, // Set to true for looping
+  autoplay: true, // Set to true for auto playback
+  path: 'static/images/duck.json', // URL to your first Lottie animation
+  animationSpeed: 0.8,
+});
 
 </script>
 
