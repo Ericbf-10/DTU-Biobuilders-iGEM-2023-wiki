@@ -51,7 +51,7 @@
             <h2 id="validation-of-tms-system">Validation of TMS system</h2>
             <h3 id="iteration-1">Iteration 1</h3>
             <p><em>Design</em></p>
-            After deciding on constructing a biosensor based on a tRNA-Mimicking Structure (TMS), we set the goal to first validate the concept using the GFP aptamer as described by Paul <em>et al.</em> (2020). As explained in the <a href="https://2023.igem.wiki/dtu-denmark/design">Design</a> section, the TMS system is based on two plasmids: a high-copy number that contains the TMS, <a href="http://parts.igem.org/Part:BBa_K4811017">BBa_K4811017</a>, and a low-copy number plasmids that contains both GFP and mCherry, <a href="http://parts.igem.org/Part:BBa_K4811005">BBa_K4811005</a>. The expression of the TMS is induced by IPTG and the expression of mCherry by L-arabinose. The expression of GFP has the $P_{tet}$ promoter, which is induced by the antibiotics family of tetracycline. </p>
+            After deciding on constructing a biosensor based on a tRNA-Mimicking Structure (TMS), we set the goal to first validate the concept using the GFP aptamer as described by Paul <em>et al.</em> (2020). As explained in the <a href="https://2023.igem.wiki/dtu-denmark/design">Design</a> section, the TMS system is based on two plasmids: a high-copy number that contains the TMS, <a href="http://parts.igem.org/Part:BBa_K4811017">BBa_K4811017</a>, and a low-copy number plasmids that contains both GFP and mCherry, <a href="http://parts.igem.org/Part:BBa_K4811005">BBa_K4811005</a>. The expression of the TMS is induced by IPTG and the expression of mCherry by L-arabinose. The expression of GFP has the P<sub>tet</sub> promoter, which is induced by the antibiotics family of tetracycline. </p>
             <p><em>Build &amp; Test</em>
             <p>We first bought the construct from IDT to test the induction of fluorescence, which was transformed into <em>E. coli</em> BL21(DE3). The results showed a successful induction of mCherry using arabinose.</p>
             <p>We USER cloned the <a href="http://parts.igem.org/Part:BBa_K4811004">BBa_K4811004</a> and <a href="http://parts.igem.org/Part:BBa_K4811003">BBa_K4811003</a> from IDT into our pACYC184 backbone, creating the composite part <a href="http://parts.igem.org/Part:BBa_K4811005">BBa_K4811005</a>. We also USER cloned <a href="http://parts.igem.org/Part:BBa_K4811018">BBa_K4811018</a> into pUC19 backbone. To check that the correct inserts were there, we sequenced and digested the plasmids, which indicated a successful cloning.</p>
@@ -95,7 +95,7 @@
             <p>For the assembly, we ordered the whole construct from IDT as a gBlock and USER cloned it into the pUC19 backbone. After transforming the plasmids into <em>E. coli</em> BL21(DE3), we first tested whether the change in the TMS had altered the binding to RBS. Using varying concentrations of IPTG with a constant concentration of arabinose, we could see that the change in TMS did not alter the binding to the RBS. Furthermore, we then tested the system with varying concentrations of theophylline, and fluorescence decreased proportionally to its concentration. This however indicated that the TMS had a better binding to the RBS in the presence of theophylline.</p>
             <figure>
               <img src="https://static.igem.wiki/teams/4811/wiki/data/finalgraphs/theo2-tms.png">
-              <figcaption>Figure 6: OD normalized relative mCherry fluorescence, 561 nm excitation/617 nm emission, as a function of theophylline concentration. All measurements were with 1 mM IPTG and 0.1 % w/v L-arabinose, except the controls. As controls there is a culture with no IPTG or L-arabinose(uninduced).
+              <figcaption>Figure 6: OD normalized relative mCherry fluorescence, 561 nm excitation/617 nm emission, as a function of theophylline concentration. All measurements were with 1 mM IPTG and 0.1 % w/v L-arabinose, except the controls. As controls there is a culture with no IPTG or L-arabinose (uninduced).
               </figcaption>
             </figure>         
             <p><em>Learn</em></p>
@@ -107,17 +107,17 @@
             <p>Without altering the conditions for the experiment, we executed it with the new TMS. The results also showed a decrease in fluorescence when we increased the concentration of theophylline. </p>
             <figure>
               <img src="https://static.igem.wiki/teams/4811/wiki/data/finalgraphs/theo1.png">
-              <figcaption>Figure 7: OD normalized relative mCherry fluorescence, 561 nm excitation/617 nm emission, as a function of theophylline concentration. All measurements were with 1 mM IPTG and 0.1 % w/v L-arabinose, except the controls. As controls there is a culture with no IPTG or L-arabinose(uninduced).
+              <figcaption>Figure 7: OD normalized relative mCherry fluorescence, 561 nm excitation/617 nm emission, as a function of theophylline concentration. All measurements were with 1 mM IPTG and 0.1 % w/v L-arabinose, except the controls. As controls there is a culture with no IPTG or L-arabinose (uninduced).
               </figcaption>
             </figure>  
             <p><em>Learn</em></p>
             <p>Comparing the result from the first iteration, the removal of the stem in the D-loop did not alter the tendency, where we saw an increased binding affinity to the RBS with higher concentration of theophylline. Yet, we did see that including the stem did improve the binding of the TMS to the RBS. Due to this unexpected result, we tried to use a completely different aptamer to test what the modification of the D-loop would cause. </p>
             <h3 id="iteration-3">Iteration 3</h3>
             <p><em>Design</em></p>
-            <p>To learn more about how alterations in the TMS could influence the system, we wanted to try with a different aptamer. The aptamer for manganese from Dambach <em>et al.</em> (2015) has a similar size as the GFP aptamer, making it a good option to incorporate. </p>
+            <p>To learn more about how alterations in the TMS could influence the system, we wanted to try with a different aptamer. The aptamer for manganese from Dambach <em>et al.</em> (2015) has a similar size as the GFP aptamer, making it a good option to incorporate. It is also present in an existing biobrick, <a href="http://parts.igem.org/Part:BBa_K902074">BBa_K902074</a>.</p>                                
             <p><em>Build &amp; Test</em></p>
-            <p>We ordered the TMS construct from IDT and USER cloned it into the pUC19 backbone. After transforming the two plasmids into BL21, we tested the system with varying concentrations of manganese. However, we saw high fluorescence when we used 0 µM of manganese.
-            As with theophylline, we created two different versions in the end: one with a longer stem region, TMS(Mn1), and one with only the manganese-binding part of the aptamer, TMS(Mn2).</p>
+            <p>We ordered the TMS construct from IDT and USER cloned it into the pUC19 backbone. After transforming the two plasmids into BL21, we tested the system with varying concentrations of manganese. However, we saw high fluorescence when we used 0 µM of manganese.</p>
+            <p>As with theophylline, we created two different versions in the end: one with a longer stem region, TMS(Mn1), and one with only the manganese-binding part of the aptamer, TMS(Mn2).</p>
             <figure>
               <img src="https://static.igem.wiki/teams/4811/wiki/data/finalgraphs/mn1-tms.png">
               <figcaption>Figure 8: OD normalized relative mCherry fluorescence, 561 nm excitation/617 nm emission, as a function of manganese concentration. All measurements were with 1 mM IPTG and 0.1 % w/v L-arabinose, except the controls. As controls there is a culture with no IPTG or L-arabinose(uninduced).
@@ -189,14 +189,14 @@
             <p><em>Build &amp; Test</em></p>
             <p>We unfortunately did not get to test our design or further develop it. </p>
             <h2 id="references">References</h2>
-            <ol>
+            <ul>
               <li><p>Dambach, M., Sandoval, M., Updegrove, T. B., Anantharaman, V., Aravind, L., Waters, L. S., &amp; Storz, G. (2015). The ubiquitous yybP-ykoY riboswitch is a manganese-responsive regulatory element. Molecular cell, 57(6), 1099–1109. <a href="https://doi.org/10.1016/j.molcel.2015.01.035">https://doi.org/10.1016/j.molcel.2015.01.035</a></p>
               </li>
               <li><p>Park, J., Yang, K. A., Choi, Y., &amp; Choe, J. K. (2022). Novel ssDNA aptamer-based fluorescence sensor for perfluorooctanoic acid detection in water. Environment international, 158, 107000. <a href="https://doi.org/10.1016/j.envint.2021.107000">https://doi.org/10.1016/j.envint.2021.107000</a></p>
               </li>
               <li><p>Suess, B., Fink, B., Berens, C., Stentz, R., &amp; Hillen, W. (2004). A theophylline responsive riboswitch based on helix slipping controls gene expression in vivo. Nucleic acids research, 32(4), 1610–1614. <a href="https://doi.org/10.1093/nar/gkh321">https://doi.org/10.1093/nar/gkh321</a></p>
               </li>
-            </ol>
+            </ul>
 
             
         </div>
