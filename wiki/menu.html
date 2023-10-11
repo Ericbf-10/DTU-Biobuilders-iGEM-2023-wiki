@@ -1,9 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-  <div class="container">
+  <div class="container" id="navbarContainer">
 
 
     <!---- TEAM LOGO ---->
-    <a class="navbar-brand" href="{{ url_for('home') }}"><img src="https://static.igem.wiki/teams/4811/wiki/images/team-logo.png" alt="Team Logo" style="height: 80px;"></a>
+    <a class="navbar-brand" href="{{ url_for('home') }}"><img src="https://static.igem.wiki/teams/4811/wiki/images/team-logo.png" alt="Team Logo"></a>
 
     <!---- SMALL SCREEN MENU ICON ---->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -92,7 +92,7 @@
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     var nav = document.querySelector('nav');
-    var navbar = document.querySelector('.navbar-collapse');
+    var navbar = document.querySelector('#navbarContainer');
     var height = 350;
 
     window.addEventListener('scroll', function() {
@@ -101,12 +101,12 @@
       if (scrollTop >= height) {
         // Change the background color of the navbar
         nav.classList.add('solid-nav');
-        navbar.classList.remove('half-nav');
       } else {
         // Remove the background color from the navbar
         nav.classList.remove('solid-nav');
-        navbar.classList.add('half-nav');
+
       }
     });
   });
+
 </script>

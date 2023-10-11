@@ -33,6 +33,7 @@ body {
 
 /* Header style */
 .navbar {
+  font-family: 'Bahnschrift', 'Arial', 'Helvetica', sans-serif;
   width: 100%;
   position: fixed;
   color: black;
@@ -45,22 +46,30 @@ body {
   }
 }
 
-@media (max-width: 767px) {
-  .navbar-collapse {
-    background-color: transparent;
-    &.half-nav {
-    background-color: rgba(255, 255, 255, 0.9); 
-    }
+.navbar-brand img {
+  height: 5rem;
   }
+.navbar-light .navbar-nav .nav-link {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color:#BA2424 !important;
 }
 
-/* footer */
-footer a { color: white; font-weight: bold; text-decoration: none; }
-footer a:hover { color: white; text-decoration: underline; }
-footer{padding: 1px;}
+@media (max-width: 767px) {
+  .navbar {
+    background-color: transparent;
+    height: 5.5rem;
+    transition: background-color 0.2s linear, height 0.2s linear;
+    &.solid-nav {
+      background-color: rgba(255, 255, 255, 0.9);
+      transition: background-color 0.2s linear;
+    }
+  }
+  .navbar-brand img {
+  height: 4rem;
+  }
+} 
 
-footer{padding: 1px; }
-/* Default colour */
 :root {
   --tomato-red: #E65929;
   --crimson-red: #BA2424;
@@ -92,6 +101,11 @@ footer{padding: 1px; }
 }
 
 @media (max-width: 767px) {
+  .main-image {
+    padding-top: 0.9rem;
+    width: 100%;
+    height: 80%;
+  }
   .main-title {
       font-size: 30px; 
       height: 250px;
@@ -151,6 +165,7 @@ left: 0;
   height: 100%;
 }
 
+
 /* Page design */
 .page {
   width: 100%;
@@ -161,6 +176,7 @@ left: 0;
 
 .page-header {
   background-image: linear-gradient(white, #264187);
+  background-position: center;
   height: 24rem;
   margin-top: 2rem;
   text-align: center;
@@ -553,9 +569,15 @@ figure img {
 
 
 /* Footer Style */
+
 .footer {
   background-color: var(--tomato-red);
+  padding: 1px;
 }
+
+footer a { color: white; font-weight: bold; text-decoration: none; }
+footer a:hover { color: white; text-decoration: underline; }
+
 .biobuilders_logo {
   max-width: 200px;
 }
