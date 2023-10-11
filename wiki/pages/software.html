@@ -38,9 +38,10 @@
         <div class="page-text col-lg-9">
             
             <!-- add id to h2 -->
-            <p id="AptaLoop"></p>
+            <p id="AptaLoop"></p>          
             </blockquote>
             <h2 id="general-introduction">General Introduction</h2>
+            <hr>
             <p>Aptamers are single-stranded DNAs and RNAs that can be designed to bind to target molecules with high affinity (Dunn, 2017). They are generally found through a tedious and expensive experimental procedure named Systematic Evolution of Ligands by Exponential Enrichment (SELEX). This experimental selection process is iterative where random sequence libraries are used to find and enrich aptamers that bind to the target molecule (Darmostuk, 2015).</p>
             <p>Several established <em>in silico</em> methods for aptamer-ligand interactions are currently used in the literature (Bulgak, 2020). These include folding predictions, docking simulations, and molecular dynamics. These methods can be used to further understand how the aptamer binds to the ligand and can aid in optimizing aptamer sequences.</p>
             <p>Some <em>in silico</em> methods have also been developed by past iGEM teams. For example, the Heidelberg iGEM team in 2015 developed an <em>in silico</em> alternative to SELEX called <strong>MAWS</strong> (Making Aptamers Without SELEX), where <em>de novo</em> aptamer sequences could be generated through an entropy minimization algorithm. This software was then updated in 2017 to include further functionality and adaptability. However, in 2023 the code that this team created was non-functional and outdated.</p>
@@ -57,7 +58,6 @@
             </figure></p>
 
             <p>The ultimate aim of our software is to provide researchers with a holistic view of aptamer-ligand dynamics in order to guide wet lab efforts in finding the <strong>best possible aptamer sequence</strong> for the desired target molecule.</p>
-            <hr>
             <h2 id="maws">MAWS</h2>
             <p><strong>MAWS</strong> functions by using an entropy minimization algorithm. This algorithm is based on a paper published in 2011 by Tseng <em>et al.</em> where entropic minimization is used as a metric for binding stability in aptamer-ligand binding dynamics (Tseng, 2011). This approach has been named the <strong>entropic fragment-based approach (EFBA)</strong> and was adapted by the Heidelberg 2015 and 2017 iGEM teams to create the software known as MAWS.</p>
             <p>The following mathematical explanation of the MAWS algorithm selection process is adapted from the Heidelberg iGEM team <a href="https://2015.igem.org/Team:Heidelberg/software/maws">software page</a> (Heidelberg, 2015). </p>
@@ -113,7 +113,6 @@
             <p>Additionally, we found out that the program lacks a way of <strong>resuming a long analysis</strong>. It happened to us that the analysis crashed in the middle and we had to start over again. So instead, it would be nice to have a kind of cache that allowed the user to resume the analysis if anything happened. </p>
             <p>Finally, we identified a <strong>problem related to the threads</strong> the program uses. We believe it has something to do with the openMM package, but we are not sure. This issue makes the program run slower on a queuing system, because it is trying to use more threads than the limit imposed by the user.</p>
             <p>We hope that the insights we provide here can guide efforts of future iGEM teams that have a project with aptamers.</p>
-            <hr>
             <h2 id="docking">Docking</h2>
             <p>Molecular <strong>docking</strong> is a computational technique used in structural biology and drug discovery to predict how two or more molecules interact with each other and form a stable complex (Morris, 2008). Docking algorithms aim to predict the most energetically favorable binding mode or conformation of the ligand within the protein&#39;s binding site (Meng, 2011). In most cases, docking is used to study the <strong>binding site</strong> and <strong>binding affinity</strong> of proteins and ligands, but other molecules can also be explored. In the case of AptaLoop, we performed docking between RNA molecules (our aptamers) and a specific ligand (PFOA).</p>
             <p>Several software tools have been developed to perform docking. For AptaLoop, we chose <strong>AutoDock Vina</strong>, one of the most widely used docking engines, because of its ease in implementation, known accuracy, and it is open source, allowing for all the users of AptaLoop to perform docking without restrictions. In order to test the accuracy of the results we obtained with AutoDock Vina, we also performed docking between our aptamers and PFOA using <strong>Haddock</strong>. We deemed it possible that Haddock was more reliable, since it allows for the tuning of multiple parameters depending on the input, but it is more complex to configure and requires the users to ask for licenses. Thus, we decided not to include Haddock in AptaLoop, but use it to validate the AutoDock Vina results.</p>
@@ -140,89 +139,104 @@
             <p>This software works in three main stages. In the first step, it treats the parts that interact with each other as  stiff elements (rigid bodies) that don&#39;t move. In the second stage, it allows these parts to be flexible, allowing them to move, rather than keeping them "frozen" in space. Finally, there&#39;s an optional third stage that refines the results by considering the space and interactions involving water molecules (Van Zundert, 2016) (HADDOCK, 2023) (Honorato, 2021). For more information, refer to Haddock&#39;s documentation.</p>
             <p>For evaluating the binding affinity between receptor and ligand, Haddock calculates a score using a linear combination of various energies and surface area. For more information, refer to Haddock’s official documentation (HADDOCK2.4, 2023). The scoring function assigns the lowest value to the best structure.</p>
             <p>Haddock’s official website contains multiple explanations, detailed tutorials, and examples for different docking situations. Furthermore, the users can post any questions on BioExcel, a forum in which experts give detailed feedback promptly (HADDOCK2.4, 2023). Haddock provides free license for non-profit purposes. </p>
-            <p>After asking through BioExcel, Haddock’s researchers enlightened us on the best way to tune parameters for RNA-ligand docking (Table 1 ).</p> 
-            <p><strong>Table 1 : Haddock parameters for RNA-ligand docking</strong></p>
+            <p>After asking through BioExcel, Haddock’s researchers enlightened us on the best way to tune parameters for RNA-ligand docking. Table 1 shows the way in which to adjust the parameters according to the molecules to dock. When docking aptamers and ligands, the recommended parameters are displayed in the last column.</p>
+            <p><strong>Table 1 : Best values for Haddock's parameters in different docking scenarios.</strong></p>
             <table>
-            <thead>
-            <tr>
-            <th>Parameter</th>
-            <th>default value</th>
-            <th>Protein/Small molecule</th>
-            <th>Protein/DNA</th>
-            <th>DNA/small molecule</th>
-            </tr>
-            </thead>
-            <tbody><tr>
-            <td>Dielectric constant for it0</td>
-            <td>dielec_0</td>
-            <td>rdie</td>
-            <td>cdie</td>
-            <td>rdie</td>
-            </tr>
-            <tr>
-            <td>Dielectric constant for it1</td>
-            <td>dielec_1</td>
-            <td>rdie</td>
-            <td>cdie</td>
-            <td>rdie</td>
-            </tr>
-            <tr>
-            <td>MD steps for rigid body high temperature TAD</td>
-            <td>initiosteps</td>
-            <td>500</td>
-            <td>0</td>
-            <td>500</td>
-            </tr>
-            <tr>
-            <td>MD steps during first rigid body cooling stage</td>
-            <td>cool1_steps</td>
-            <td>500</td>
-            <td>0</td>
-            <td>500</td>
-            </tr>
-            <tr>
-            <td>Initial temperature for second TAD cooling step with flexible side-chain at the interface</td>
-            <td>tadinit2_t</td>
-            <td>1000</td>
-            <td>500</td>
-            <td>1000</td>
-            </tr>
-            <tr>
-            <td>Initial temperature for third TAD cooling step with fully flexible interface</td>
-            <td>tadinit3_t</td>
-            <td>1000</td>
-            <td>300</td>
-            <td>1000</td>
-            </tr>
-            <tr>
-            <td>Weight of the intermolecular van der Waals energy for scoring at the rigid-body docking stage</td>
-            <td>w_vdw_0</td>
-            <td>0.01</td>
-            <td>1</td>
-            <td>0.01</td>
-            </tr>
-            <tr>
-            <td>Weight of the intermolecular electrostatic energy for scoring at the final stage</td>
-            <td>w_elec_2</td>
-            <td>0.2</td>
-            <td>0.1</td>
-            <td>0.2</td>
-            </tr>
-            <tr>
-            <td>Dielectric constant for rigid-body docking</td>
-            <td>epsilon_0</td>
-            <td>10</td>
-            <td>10</td>
-            <td>78</td>
-            </tr>
-            <tr>
-            <td>Dielectric constant for the semi-flexible refinement</td>
-            <td>epsilon_1</td>
-            <td>10</td>
-            <td>10</td>
-            <td>78</td>
-            </tr>
-            </tbody></table>
+              <thead>
+              <tr>
+              <th style="text-align:left">Parameter</th>
+              <th style="text-align:left">Haddock&#39;s abbreviation</th>
+              <th style="text-align:left">default value</th>
+              <th style="text-align:left">Protein/Small molecule</th>
+              <th style="text-align:left">Protein/DNA</th>
+              <th style="text-align:left">DNA/small molecule</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+              <td style="text-align:left">Dieletric constant for it0</td>
+              <td style="text-align:left">dielec_0</td>
+              <td style="text-align:left">rdie</td>
+              <td style="text-align:left">cdie</td>
+              <td style="text-align:left">rdie</td>
+              <td style="text-align:left">cdie</td>
+              </tr>
+              <tr>
+              <td style="text-align:left">Dieletric constant for it1</td>
+              <td style="text-align:left">dielec_1</td>
+              <td style="text-align:left">rdie</td>
+              <td style="text-align:left">cdie</td>
+              <td style="text-align:left">rdie</td>
+              <td style="text-align:left">cdie</td>
+              </tr>
+              <tr>
+              <td style="text-align:left">Number of MD steps for rigid body high temperature TAD</td>
+              <td style="text-align:left">initiosteps</td>
+              <td style="text-align:left">500</td>
+              <td style="text-align:left">0</td>
+              <td style="text-align:left">500</td>
+              <td style="text-align:left">0</td>
+              </tr>
+              <tr>
+              <td style="text-align:left">Number of MD steps during first rigid body cooling stage</td>
+              <td style="text-align:left">cool1_steps</td>
+              <td style="text-align:left">500</td>
+              <td style="text-align:left">0</td>
+              <td style="text-align:left">500</td>
+              <td style="text-align:left">0</td>
+              </tr>
+              <tr>
+              <td style="text-align:left">Initial temperature for second TAD cooling step with flexible side-chain at the interface</td>
+              <td style="text-align:left">tadinit2_t</td>
+              <td style="text-align:left">1000</td>
+              <td style="text-align:left">500</td>
+              <td style="text-align:left">1000</td>
+              <td style="text-align:left">500</td>
+              </tr>
+              <tr>
+              <td style="text-align:left">Initial temperature for third TAD cooling step with fully flexible interface</td>
+              <td style="text-align:left">tadinit3_t</td>
+              <td style="text-align:left">1000</td>
+              <td style="text-align:left">300</td>
+              <td style="text-align:left">1000</td>
+              <td style="text-align:left">300</td>
+              </tr>
+              <tr>
+              <td style="text-align:left">Weight of the intermolecular van der Waals energy for scoring at the rigid-body docking stage</td>
+              <td style="text-align:left">Evdw 1</td>
+              <td style="text-align:left">0.01</td>
+              <td style="text-align:left">1</td>
+              <td style="text-align:left">0.01</td>
+              <td style="text-align:left">1</td>
+              </tr>
+              <tr>
+              <td style="text-align:left">Weight of the intermolecular electrostatic energy for scoring at the final stage</td>
+              <td style="text-align:left">Evdw 2</td>
+              <td style="text-align:left">0.2</td>
+              <td style="text-align:left">0.1</td>
+              <td style="text-align:left">0.2</td>
+              <td style="text-align:left">0.1</td>
+              </tr>
+              <tr>
+              <td style="text-align:left">Epsilon dielectric constant for rigid-body docking</td>
+              <td style="text-align:left">epsilon_0</td>
+              <td style="text-align:left">10</td>
+              <td style="text-align:left">10</td>
+              <td style="text-align:left">78</td>
+              <td style="text-align:left">78</td>
+              </tr>
+              <tr>
+              <td style="text-align:left">Epsilon dielectric constant for the semi-flexible refinement</td>
+              <td style="text-align:left">epsilon_1</td>
+              <td style="text-align:left">10</td>
+              <td style="text-align:left">10</td>
+              <td style="text-align:left">78</td>
+              <td style="text-align:left">10</td>
+              </tr>
+              </tbody>
+              </table>
+            <p>As stated above, even though Haddock is a very powerful and promising tool for aptamer-ligand docking, we did not include it in AptaLoop. We chose AutoDock Vina instead because of its better accessibility . However, we used Haddock to validate AutoDock Vina&#39;s results (see <a href="https://2023.igem.wiki/dtu-denmark/analysis">Simulation</a>).</p>
+              
             <h2 id="molecular-dynamics">Molecular Dynamics</h2>
             <p>Molecular dynamics(MD) was performed to understand the behavior of our aptamer in water. It was performed on the aptamer generated by MAWS. </p>
             <p>For conducting MD simulations, a variety of software programs are available, including both licensed options like MAPS and Discovery Studio, as well as free alternatives like AMBER, CHARMM, and GROMACS. We chose GROMACS for its accessibility, extensive documentation, and compatibility with other tools like PyMol. Moreover, evidence of its effectiveness in aptamer optimization (Song, 2020) (Thevendran, 2023) further supported our choice. </p>
@@ -240,25 +254,28 @@
             <p>After these extensive preliminary steps, the MD simulation is executed. The resulting data, which includes key observables like aptamer conformation and PFAS binding affinity, is then analyzed to draw conclusions relevant to our biosensor project. The results of this specific analysis can be seen in the simulation tab. </p>
             
             <h2 id="references">References</h2>
-            <p>AutoDock Vina Documentation. (2023). Frequently asked questions. <a href="https://autodock-vina.readthedocs.io/en/latest/faq.html">https://autodock-vina.readthedocs.io/en/latest/faq.html</a></p>
-            <p>Buglak, A. A., Samokhvalov, A. V., Zherdev, A. V., &amp; Dzantiev, B. B. (2020). Methods and applications of in silico aptamer design and modeling. International Journal of Molecular Sciences, 21(22), 8420. <a href="https://doi.org/10.3390/ijms21228420">https://doi.org/10.3390/ijms21228420</a></p>
-            <p>Darmostuk, M., Rimpelova, S., Gbelcova, H., &amp; Ruml, T. (2015). Current approaches in Selex: An update to Aptamer Selection Technology. Biotechnology Advances, 33(6), 1141–1161. <a href="https://doi.org/10.1016/j.biotechadv.2015.02.008">https://doi.org/10.1016/j.biotechadv.2015.02.008</a></p>
-            <p>Dunn, M. R., Jimenez, R. M., &amp; Chaput, J. C. (2017). Analysis of Aptamer Discovery and Technology. Nature Reviews Chemistry, 1(10). <a href="https://doi.org/10.1038/s41570-017-0076">https://doi.org/10.1038/s41570-017-0076</a></p>
-            <p>Eberhardt, J., Santos-Martins, D., Tillack, A. F., &amp; Forli, S. (2021). AutoDock Vina 1.2.0: New docking methods, expanded force field, and Python bindings. Journal of Chemical Information and Modeling, 61, 3891–3898.</p>
-            <p>HADDOCK 2.4. (2023). <a href="https://wenmr.science.uu.nl/haddock2.4/">https://wenmr.science.uu.nl/haddock2.4/</a></p>
-            <p>HADDOCK 2.4 scoring function. (2023). <a href="https://www.bonvinlab.org/software/haddock2.4/scoring/">https://www.bonvinlab.org/software/haddock2.4/scoring/</a></p>
-            <p>Heidelberg University iGEM Team. (2015). MAWS software. <a href="https://2015.igem.org/Team:Heidelberg/software/maws">https://2015.igem.org/Team:Heidelberg/software/maws</a></p>
-            <p>Honorato, R. V., et al. (2021). Structural biology in the clouds: The WeNMR-EOSC ecosystem. Frontiers in Molecular Biosciences, 8, 729513.</p>
-            <p>Li, J., Fu, A., &amp; Zhang, L. (2019). An overview of scoring functions used for protein–ligand interactions in molecular docking. Interdisciplinary Sciences, Computational Life Sciences, 11, 320–328.</p>
-            <p>Meng, X.-Y., Zhang, H.-X., Mezei, M., &amp; Cui, M. (2011). Molecular docking: A powerful approach for structure-based drug discovery. Current Computer-Aided Drug Design, 7, 146–157.</p>
-            <p>Morris, G. M., &amp; Lim-Wilby, M. (2008). Molecular docking. In A. Kukol (Ed.), Molecular modeling of proteins (Vol. 443, pp. 365–382). Humana Press.</p>
-            <p>O’Boyle, N. M., et al. (2011). Open Babel: An open chemical toolbox. Journal of Cheminformatics, 3, 33.</p>
-            <p>Open Babel. (2023). <a href="https://github.com/openbabel/openbabel">https://github.com/openbabel/openbabel</a></p>
-            <p>Park, J., Yang, K.-A., Choi, Y., &amp; Choe, J. K. (2022). Novel ssDNA aptamer-based fluorescence sensor for perfluorooctanoic acid detection in water. Environmental International, 158, 107000.</p>
-            <p>Song, M., Li, G., Zhang, Q., Liu, J., &amp; Huang, Q. (2020). De novo post-SELEX optimization of a G-quadruplex DNA aptamer binding to marine toxin gonyautoxin 1/4. Computational and Structural Biotechnology Journal, 18, 3425–3433. <a href="https://doi.org/10.1016/j.csbj.2020.10.041">https://doi.org/10.1016/j.csbj.2020.10.041</a></p>
-            <p>Thevendran, R., Tang, T., &amp; Citartan, M. (2023). in‐silico selection employing rigid docking and molecular dynamic simulation in selecting DNA aptamers against androgen receptor. Biotechnology Journal, 18(4). <a href="https://doi.org/10.1002/biot.202200092">https://doi.org/10.1002/biot.202200092</a></p>
-            <p>Trott, O., &amp; Olson, A. J. (2009). AutoDock Vina: Improving the speed and accuracy of docking with a new scoring function, efficient optimization, and multithreading. Journal of Computational Chemistry. <a href="https://doi.org/10.1002/jcc.21334">https://doi.org/10.1002/jcc.21334</a></p>
-            <p>Van Zundert, G. C. P., et al. (2016). The HADDOCK2.2 web server: User-friendly integrative modeling of biomolecular complexes. Journal of Molecular Biology, 428, 720–725.</p>
+            <hr>
+            <ol>
+                <li>AutoDock Vina Documentation. (2023). Frequently asked questions. <a href="https://autodock-vina.readthedocs.io/en/latest/faq.html">https://autodock-vina.readthedocs.io/en/latest/faq.html</a></li>
+                <li>Buglak, A. A., Samokhvalov, A. V., Zherdev, A. V., & Dzantiev, B. B. (2020). Methods and applications of in silico aptamer design and modeling. International Journal of Molecular Sciences, 21(22), 8420. <a href="https://doi.org/10.3390/ijms21228420">https://doi.org/10.3390/ijms21228420</a></li>
+                <li>Darmostuk, M., Rimpelova, S., Gbelcova, H., & Ruml, T. (2015). Current approaches in Selex: An update to Aptamer Selection Technology. Biotechnology Advances, 33(6), 1141–1161. <a href="https://doi.org/10.1016/j.biotechadv.2015.02.008">https://doi.org/10.1016/j.biotechadv.2015.02.008</a></li>
+                <li>Dunn, M. R., Jimenez, R. M., & Chaput, J. C. (2017). Analysis of Aptamer Discovery and Technology. Nature Reviews Chemistry, 1(10). <a href="https://doi.org/10.1038/s41570-017-0076">https://doi.org/10.1038/s41570-017-0076</a></li>
+                <li>Eberhardt, J., Santos-Martins, D., Tillack, A. F., & Forli, S. (2021). AutoDock Vina 1.2.0: New docking methods, expanded force field, and Python bindings. Journal of Chemical Information and Modeling, 61, 3891–3898.</li>
+                <li>HADDOCK 2.4. (2023). <a href="https://wenmr.science.uu.nl/haddock2.4/">https://wenmr.science.uu.nl/haddock2.4/</a></li>
+                <li>HADDOCK 2.4 scoring function. (2023). <a href="https://www.bonvinlab.org/software/haddock2.4/scoring/">https://www.bonvinlab.org/software/haddock2.4/scoring/</a></li>
+                <li>Heidelberg University iGEM Team. (2015). MAWS software. <a href="https://2015.igem.org/Team:Heidelberg/software/maws">https://2015.igem.org/Team:Heidelberg/software/maws</a></li>
+                <li>Honorato, R. V., et al. (2021). Structural biology in the clouds: The WeNMR-EOSC ecosystem. Frontiers in Molecular Biosciences, 8, 729513.</li>
+                <li>Li, J., Fu, A., & Zhang, L. (2019). An overview of scoring functions used for protein–ligand interactions in molecular docking. Interdisciplinary Sciences, Computational Life Sciences, 11, 320–328.</li>
+                <li>Meng, X.-Y., Zhang, H.-X., Mezei, M., & Cui, M. (2011). Molecular docking: A powerful approach for structure-based drug discovery. Current Computer-Aided Drug Design, 7, 146–157.</li>
+                <li>Morris, G. M., & Lim-Wilby, M. (2008). Molecular docking. In A. Kukol (Ed.), Molecular modeling of proteins (Vol. 443, pp. 365–382). Humana Press.</li>
+                <li>O’Boyle, N. M., et al. (2011). Open Babel: An open chemical toolbox. Journal of Cheminformatics, 3, 33.</li>
+                <li>Open Babel. (2023). <a href="https://github.com/openbabel/openbabel">https://github.com/openbabel/openbabel</a></li>
+                <li>Park, J., Yang, K.-A., Choi, Y., & Choe, J. K. (2022). Novel ssDNA aptamer-based fluorescence sensor for perfluorooctanoic acid detection in water. Environmental International, 158, 107000.</li>
+                <li>Song, M., Li, G., Zhang, Q., Liu, J., & Huang, Q. (2020). De novo post-SELEX optimization of a G-quadruplex DNA aptamer binding to marine toxin gonyautoxin 1/4. Computational and Structural Biotechnology Journal, 18, 3425–3433. <a href="https://doi.org/10.1016/j.csbj.2020.10.041">https://doi.org/10.1016/j.csbj.2020.10.041</a></li>
+                <li>Thevendran, R., Tang, T., & Citartan, M. (2023). in‐silico selection employing rigid docking and molecular dynamic simulation in selecting DNA aptamers against androgen receptor. Biotechnology Journal, 18(4). <a href="https://doi.org/10.1002/biot.202200092">https://doi.org/10.1002/biot.202200092</a></li>
+                <li>Trott, O., & Olson, A. J. (2009). AutoDock Vina: Improving the speed and accuracy of docking with a new scoring function, efficient optimization, and multithreading. Journal of Computational Chemistry. <a href="https://doi.org/10.1002/jcc.21334">https://doi.org/10.1002/jcc.21334</a></li>
+                <li>Van Zundert, G. C. P., et al. (2016). The HADDOCK2.2 web server: User-friendly integrative modeling of biomolecular complexes. Journal of Molecular Biology, 428, 720–725.</li>
+            </ol>
 
 
         </div>
