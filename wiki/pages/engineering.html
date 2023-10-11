@@ -4,7 +4,7 @@
 <div class="page">
 
     <!-- Change This Header -->
-    <div class="page-header"  style="background-image: url('https://static.igem.wiki/teams/4811/wiki/images/header-project-09.png');">
+    <div class="page-header"  style="background-image: url('https://static.igem.wiki/teams/4811/wiki/images/header-project-02.png');">
       <h1>Engineering</h1>  
     </div>
     <div class="container page-content">
@@ -16,12 +16,13 @@
           <ul>
             <li>
             <!-- h2 level, add this #location, and change this menu -->
-              <a href="#project_description">> Project Description</a>
+              <a href="#engineering">> Engineering</a>
               <ul>
                 <!-- h3 level, add this #location, and change this menu, use shorter names, also add ">" in front -->
-                <li><a href="#persistent_pollution">> Persistent Pollution</a></li>
-                <li><a href="#bioinformatics">> Bioinformatics Software</a></li>
-                <li><a href="#citizen">> Citizen Science</a></li>
+                <li><a href="#validation-of-tms-system">> Validation of TMS</a></li>
+                <li><a href="#design-of-new-tms-structures">> Design of new TMS</a></li>
+                <li><a href="#design-of-pfoa-tms">> Design of PFOA TMS</a></li>
+                <li><a href="#design-of-a-cell-free-system">> Design of cell-free system</a></li>             
               </ul>
             </li>
             <li>
@@ -37,48 +38,167 @@
         <div class="page-text col-lg-9">
             
             <!-- add id to h2 -->
-            <h2 id="project_description">Project description</h2>
+            <h2 id="engineering">Engineering</h2>
             <!-- add <hr> after h2 -->
             <hr>
-
-            <p><b>Today in Denmark, the question is not where PFAS is, but where PFAS isn't.</b> Recent advances in environmental and health sciences have confirmed that PFAS, a class of "forever chemicals", are extremely detrimental to planetary and human well-being. As efforts are made to identify sites of contamination and sources of pollution, detection methods are not streamlined or efficient. A major obstacle in effectively controlling PFAS lies in sampling bias, where the need for specialized equipment, limited resources, and trained personnel hinders the acquisition of accurate, high-resolution, real-time information on global PFAS concentrations. </p>
-            
-            <!-- figure and figcaption -->
+            <p>The engineering cycle is the cornerstone of innovation and problem-solving in the field of engineering. It is a fundamental approach to the design, execution, and learning of a complex challenge through a systematic and structured framework, which can be used to develop new products and create innovative solutions for a wide range of problems. This iterative process guides you through defined stages to refine and optimize the end-result, ensuring that the creation meets the standards of functionality, safety and efficiency. In short, the engineering cycle is a roadmap that informs but also inspires the creativity and problem-solving of engineers and designers.</p>
+            <p>This innovative process can be divided into two sections: research-based ideation and the Design-Build-Test-Learn cycle. The first part consists of research, including problem identification and definition of the requirements, followed by imagining possible solutions and establishment of an initial design. The second part is a cyclic, iterative process composed of the four stages in the name: designing, building, testing, and learning. The purpose is to repeat the cycle as needed with the goal of improving the experiment and increasing the precision and quality of the results.</p>
             <figure>
-              <img src="https://static.igem.wiki/teams/4811/wiki/images/pfoa4b.png" alt="General idea diagram">
-              <figcaption>This is the image caption.</figcaption>
+              <img src="https://static.igem.wiki/teams/4811/wiki/images/engeneering-process.svg" alt="Innovation process">
+              <figcaption>Figure 1: The engineering cycle.</figcaption>
+            </figure>            
+            <p>Through our project, we have delved into each stage of this cycle and here we shed light on how we have used the methodology, tools and considerations it provides to drive our idea forward. Our work within this cycle can be divided in three sections, namely the validation of the TMS system, the design of new variations of this system with alternative aptamers, and the application of TMSs in the PFAS problem with the use of the PFOA aptamer. For each section, we have aimed at running through multiple iterations of the cycle after learning from our experiences.</p>
+            <h2 id="validation-of-tms-system">Validation of TMS system</h2>
+            <h3 id="iteration-1">Iteration 1</h3>
+            <p><em>Design</em></p>
+            After deciding on constructing a biosensor based on a tRNA-Mimicking Structure (TMS), we set the goal to first validate the concept using the GFP aptamer as described by Paul <em>et al.</em> (2020). As explained in the <a href="https://2023.igem.wiki/dtu-denmark/design">Design</a> section, the TMS system is based on two plasmids: a high-copy number that contains the TMS, <a href="http://parts.igem.org/Part:BBa_K4811017">BBa_K4811017</a>, and a low-copy number plasmids that contains both GFP and mCherry, <a href="http://parts.igem.org/Part:BBa_K4811005">BBa_K4811005</a>. The expression of the TMS is induced by IPTG and the expression of mCherry by L-arabinose. The expression of GFP has the $P_{tet}$ promoter, which is induced by the antibiotics family of tetracycline. </p>
+            <p><em>Build &amp; Test</em>
+            <p>We first bought the construct from IDT to test the induction of fluorescence, which was transformed into <em>E. coli</em> BL21(DE3). The results showed a successful induction of mCherry using arabinose.</p>
+            <p>We USER cloned the <a href="http://parts.igem.org/Part:BBa_K4811004">BBa_K4811004</a> and <a href="http://parts.igem.org/Part:BBa_K4811003">BBa_K4811003</a> from IDT into our pACYC184 backbone, creating the composite part <a href="http://parts.igem.org/Part:BBa_K4811005">BBa_K4811005</a>. We also USER cloned <a href="http://parts.igem.org/Part:BBa_K4811018">BBa_K4811018</a> into pUC19 backbone. To check that the correct inserts were there, we sequenced and digested the plasmids, which indicated a successful cloning.</p>
+            <p>Co-transformation of <a href="http://parts.igem.org/Part:BBa_K4811005">BBa_K4811005</a> and <a href="http://parts.igem.org/Part:BBa_K4811018">BBa_K4811018</a> resulted in a reporter system, which was tested on varying levels of L-arabinose and IPTG. The results showed a successful induction of mCherry using arabinose, as well as repression of mCherry by IPTG, which expresses our TMS, the results of which can be seen below:</p>
+            <figure>
+              <img src="https://static.igem.wiki/teams/4811/wiki/data/finalgraphs/gfp-tms-varying-iptg.png" alt="TMS GFP 1 ">
+              <figcaption>Figure 2: mCherry fluorescence normalized to OD, 561 nm excitation/617 nm emission, as a function of IPTG concentration. All measurements were with 0.1 % w/v L-arabinose, except the controls. As controls there is a culture induced with no inducers present (uninduced).
+              </figcaption>
+            </figure> 
+            <figure>
+              <img src="https://static.igem.wiki/teams/4811/wiki/data/finalgraphs/gfp-tms-varying-arabinose.png" alt="TMS GFP 2">
+              <figcaption>Figure 3: mCherry fluorescence normalized to OD, 561 nm excitation/617 nm emission, as a function of L-arabinose concentration. All measurements were with 1 mM IPTG and 0.1 % w/v L-arabinose, except the controls. As controls there is a culture induced with only 1 mM IPTG (IPTG), one only induced by L-arabinose (L-ara), and one with no inducers present (uninduced).
+              </figcaption>
             </figure>
-
-            <!-- table style -->
-            <table>
-                <thead>
-                <tr>
-                <th><span>BioBrick ID</span></th>
-                <th><span>Description</span></th>
-                <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                <td><a href="http://parts.igem.org/Part:BBa_K4811000" target="_blank" rel="noopener"><span>BBa_K4811000</span></a></td>
-                <td><span>BRA</span></td>
-                </tr>
-                </tbody>
-            </table>
-
-            <!-- add id to h3 -->
-            <h3 id="persistent_pollution">Persistent pollution and the problems of PFAS</h3>
-            <h3 id="bioinformatics">Bioinformatics for better aptamer selection</h3>
-            <h3 id="citizen">Citizen science and environmental protection</h3>
-            
-            <!-- add id to h2 -->
+            <p>Furthermore, a Minimal Inhibitory Concentration (MIC) test was performed to determine the concentration of tetracycline that could be used without killing the cells. After a successful double transformation into <em>E. coli</em> BL21(DE3) and induction, however, there were no results and a low OD of the cells, indicating that the cells had died from the tetracycline. </p>
+            <p><em>Learn</em></p>
+            <p>From this introductory step, the results showed that 1 mM IPTG and 0.1 % w/v L-arabinose were sufficient conditions for simultaneous expression of mCherry and the TMS. We also learned that non-modified tetracycline is too potent for cells to survive with no expression of mCherry or the TMS. It is known that tetracycline inhibits the P site of the ribosome to hinder protein synthesis, which could explain why the cells could survive at certain low concentrations but no fluorescence could be measured.</p>
+            <h3 id="iteration-2">Iteration 2</h3>
+            <p><em>Design</em></p>
+            <p>After determining that tetracycline was too potent to use, we looked into modified versions of tetracycline that are less potent and thus could be used instead. We decided to use anhydrotetracycline (aTc), since it seemed to work in the published references (Paul <em>et al.</em>, 2020).</p>
+            <p><em>Build &amp; Test</em></p>
+            <p>The induction experiment was performed with the same setup as before with aTc instead of tetracycline. The OD showed an increase in growth and the measurements of GFP fluorescence increased when the aTc concentration increased. However, mCherry fluorescence did not change when aTc concentration increased.</p>
+            <figure>
+              <img src="https://static.igem.wiki/teams/4811/wiki/data/finalgraphs/gfp-tms-gfp-varying-atc.png">
+              <figcaption>Figure 4: GFP fluorescence normalized relative to OD, 488 nm excitation/545 nm emission, as a function of anhydrotetracycline (aTc) concentration. All measurements were with 1 mM IPTG and 0.1 % w/v L-arabinose, except the controls. As controls there is a culture induced with only 1 mM IPTG (IPTG), one only induced by L-arabinose (L-ara), and one with no inducers present (uninduced).
+              </figcaption>
+            </figure>
+            <figure>
+              <img src="https://static.igem.wiki/teams/4811/wiki/data/finalgraphs/gfp-tms-mcherry-varying-atc.png">
+              <figcaption>Figure 5: mCherry fluorescence normalized relative to OD, 561 nm excitation/617 nm emission, as a function of anhydrotetracycline (aTc) concentration. All measurements were with 1 mM IPTG and 0.1 % w/v L-arabinose, except the controls. As controls there is a culture induced with only 1 mM IPTG (IPTG), one only induced by L-arabinose (L-ara), and one with no inducers present (uninduced).
+              </figcaption>
+            </figure>      
+            <p><em>Learn</em></p>
+            <p>aTc was a good choice for induction of GFP and was not potent enough to kill or inhibit growth of <em>E. coli</em> BL21(DE3), with 0.5 &mu;M aTc having the highest fluorescence.</p>
+            <p>When looking at the corresponding mCherry fluorescence, there is no significant difference between varying amounts of aTc. As such, we were not able to recreate the results of Paul <em>et al.</em> (2020), as GFP led to an increase in mCherry fluorescence in the paper. However, the control with L-arabinose was not significantly different from the experiment with 0 &mu;M aTc. This leads us to believe that the TMSs ability to inhibit mCherry might have been compromised in our setup. We found this interesting, as our sequences and setup were designed to match the paper as closely as possible, but did not succeed. This highlights the difficulty in and importance of replicating scientific experiments. </p>
+            <h2 id="design-of-new-tms-structures">Design of new TMS structures</h2>
+            <h3 id="iteration-1">Iteration 1</h3>
+            <p><em>Design</em></p>
+            <p>To test the possibility of changing the D-loop of <a href="http://parts.igem.org/Part:BBa_K4811002">BBa_K4811002</a>, we wanted to use an aptamer that was well characterised. The RNA-aptamer from Suess <em>et al.</em> (2004) is a well-characterised aptamer that binds to theophylline. To have the least conformational change in the TMS, we decided to incorporate the aptamer in the D-loop with the stem. </p>
+            <p><em>Build &amp; Test</em></p>
+            <p>For the assembly, we ordered the whole construct from IDT as a gBlock and USER cloned it into the pUC19 backbone. After transforming the plasmids into <em>E. coli</em> BL21(DE3), we first tested whether the change in the TMS had altered the binding to RBS. Using varying concentrations of IPTG with a constant concentration of arabinose, we could see that the change in TMS did not alter the binding to the RBS. Furthermore, we then tested the system with varying concentrations of theophylline, and fluorescence decreased proportionally to its concentration. This however indicated that the TMS had a better binding to the RBS in the presence of theophylline.</p>
+            <figure>
+              <img src="https://static.igem.wiki/teams/4811/wiki/data/finalgraphs/theo2-tms.png">
+              <figcaption>Figure 6: OD normalized relative mCherry fluorescence, 561 nm excitation/617 nm emission, as a function of theophylline concentration. All measurements were with 1 mM IPTG and 0.1 % w/v L-arabinose, except the controls. As controls there is a culture with no IPTG or L-arabinose(uninduced).
+              </figcaption>
+            </figure>         
+            <p><em>Learn</em></p>
+            <p>These results were not as expected. We observed that increasing amount of ligand seemed to decrease fluorescence. This led us to consider if it was because of the insert design or the aptamers affinity to theophylline. To test one of the options, we decided to try a different insert. </p>
+            <h3 id="iteration-2">Iteration 2</h3>
+            <p><em>Design</em></p>
+            <p>To try another insert, Suess <em>et al.</em> (2004) varied the length of the fragment surrounding the aptamer sequence. This made us question whether the stem of the D-loop was necessary. We designed a new TMS that did not include the stem to test this. </p>
+            <p><em>Build &amp; Test</em></p>
+            <p>Without altering the conditions for the experiment, we executed it with the new TMS. The results also showed a decrease in fluorescence when we increased the concentration of theophylline. </p>
+            <figure>
+              <img src="https://static.igem.wiki/teams/4811/wiki/data/finalgraphs/theo1.png">
+              <figcaption>Figure 7: OD normalized relative mCherry fluorescence, 561 nm excitation/617 nm emission, as a function of theophylline concentration. All measurements were with 1 mM IPTG and 0.1 % w/v L-arabinose, except the controls. As controls there is a culture with no IPTG or L-arabinose(uninduced).
+              </figcaption>
+            </figure>  
+            <p><em>Learn</em></p>
+            <p>Comparing the result from the first iteration, the removal of the stem in the D-loop did not alter the tendency, where we saw an increased binding affinity to the RBS with higher concentration of theophylline. Yet, we did see that including the stem did improve the binding of the TMS to the RBS. Due to this unexpected result, we tried to use a completely different aptamer to test what the modification of the D-loop would cause. </p>
+            <h3 id="iteration-3">Iteration 3</h3>
+            <p><em>Design</em></p>
+            <p>To learn more about how alterations in the TMS could influence the system, we wanted to try with a different aptamer. The aptamer for manganese from Dambach <em>et al.</em> (2015) has a similar size as the GFP aptamer, making it a good option to incorporate. </p>
+            <p><em>Build &amp; Test</em></p>
+            <p>We ordered the TMS construct from IDT and USER cloned it into the pUC19 backbone. After transforming the two plasmids into BL21, we tested the system with varying concentrations of manganese. However, we saw high fluorescence when we used 0 µM of manganese.
+            As with theophylline, we created two different versions in the end: one with a longer stem region, TMS(Mn1), and one with only the manganese-binding part of the aptamer, TMS(Mn2).</p>
+            <figure>
+              <img src="https://static.igem.wiki/teams/4811/wiki/data/finalgraphs/mn1-tms.png">
+              <figcaption>Figure 8: OD normalized relative mCherry fluorescence, 561 nm excitation/617 nm emission, as a function of manganese concentration. All measurements were with 1 mM IPTG and 0.1 % w/v L-arabinose, except the controls. As controls there is a culture with no IPTG or L-arabinose(uninduced).
+              </figcaption>
+            </figure>  
+            <figure>
+              <img src="https://static.igem.wiki/teams/4811/wiki/data/finalgraphs/mn2-tms.png">
+              <figcaption>Figure 9: OD normalized relative mCherry fluorescence, 561 nm excitation/617 nm emission, as a function of manganese concentration. All measurements were with 1 mM IPTG and 0.1 % w/v L-arabinose, except the controls. As controls there is a culture with no IPTG or L-arabinose(uninduced).
+              </figcaption>
+            </figure>    
+            <p><em>Learn</em></p>
+            <p>The fluorescence from manganese could be from the manganese in the LB media. To change this we would have to have a different media, but as manganese is an important cofactor for enzymes, it is difficult to avoid in the experiment.</p>
+            <h2 id="design-of-pfoa-tms">Design of PFOA TMS</h2>
+            <h3 id="iteration-1">Iteration 1</h3>
+            <p><em>Design</em></p>
+            <p>The next step was to test aptamers for PFOA, designed by Park <em>et al.</em> (2022) using SELEX. They are not as well-characterized as the previous aptamers. The incorporation of the PFOA aptamer into the D-loop could create a TMS system sensitive for PFOA. The initial design would incorporate the whole PFOA aptamer with minimal changes, <a href="http://parts.igem.org/Part:BBa_K4811024">BBa_K4811024</a>, only removing parts of the stem that seems to be less relevant for PFOA binding.</p>
+            <p><em>Build &amp; Test</em></p>
+            <p>We procured the entire construct as a gBlock from IDT, and it was subsequently USER cloned into the pUC19 backbone. Following the transformation of these plasmids into <em>E. coli</em> BL21(DE3), our experiment aimed to determine whether the alteration in the TMS had any impact on its binding to the RBS. By employing varying concentrations of IPTG while keeping the arabinose concentration constant, we observed that the addition of the new D-loop to the TMS did not affect its binding to the RBS. </p>
+            <figure>
+              <img src="https://static.igem.wiki/teams/4811/wiki/data/finalgraphs/pfoa1-tms-induction.png">
+              <figcaption>Figure 10: mCherry fluorescence normalized relative to OD, 561 nm excitation/617 nm emission, as a function of IPTG concentration. As control there is a culture with no IPTG or L-arabinose(uninduced)
+              </figcaption>
+            </figure>  
+            <p>Subsequently, we conducted experiments with varying PFOA concentration, where we observed the mCherry fluorescence decreased when the PFOA concentration increased. </p>
+            <figure>
+              <img src="https://static.igem.wiki/teams/4811/wiki/data/finalgraphs/pfoa1-tms.png">
+              <figcaption>Figure 11: mCherry fluorescence normalized relative to OD, 561 nm excitation/617 nm emission, as a function of PFOA concentration. All measurements were with 1 mM IPTG and 0.1 % w/v L-arabinose, except the controls. As controls there is a culture induced with only 1 mM IPTG (IPTG), one only induced by 0.1 % w/v L-arabinose (L-ara), and one with no inducers present (uninduced).
+              </figcaption>
+            </figure>  
+            <p><em>Learn</em></p>
+            <p>Once again, the observed effect was unexpected, with higher PFOA concentrations leading to lower fluorescence. This raised the question of whether the aptamer insert could be designed differently. Taking the same approach as with theophylline, we shortened the insert down to only contain a short stem and the aptamer. </p>
+            <h3 id="iteration-2">Iteration 2</h3>
+            <p><em>Design</em></p>
+            <p>The new insert was designed to include the stem of the D-loop, <a href="http://parts.igem.org/Part:BBa_K4811030">BBa_K4811030</a>. This new design removed the first 6 bp and the last 7 bp, reducing the insert from 45 bp to 32 bp. </p>
+            <p><em>Build &amp; Test</em></p>
+            <p>The complete construct was ordered as a gBlock, which was USER cloned into pUC19 backbone. The experiment with varying PFOA concentration was performed. The same trend as in the previous iteration was observed in which high PFOA concentrations resulted in lower fluorescence levels.</p>
+            <figure>
+              <img src="https://static.igem.wiki/teams/4811/wiki/data/finalgraphs/pfoa2-tms.png">
+              <figcaption>Figure 12: mCherry fluorescence normalized relative to OD, 561 nm excitation/617 nm emission, as a function of PFOA concentration. All measurements were with 1 mM IPTG and 0.1 % w/v L-arabinose, except the controls. As controls there is a culture induced with only 1 mM IPTG (IPTG), one only induced by 0.1 % w/v L-arabinose (L-ara), and one with no inducers present (uninduced).
+              </figcaption>
+            </figure>
+            <p><em>Learn</em></p>
+            <p>As with PFOA1, the trend showed lower mCherry fluorescence upon higher PFOA concentrations, but now the results were statistically significant. Seeing that restricting the aptamer to include less of the stem, we then went on to restrict the aptamer insert even more, only including the part of the aptamer that was predicted to change conformation upon binding to PFOA.</p>
+            <h3 id="iteration-3">Iteration 3</h3>
+            <p><em>Design</em></p>
+            <p>The last design of the aptamer insert in <a href="http://parts.igem.org/Part:BBa_K4811025">BBa_K4811025</a> only includes 19 bp of the original aptamer, primarily  the part predicted to be sensitive to PFOA. </p>
+            <p><em>Build &amp; Test</em></p>
+            <p>The entire construct was acquired as a gBlock and subsequently USER cloned into the pUC19 backbone. After transformation, we used the same setup as for TMS(PFOA1) to confirm that the change did not influence the TMS function across IPTG concentrations, despite the aptamer insert being altered significantly.</p>
+            <figure>
+              <img src="https://static.igem.wiki/teams/4811/wiki/data/finalgraphs/pfoa3-tms-induction.png">
+              <figcaption>Figure 13: mCherry fluorescence normalized relative to OD, 561 nm excitation/617 nm emission, as a function of IPTG concentration. As control there is a culture with no IPTG or L-arabinose(uninduced).
+              </figcaption>
+            </figure>
+            <p>The obtained results confirmed this, with this mCherry fluorescence decreasing based on PFOA concentration. Therefore, the TMS system was tested using varying PFOA concentrations. This experiment showed the same trend of a decrease in fluorescence when PFOA concentration increased.</p>
+            <figure>
+              <img src="https://static.igem.wiki/teams/4811/wiki/data/finalgraphs/pfoa3-tms.png">
+              <figcaption>Figure 14: mCherry fluorescence normalized relative to OD, 561 nm excitation/617 nm emission, as a function of PFOA concentration. All measurements were with 1 mM IPTG and 0.1 % w/v L-arabinose, except the controls. As controls there is a culture induced with only 1 mM IPTG (IPTG), one only induced by 0.1 % w/v L-arabinose (L-ara), and one with no inducers present (uninduced).
+              </figcaption>
+            </figure>
+            <p><em>Learn</em></p>
+            <p>After three iterations of the engineering cycle, we have learned that the change in the size of the aptamer does not have an effect on the way PFOA interacts with our TMS. The observed trend remains similar throughout all three aptamer iterations. However, the strength of the interaction does vary. As the D-loop decreases in size, it is harder to destabilize the interaction between the TMS and our reporter gene. Thus, the smallest design is the one that reduces the amount of fluorescence to the smallest degree. </p>
+            <p>The largest fold change in mCherry fluorescence upon addition of increasing PFOA concentrations was seen in TMS(PFOA2). Though this is not the result we expected, it is still very useful and does show mCherry fluorescence dependent on the concentration of PFOA.</p>
+            <h2 id="design-of-a-cell-free-system">Design of a cell-free system</h2>
+            <h3 id="iteration-1">Iteration 1</h3>
+            <p><em>Design</em></p>
+            <p>Cell-free systems (CFS) are a solution that mimic cell behavior. In particular, transcription and translation CFS (TXTL-CFS) are able to drive the protein synthesis, both of linear and circular DNA. The furthest extent of our project, a technology based on a TMS system that is able to reliably and reproducibly detect PFOA in water, would ideally work outside of the cellular environment to overcome some of the main limitations common to all synthetic biology applications. </p>
+            <p>The use of a TXTL-CFS allows the production of a PFOA detection device that can be produced on a large scale without the need for rare compounds or electronic components. It can be stored dry up to months and is activated upon rehydration. In our concept, rehydration with field-collected water samples would activate the mRNA transcription and translation of the reporter protein, giving a detectable signal after a few hours of room temperature incubation. </p>
+            <p>DTU Bioengineering has a biophysics group that works with cell-free systems. We had a meeting with Rasmus Krogh Norrild from the group to discuss the best way to design the system. </p>
+            <p><em>Build &amp; Test</em></p>
+            <p>We unfortunately did not get to test our design or further develop it. </p>
             <h2 id="references">References</h2>
-            <hr>
+            <ol>
+              <li><p>Dambach, M., Sandoval, M., Updegrove, T. B., Anantharaman, V., Aravind, L., Waters, L. S., &amp; Storz, G. (2015). The ubiquitous yybP-ykoY riboswitch is a manganese-responsive regulatory element. Molecular cell, 57(6), 1099–1109. <a href="https://doi.org/10.1016/j.molcel.2015.01.035">https://doi.org/10.1016/j.molcel.2015.01.035</a></p>
+              </li>
+              <li><p>Park, J., Yang, K. A., Choi, Y., &amp; Choe, J. K. (2022). Novel ssDNA aptamer-based fluorescence sensor for perfluorooctanoic acid detection in water. Environment international, 158, 107000. <a href="https://doi.org/10.1016/j.envint.2021.107000">https://doi.org/10.1016/j.envint.2021.107000</a></p>
+              </li>
+              <li><p>Suess, B., Fink, B., Berens, C., Stentz, R., &amp; Hillen, W. (2004). A theophylline responsive riboswitch based on helix slipping controls gene expression in vivo. Nucleic acids research, 32(4), 1610–1614. <a href="https://doi.org/10.1093/nar/gkh321">https://doi.org/10.1093/nar/gkh321</a></p>
+              </li>
+            </ol>
 
-            <!-- list -->
-            <ul>
-              <li>Brunn, H., Arnold, G., Körner, W., Rippen, G., Steinhäuser, K. G., & Valentin, I. (2023). PFAS: forever chemicals—persistent, bioaccumulative and mobile. Reviewing the status and the need for their phase out and remediation of contaminated sites. Environmental Sciences Europe 2023 35:1, 35(1), 1–50.</li>
-              <li>Cordner, A., Goldenman, G., Birnbaum, L. S., Brown, P., Miller, M. F., Mueller, R., Patton, S., Salvatore, D. H., & Trasande, L. (2021). The True Cost of PFAS and the Benefits of Acting Now. Environmental Science and Technology,   </ul>
+            
         </div>
       </div>
     </div>
