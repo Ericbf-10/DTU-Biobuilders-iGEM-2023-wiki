@@ -153,6 +153,7 @@ left: 0;
 .text-background {
   background: linear-gradient(#1d97d4,#000614);
   height: 100%;
+  width:100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -252,7 +253,7 @@ padding-bottom: 2rem;
 }
 
 .page-text figure {
-  margin: 6%;
+  margin: 7%;
   text-align: center;
   display: block;
 }
