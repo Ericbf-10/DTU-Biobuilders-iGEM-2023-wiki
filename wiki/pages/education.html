@@ -83,8 +83,47 @@
           <span class="dot"></span>
           <span class="dot"></span> 
           </div>
+          <br>
+          <div class="slideshow-container">
+            <div class="mySlides-ng fade">
+              <div class="numbertext">1 / 3</div>
+              <img class="album" src="https://static.igem.wiki/teams/4811/wiki/images/lab-safety/workshop-ng-1.jpg">
+            </div>
+            <div class="mySlides-ng fade">
+              <div class="numbertext">2 / 3</div>
+              <img class="album" src="https://static.igem.wiki/teams/4811/wiki/images/lab-safety/workshop-ng-2.jpg">
+            </div>
+            <div class="mySlides-ng fade">
+              <div class="numbertext">3 / 3</div>
+              <img class="album" src="https://static.igem.wiki/teams/4811/wiki/images/lab-safety/workshop-ng-3.jpg">
+            </div>
+          </div>
+          <br>
+          <div style="text-align:center">
+            <span class="dot-ng"></span> 
+            <span class="dot-ng"></span> 
+            <span class="dot-ng"></span>
+            </div>
+            <br>
           <p>We extend our heartfelt gratitude to the schools, dedicated teachers, and enthusiastic students who wholeheartedly embraced our workshops. Your engagement and commitment have been invaluable, and we look forward to the bright futures that lie ahead for these budding biotechnologists.</p>
           <h2 id="biotech">Biotech Academy</h2>
+          <p>We aimed to broaden the reach of our project and decided to collaborate with Biotech Academy, a non-profit organization affiliated with DTU Bioengineering. Biotech Academy is staffed by enthusiastic fellow university students with a passion for biotechnology, biology, chemistry, and communicating these subjects, particularly to Danish primary school children and Danish high school students. They ensure education through various channels, including their website (<a href="https://www.biotechacademy.dk/">biotechacademy.dk</a>), camps, and teaching material. What sets them apart is their close collaboration with industry partners, guaranteeing teaching materials that are not only highly relevant for biotechnology but also up to date on the current advancements.</p>
+          <p>Biotech Academy’s unwavering dedication to promoting a deeper understanding of biotechnology and cultivating enthusiasm for STEM subjects beautifully aligns with our own mission. Thus, a collaboration seemed straightforward.</p>
+          <p>Our partnership with Biotech Academy builds upon the groundwork laid by DTU Biobuilders in 2022. Biotech Academy’s mission includes shedding light on the real-world applications of synthetic biology, many of which are exemplified in initiatives like iGEM. DTU Biobuilders 2022 played a vital role in helping Biotech Academy craft a comprehensive page about synthetic biology and contributed a well-crafted page outlining their iGEM project.</p>
+          <p>Our contribution to Biotech Academy takes the form of a dedicated page highlighting our project. The process involved receiving careful guidance and invaluable feedback on creating content tailored for high school students who may have little to no prior knowledge about synthetic biology and our specific project. This page now becomes a part of Biotech Academy’s ongoing effort to annually update their website with content designed to pique the curiosity of Danish high school students, all presented in an accessible and understandable language.</p>
+          <p>To view the page, you can access it <b>here</b> or download it as a <b>PDF here</b>. We are excited about this collaborative effort and its potential to inspire and engage young minds in the fascinating world of biotechnology and synthetic biology.</p>
+          <h2 id="dtu_student">DTU Students</h2>
+          <p>We took our outreach efforts further by connecting with our fellow students at DTU. We did this by participating in the <b>Student Life Fair</b>, an event organized by the PF Master Student Coordinators during the introduction week for new master’s students. Additionally, we reached out to MSc. Biotechnology students through the <b>Society of Biological Engineering (SBE)</b>, and we shared our project on various <b>social media platforms</b> affiliated with DTU.</p>
+          <p>During our time at the <b>Student Life Fair</b>, we engaged in numerous <b>exciting</b> conversations. These conversations covered a range of topics, including iGEM, synthetic biology, and our project. The Student Life Fair provided us with a unique opportunity to extend our reach beyond our own department at DTU. While iGEM and DTU Biobuilders are generally well-known among biotechnology students at DTU, we saw the value in introducing our initiatives to students who may not yet be familiar with iGEM. We believe that these incoming master’s students have the potential to both contribute to and learn from iGEM in the coming year. Students without a biological background often bring <b>diverse skills</b> and <b>perspectives</b> that can be valuable in various aspects of iGEM.</p>
+          <figure class="image-container album">
+            <img class="image" src="https://static.igem.wiki/teams/4811/wiki/images/lab-safety/introweek1.jpg" alt="Student Life Fair">
+            <img class="image" src="https://static.igem.wiki/teams/4811/wiki/images/lab-safety/introweek2.webp" alt="Student Life FAir">
+          </figure>
+          <p>We continued our internal outreach through the Society of Biological Engineering, known as SBE. Collaborating with SBE, we held a public presentation on our project and iGEM. Here, everyone curious about the our project, our experiences, and iGEM itself could participate and ask their questions.</p> 
+          <figure>
+            <img class="album" src="https://static.igem.wiki/teams/4811/wiki/images/lab-safety/sbe.png">
+          </figure>
+          <p>Lastly, we aimed to reach a broader audience within DTU. To accomplish this, we reached out to the <b>social media team</b> responsible for managing the university’s social media platforms. Through this collaboration, we aimed to raise awareness about the field of synthetic biology and the exciting opportunities offered by DTU through participation in iGEM. You can read the article <b>here</b>, or access it as a <b>PDF here</b>.</p>
         </div>
     </div>
   </div>
@@ -93,7 +132,6 @@
 <script>
   let slideIndex = 0;
 showSlides();
-
 function showSlides() {
   let i;
   let slides = document.getElementsByClassName("mySlides");
@@ -110,6 +148,36 @@ function showSlides() {
   dots[slideIndex-1].className += " active";
   setTimeout(showSlides, 2000); // Change image every 2 seconds
 }
+
 </script>
+<script>
+  let slideIndexNg = 0;
+  showSlidesNg();
+
+  function showSlidesNg() {
+    let i;
+    let slides = document.getElementsByClassName("mySlides-ng");
+    let dots = document.getElementsByClassName("dot-ng");
+
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+
+    slideIndexNg++;
+
+    if (slideIndexNg > slides.length) {
+      slideIndexNg = 1;
+    }
+
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+
+    slides[slideIndexNg - 1].style.display = "block";
+    dots[slideIndexNg - 1].className += " active";
+    setTimeout(showSlidesNg, 2000); // Change image every 2 seconds
+  }
+</script>
+
 
 {% endblock %}
