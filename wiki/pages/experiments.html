@@ -2883,7 +2883,281 @@
             </li>
         </ol>
         </p>
-        </div>
+        <h3>USER cloning</h3>
+        <p>Materials:
+          <br>
+          <ul>
+            <li>BioBLock DNA with USER overhangs
+            </li>
+            <li>USER-compatible opened vector
+            </li>
+            <li>CutSmart buffer
+            </li>
+            <li>Sterile MQ
+            </li>
+            <li>USER Enzyme Mix
+            </li>
+            <li>Competent <i>E. coli</i> (DH5α)
+            </li>
+            <li>Ice</li>
+            <li>LB plates supplemented with appropriate antibiotics
+            </li>
+            <li>PCR tubes
+            </li>
+          </ul>
+
+        </p>
+        <p>Before conducting the cloning:
+          <br>Keep total volume of mix at 10 μL (or alternatively 20 μL).
+          <br>Add equal molar amounts of each fragment.
+          <br>If you want to add less vector backbone, this can be adjusted by the cell “Backbone adjust”.</p>
+          <p>Scheme for calculating amount of backbone and fragments to add:</p>
+          <table>
+            <tr>
+                 <th></th>
+                <th>A</th>
+                <th>B</th>
+                <th>C</th>
+                <th>D</th>
+                <th>E</th>
+              </tr>
+              <tr>
+                 <td>1</td>
+                <td>Fragment</td>
+                <td>Concentration (ng/&mu;L)</td>
+                <td>bp</td>
+                <td>Ignore this column</td>
+                <td>Volume (&mu;L)</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>B2</td>
+                <td>C2</td>
+                <td>1</td>
+                <td>E6/SUM(D2:D5)*D2</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Block 1</td>
+                <td>B3</td>
+                <td>C3</td>
+                <td>(D2*B6*B2/C2)*C3/B3</td>
+                <td>E6/SUM(D2:D5)*D3</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Block 2</td>
+                <td>B4</td>
+                <td>C4</td>
+                <td>(D3*B3/C3)*C4/B4</td>
+                <td>E6/SUM(D2:D5)*D4</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>Block 3</td>
+                <td>B5</td>
+                <td>C5</td>
+                <td>(D4*B4/C4)*C5/B5</td>
+                <td>E6/SUM(D2:D5)*D5</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>Backbone adjust (BioBrick:Backbone)</td>
+                <td>1</td>
+                <td></td>
+                <td></td>
+                <td>E6</td>
+              </tr>
+            </table>
+            <p>Procedure:<br>
+              USER reaction mix
+            </p>
+            <p>
+              <ol>
+                <li>
+                  Mix following in a PCR tube:
+                  <table>
+                    <tr>
+                         <th>Reagent</th>
+                        <th>Volume (&mu;L)</th>
+                        <th>Negative control (&mu;L)</th>
+                      </tr>
+                      <tr>
+                         <td>BioBlock DNA</td>
+                        <td>1-6</td>
+                        <td>0</td>
+                      </tr>
+                      <tr>
+                        <td>USER-ready vector</td>
+                        <td>1-6</td>
+                        <td>1-6</td>
+                      </tr>
+                      <tr>
+                        <td>CutSmart buffer</td>
+                        <td>0.5</td>
+                        <td>0.5</td>
+                      </tr>
+                      <tr>
+                        <td>MQ (up to 10)</td>
+                        <td>x</td>
+                        <td>x</td>
+                      </tr>
+                      <tr>
+                        <td>USER Enzyme</td>
+                        <td>1</td>
+                        <td>1</td>
+                      </tr>
+                    </table>
+                    
+                </li>
+              </ol>
+              <br>
+              Incubate as follows:
+              <ol start="2">
+                <li>37°C for 25-35 min.</li>
+                <li>Room temperature for 15-25 min.</li>
+                <li>Thaw competent <i>E. coli</i> DH5α on ice, while they are thawing:</li>
+                <li>Continue incubation for app. 10 min.</li>
+                <li>Put on ice, do not mix, do not vortex.</li>
+              </ol>
+            </p>
+            <p>Transformation:
+              <br>
+              <ol start="7">
+                <li>Mix the reaction with 10-50 μL competent E. coli DH5α - Competent cells should be handled gently.</li>
+                <li>Mix the DNA and cells gently by stirring with a pipette tip.<br>
+                  Remember to add a positive control, using an unopened plasmid (typically 1 pg - 100 ng).</li>
+                  <li>Incubate on ice for 5-15 min</li>
+                  <li>Heat shock at 42°C for 0:50 - 1:30 min</li>
+                  <li>Incubate on ice for 5-15 min</li>
+                  <li>(Not needed for ampicillin marker) Add 950 µl SOC/LB media and incubate for 1 h at 37°C 250 rpm</li>
+                  <li>Plate and spread on selective medium (LB + Amp, Kan/Neo or Cam)</li>
+              </ol>
+            </p>
+            <h3>Invitrogen™ PureLink™ Quick Plasmid Miniprep Kit</h3>
+            <p><a href="https://assets.fishersci.com/TFS-Assets/LSG/manuals/purelink_quick_plasmid_qrc.pdf">Miniprep isolation protocol (centrifuge)</a></p>
+            <p>Follow this procedure to purify plasmid DNA using a centrifuge. Use a microcentrifuge capable of
+              centrifuging at >12,000 × g. For processing a large number of samples simultaneously, see the “Miniprep
+              plasmid isolation protocol (vacuum)”.</p>
+              <p>
+                <ul>
+                  <li>Perform all centrifugation steps at room temperature using a microcentrifuge.
+                  </li>
+                  <li>Optional: Preheat an aliquot of TE Buffer (TE) to 65–70°C for eluting DNA. Heating is optional for eluting 1–30 kb plasmid DNA but is recommended for eluting DNA >30 kb.
+                  </li>
+                  <li>Ensure the bag containing the PureLink™ Quick Spin Columns is closed tightly after each use.
+                  </li>
+                  <li>Caution: Buffers contain hazardous reagents. Use caution when handling buffers.
+                  </li>
+                </ul>
+              </p>
+              <p>Steps:</p>
+              <p>
+                <ol>
+                  <li>Harvest<br>
+                    Centrifuge 1–5 mL of the overnight LB-culture. (Use 1–2 × 10^9 E. coli cells for each sample.) Remove all medium.
+                    </li>
+                    <li>Resuspend<br>
+                      Add 250 μL Resuspension Buffer (R3) with RNase A to the cell pellet and resuspend the pellet until it is homogeneous.
+                      </li>
+                      <li>Lyse<br>
+                        Add 250 μL Lysis Buffer (L7). Mix gently by inverting the capped tube until the mixture is homogeneous. Do not vortex. Incubate the tube at room temperature for 5 minutes.
+                        </li>
+                        <li>Precipitate<br>
+                          Add 350 μL Precipitation Buffer (N4). Mix immediately by inverting the tube, or for large pellets, vigorously shaking the tube, until the mixture is homogeneous. Do not vortex. Centrifuge the lysate at >12,000 × g for 10 minutes.</li>
+                         <li>Bind<br>
+                            Load the supernatant from step 4 onto a spin column in a 2 mL wash tube. Centrifuge the column at 12,000 × g for 1 minute. Discard the flowthrough and place the column back into the wash tube.</li>
+                         <li>Wash (Optional)<br>
+                          (Recommended for endA+ strains). Add 500 μL Wash Buffer (W10) with ethanol to the column. Incubate the column for 1 minute at room temperature. Centrifuge the column at 12,000 × g for 1 minute. Discard the flowthrough and place column back into the wash tube.</li>
+                          <li>Wash and remove ethanol<br>
+                            Add 700 μL Wash Buffer (W9) with ethanol to the column. Centrifuge the column at 12,000 × g for 1 minute. Discard the flowthrough and place the column into the wash tube. Centrifuge the column at 12,000 × g for 1 minute. Discard the wash tube with the flowthrough.</li>
+                            <li>Elute<br>
+                              Place the Spin Column in a clean 1.5 mL elution tube. Add 75 μL of preheated TE Buffer (TE) to the center of the column. Incubate the column for 1 minute at room temperature.</li>
+                              <li>Recover<br>
+                                Centrifuge the column at 12,000 × g for 2 minutes. The elution tube contains the purified plasmid DNA. Discard the column. Store plasmid DNA at 4°C (short term) or store the DNA in aliquots at −20°C (long term).</li>
+                </ol>
+              </p>
+              <h3>Monarch® Plasmid Miniprep Kit from NEB</h3>
+              <p><a href="https://www.neb.com/en/protocols/2015/11/20/monarch-plasmid-dna-miniprep-kit-protocol-t1010">Monarch® Plasmid Miniprep Kit from NEB</a></p>
+
+              <p>All centrifugation steps should be carried out at 16,000 x g (~13,000 RPM).<br>
+                If precipitate has formed in Lysis Buffer (B2), incubate at 30–37°C, inverting periodically to dissolve.
+                <br>Store Plasmid Neutralization Buffer (B3) at 4°C after opening, as it contains RNase A.</p>
+                <p>Note: unlike other commercial kits, all wash steps are required.</p>
+                <ol>
+                  <li>Pellet 1–5 ml bacterial culture (not to exceed 15 OD units) by centrifugation for 30 seconds. Discard supernatant.</li>
+                </ol>
+                <p><i>Note: For a standard miniprep to prepare DNA for restriction digestion or PCR, we recommend 1.5 ml of culture, as this is sufficient for most applications. Ensure cultures are not overgrown (12-16 hours is ideal).</i></p>
+                <ol start="2">
+                  <li>Resuspend pellet in 200 μl Plasmid Resuspension Buffer (B1) (pink). Vortex or pipet to ensure cells are completely resuspended. There should be no visible clumps.</li>
+                  <li>Lyse cells by adding 200 μl Plasmid Lysis Buffer (B2) (blue/green). Invert tube immediately and gently 5–6 times until color changes to dark pink and the solution is clear and viscous. Do not vortex! Incubate for one minute.</li>
+                </ol>
+                <p><i>Note: Care should be taken not to handle the sample roughly and risk shearing chromosomal DNA, which will co-purify as a contaminant. Avoid incubating longer than one minute to prevent irreversible plasmid denaturation.</i></p>
+                <ol start="4">
+
+                  <li>Neutralize the lysate by adding 400 μl of Plasmid Neutralization Buffer (B3) (yellow). Gently invert tube until color is uniformly yellow and a precipitate forms. Do not vortex! Incubate for 2 minutes.</li>
+                </ol>
+                <p><i>Note: Be careful not to shear chromosomal DNA by vortexing or vigorous shaking. Firmly inverting the tube promotes good mixing, important for full neutralization.</i></p>
+                <ol start="5">
+                  <li>Clarify the lysate by spinning for 2–5 minutes at 16,000 x g.</li>
+                </ol>
+                <p><i>Note: Spin time should not be less than 2 minutes. Careful handling of the tube will ensure no debris is transferred and the 2 minute recommended spin can be successfully employed to save valuable time. For culture volumes > 1 ml, we recommend a 5 minute spin to ensure efficient RNA removal by RNase A. Also, longer spin times will result in a more compact pellet that lower the risk of clogging the column.
+                    <br>
+                  To save time, spin for two minutes only.</i></p>
+                  <ol start="6">
+                    <li>Carefully transfer supernatant to the spin column and centrifuge for 1 minute. Discard flow-through.</li>
+                  </ol>
+                  <p><i>To save time, spin for 30 seconds, instead of 1 minute.
+                      <br>
+                    If using a vacuum manifold instead of centrifugation, insert the column into a manifold and switch the vacuum on. Allow the solution to pass through the column, then switch the vacuum source off.</i></p>
+                    <ol start="7">
+                      <li>Re-insert column in the collection tube and add 200 μl of Plasmid Wash Buffer 1. Plasmid Wash Buffer 1 removes RNA, protein and endotoxin. (Add a 5 minute incubation step before centrifugation if the DNA will be used in transfection.) Centrifuge for 1 minute. Discarding the flow-through is optional.</li>
+                    </ol>
+                    <p><i>Note: The collection tube is designed to hold 800 μL of flow-through fluid and still allow the tip of the column to be safely above the top of the liquid. Empty the tube whenever necessary to ensure the column tip and flow-through do not make contact.
+                      <br>
+                      To save time, spin for 30 seconds, instead of 1 minute.
+
+                      <br>If using a vacuum manifold, add 200 μL of Plasmid Wash Buffer 1 and switch the vacuum on. Allow the solution to pass through the column, then switch the vacuum source off.
+                          Make sure to follow the manifold manufacturer’s instructions to set-up the manifold and connect it properly to a vacuum source.
+                    </i></p>
+                    <ol start="8">
+                      <li>Add 400 μL of Plasmid Wash Buffer 2 and centrifuge for 1 minute.
+                      </li>
+                    </ol>
+                    <p><i>When using a manifold add 400 μL of Plasmid Wash Buffer 2 and switch the vacuum on. Allow the solution to pass through the column, then switch the vacuum source off.</i></p>
+                    <ol start="9">
+                      <li>Transfer column to a clean 1.5 ml microfuge tube. Use care to ensure that the tip of the column has not come into contact with the flow-through. If there is any doubt, re-spin the column for 1 minute before inserting it into the clean microfuge tube.</li>
+                    </ol>
+                    <p><i>If using a vacuum manifold: Since vacuum set-ups can vary, a 1 minute centrifugation is recommended prior to elution to ensure that no traces of salt and ethanol are carried over to the next step.</i></p>
+                    <ol start="10">
+                      <li>Add ≥ 30 μL DNA Elution Buffer to the center of the matrix. Wait for 1 minute, then spin for 1 minute to elute DNA.</li>
+                    </ol>
+                    <p><i>Note: Nuclease-free water (pH 7–8.5) can also be used to elute the DNA. Delivery of the Monarch DNA Elution Buffer should be made directly to the center of the column to ensure the matrix is completely covered for maximal efficiency of elution. Additionally, yield may slightly increase if a larger volume of DNA Elution Buffer is used, but the DNA will be less concentrated as a result of dilution. For larger plasmids (≥ 10 kb), heating the DNA Elution Buffer to 50°C prior to eluting and extending the incubation time after buffer addition to 5 minutes can improve yield.</i></p>
+
+                    <h3>Protocol for Ampliqon PureIT ExoZAP PCR CleanUp</h3>
+                    <p><a href="https://ampliqon.com/en/pcr-enzymes/pcr-enzymes/pcr-clean-up/pureit-exozap-pcr-cleanup/">Protocol for Ampliqon PureIT ExoZAP PCR CleanUp</a></p>
+                    <p>This protocol serves as a guideline for clean-up of 5 μl PCR product using PureIT ExoZAP PCR CleanUp*.
+                      <br>Take out PureIT ExoZAP PCR CleanUp from the -20 °C freezer.</p>
+                      <ul>
+                        <li>Keep PureIT ExoZAP PCR CleanUp on ice at all times.
+                        </li>
+                        <li>Add 2 μl PureIT ExoZAP PCR CleanUp** to 5 μl of amplified PCR product.
+                        </li>
+                        <li>Mix well and spin down.
+                        </li>
+                        <li>Incubate the reaction at 37 °C for 2-5 minutes to degrade remaining primers, single-stranded DNA and to inactivate excess nucleotides by dephosphorylation.
+                        </li>
+                        <li>Incubate at 80 °C to completely inactivate PureIT ExoZAP PCR CleanUp for 3-10 minutes.</li>
+                        <li>The cleaned up PCR product can now be used for downstream applications such DNA sequencing, primer extension experiment or SNP analysis.
+                        </li>
+                        <li>After treatment the PCR products can be stored at -20 °C
+                        </li>
+                      </ul>
+
+                      <p>*If treating PCR product of higher volume, then increase proportionally the amount of PureIT ExoZAP PCR CleanUp.
+                        <br>**PureIT ExoZAP PCR CleanUp works in PCR buffers.</p>
+
+      </div>
   </div>
 </div>
 
