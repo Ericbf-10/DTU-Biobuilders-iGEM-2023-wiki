@@ -619,6 +619,7 @@ footer a:hover { color: white; text-decoration: underline; }
 
 /* Slide show*/
 .mySlides {display: none;}
+.mySlides-ng {display: none;}
 
 /* Slideshow container */
 .slideshow-container {
@@ -645,6 +646,17 @@ footer a:hover { color: white; text-decoration: underline; }
   display: inline-block;
   transition: background-color 0.6s ease;
 }
+
+.dot-ng {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
 .active {
   background-color: #717171;
 }
