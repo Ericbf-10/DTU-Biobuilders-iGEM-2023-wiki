@@ -18,10 +18,10 @@
 </div>
 
 <div class="main-content">
-  <!-- <img src="https://static.igem.wiki/teams/4811/wiki/images/main-page.png" alt="Intro Image" class="main-content"> -->
   <div class="text-background">
     <div class="col-md-12 text-center">
-      <object data="https://static.igem.wiki/teams/4811/wiki/images/main-page-new.svg" type="image/svg+xml"></object>
+      <object data="static/images/main-page-text.svg" type="image/svg+xml"></object>
+      <!-- <object data="https://static.igem.wiki/teams/4811/wiki/images/main-page-new.svg" type="image/svg+xml"></object> -->
 </div>
 </div>
 
@@ -66,6 +66,11 @@
     }
 
     typewriter();
+
+    document.getElementById("button").addEventListener("click", function() {
+        // Redirect to the desired URL when the button is clicked
+        window.location.href = "https://www.example.com";
+    });
 
 </script>
 
