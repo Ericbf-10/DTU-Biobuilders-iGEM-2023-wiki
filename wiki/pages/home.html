@@ -5,7 +5,8 @@
 
 {% block page_content %}
 
-<img class="main-image" src="https://static.igem.wiki/teams/4811/wiki/images/pfas-map-new.gif" alt="PFAS Map" >
+<!-- <img class="main-image" src="https://static.igem.wiki/teams/4811/wiki/images/pfas-map-new.gif" alt="PFAS Map" > -->
+<div id="map" class="main-image"></div>
 <div class="container">
   <div id="typedtext" class="col-md-12 text-center main-title">
   </div>
@@ -21,7 +22,7 @@
   <!-- <img src="https://static.igem.wiki/teams/4811/wiki/images/main-page.png" alt="Intro Image" class="main-content"> -->
   <div class="text-background">
     <div class="col-md-12 text-center">
-      <object data="https://static.igem.wiki/teams/4811/wiki/images/main-page.svg" type="image/svg+xml"></object>
+      <object data="https://static.igem.wiki/teams/4811/wiki/images/main-page-new.svg" type="image/svg+xml"></object>
 </div>
 </div>
 
@@ -66,7 +67,17 @@
     }
 
     typewriter();
-  
+
+    // Load the first animation
+    lottie.loadAnimation({
+      container: document.getElementById('map'),
+      renderer: 'svg', // You can choose 'svg', 'canvas', or 'html' based on your preference
+      loop: false, // Set to true for looping
+      autoplay: true, // Set to true for auto playback
+      path: 'static/images/map.json', // URL to your first Lottie animation
+      animationSpeed: 0.8,
+    });
+
 </script>
 
 {% endblock %}

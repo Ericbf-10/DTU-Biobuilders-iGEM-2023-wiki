@@ -160,7 +160,7 @@ left: 0;
 
 .main-content {
   position: relative;
-  top: 1.5rem;
+  top: 2rem;
   width: 100%;
   height: 100%;
 }
@@ -252,9 +252,16 @@ padding-bottom: 2rem;
 }
 
 .page-text figure {
-  margin: 4%;
+  margin: 6%;
   text-align: center;
   display: block;
+}
+@media (max-width: 767px) {
+  .page-text figure {
+    margin: 4%;
+    text-align: center;
+    display: block;
+  }
 }
 
 
