@@ -15,7 +15,7 @@
         <h5>Menu</h5>
         <ul>
             <!-- h3 level, add this #location, and change this menu, use shorter names, also add ">" in front -->
-            <li><a href="#introduction">> Introduction (GFP)</a></li>
+            <li><a href="#introduction">> Introduction</a></li>
             <li><a href="#validation-of-the-tmsgfp">> Validation of the TMS (GFP)</a></li>
             <li><a href="#validation-of-new-tmss">> Validation of the new TMSs</a></li>
             <li><a href="#validation-of-pfoa-tmss">> Validation of PFOA TMSs</a></li>
@@ -30,8 +30,8 @@
       <!-- formal text goes under this div, h2, h3 should be labeled  -->
       <div class="page-text col-lg-9"> 
         <h2 id="introduction">Introduction</h2>
-        <p>The original tRNA-Mimicking Sequence (TMS) comes from the work conducted by Paul <em>et al.</em> (2020). Here, they achieve ligand-selective protein translation-inhibition by creating a tRNA-like struture modified by insertion of an aptamer sequence. Across our project, we tried to reproduce part of the work by Paul <em>et al.</em> (2020), and we expanded the TMS family with several new structures to be used as biobricks applicable mainly for biosensor production, and specifically for PFOA detection in water.</p>
-        <h2 id="validation-of-the-tmsgfp">Validation of the TMS(GFP)</h2>
+        <p>The original tRNA-Mimicking Sequence (TMS) comes from the work conducted by Paul <em>et al.</em> (2020). Here, they achieve ligand-selective protein translation-inhibition by creating a tRNA-like structure modified by insertion of an aptamer sequence. Across our project, we tried to reproduce part of the work by Paul <em>et al.</em> (2020), and we expanded the TMS family with several new structures to be used as biobricks applicable mainly for biosensor production, and specifically for PFOA detection in water.</p>
+        <h2 id="validation-of-the-tmsgfp">Validation of the TMS (GFP)</h2>
         <p>The first step of our project was the reproduction of the TMS (GFP) from Paul <em>et al.</em> (2020), <a href="http://parts.igem.org/Part:BBa_K4811002">BBa_K4811002</a>. This was tested as the composite part <a href="http://parts.igem.org/Part:BBa_K4811018">BBa_K4811018</a> in <i>E. coli</i> BL21(DE3), where the TMS is induced by addition of Isopropyl β-d-1-thiogalactopyranoside (IPTG). This construct was USER cloned into the high copy number pUC19 backbone for testing (see <a href="https://2023.igem.wiki/dtu-denmark/design">Design</a> and <a href="https://2023.igem.wiki/dtu-denmark/engineering">Engineering</a>).
         A reporter, consisting of <a href="http://parts.igem.org/Part:BBa_K4811005">BBa_K4811005</a> was USER cloned into the low copy number pACYC184 backbone. This has GFP under the control of the P<del>tet</del> promoter, and therefore is induced by anhydrotetracycline (aTc). It also has mCherry, under the control of the pBAD promoter, meaning L-arabinose will induce mCherry transcription. The mCherry transcript has the RBS <a href="http://parts.igem.org/Part:BBa_K4811000">BBa_K4811000</a> incorporated, meaning that translation of mCherry should be inhibited by the TMS (GFP). With a GFP aptamer incorporated in the D-loop, Paul <em>et al.</em> (2020) showed GFP interfering with this inhibition. Higher levels of GFP lead to more mCherry fluorescence.</p>
         <p>A schematic of the system to be tested can be seen below:</p>
