@@ -8,7 +8,7 @@
 <div class="map-container">
   <img class="main-image" src="https://static.igem.wiki/teams/4811/wiki/images/pfas-map-new.gif" alt="PFAS Map" >
   <div id="map"></div>
-  <div class="map-header-overlay">Our recent PFAS test result</div>
+  <div class="map-header-overlay">From Forever Pollution Project</div>
 
 </div>
 <div class="container">
@@ -46,7 +46,7 @@
         "the question is not where PFAS are,",
         "but where PFAS aren't."
     );
-    var iSpeed = 50; // time delay of print out
+    var iSpeed = 80; // time delay of print out
     var iIndex = 0; // start printing array at this posision
     var iArrLength = aText[0].length; // the length of the text array
     var iScrollAt = 20; // start scrolling up at this many lines
@@ -90,7 +90,7 @@
 
 function getRadius(value) {
     // Using a base value for radius (e.g., 10 meters) and then scaling it based on the log of the value.
-    return 5000 * Math.log(value + 1); // We add 1 to avoid log(0) issues
+    return 2000 * Math.log(value + 1); // We add 1 to avoid log(0) issues
 }
 
 
@@ -101,12 +101,12 @@ setTimeout(function() {
         document.querySelector('.map-header-overlay').style.display = 'block';
 
         // Show the map
-        const map = L.map('map').setView([55.6,10.4], 6);
+        const map = L.map('map').setView([55.6,10.4], 7);
         const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
-        fetch('static/data/pfas-water-data.json')
+        fetch('static/data/online-map-pfas-data.json')
 .then(response => response.json())
 .then(data => {
 addCircles(data.points);
@@ -124,7 +124,7 @@ var circle = L.circle([point.latitude, point.longitude], {
     radius: scaledRadius
 }).addTo(map);
 
-circle.bindPopup("<h4>Our Recent Test</h4><br><b>Location:</b> " + point.location + "<br><b>Sum of PFASs:</b> " + point.value, );
+circle.bindPopup("<b>Sum of PFASs:</b> " + point.value + "<br>Link: <a href='https://foreverpollution.eu/'>Forever Pollution</a>", );
 });
 }
     }, 8000);
