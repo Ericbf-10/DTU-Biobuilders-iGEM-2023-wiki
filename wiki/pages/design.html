@@ -253,7 +253,7 @@
 
   <script>
 // Load the first animation
-lottie.loadAnimation({
+var anime = lottie.loadAnimation({
   container: document.getElementById('animation'),
   renderer: 'svg', // You can choose 'svg', 'canvas', or 'html' based on your preference
   loop: true, // Set to true for looping
@@ -261,6 +261,8 @@ lottie.loadAnimation({
   path: 'https://static.igem.wiki/teams/4811/wiki/animations/1st-animation.json', // URL to your first Lottie animation
   animationSpeed: 0.8,
 });
+anime.setSpeed(0.7);
+
 
   </script>
   

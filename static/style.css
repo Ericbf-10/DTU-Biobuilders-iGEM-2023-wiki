@@ -242,6 +242,7 @@ video {
 .page-header {
   background-image: linear-gradient(white, #264187);
   background-position: center;
+  background-size: cover;
   height: 24rem;
   margin-top: 2rem;
   text-align: center;
@@ -365,7 +366,7 @@ padding-bottom: 2rem;
 }
 
 .page-text img.image {
-  width: 50%; /* Each image takes half of the square container */
+  width: 49.5%; /* Each image takes half of the square container */
   height: 100%; /* Make the images take the full height of the container */
   object-fit: cover; /* Crop the images to fit within the square container */
   margin: 0; /* Add spacing between images */
