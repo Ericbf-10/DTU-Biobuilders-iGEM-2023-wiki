@@ -204,16 +204,36 @@ left: 0;
 
 
 .jump-button {
-  position: absolute; /* Position the container absolutely within the parent */
-  background-color: #007BFF; /* Button background color */
-  color: white; /* Button text color */
-  padding: 10px 20px; /* Button padding */
-  text-decoration: none; /* Remove underline from the link */
-  border-radius: 5px; /* Add border-radius for rounded corners */
+  font-size: 1.5rem;
+  position: absolute;
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Add shadow */
+  transition: background-color 0.2s ease, color 0.2s ease; /* Add transition for smoother hover effect */
 }
 
 .jump-button:hover {
-  background-color: #0056b3; /* Change the background color on hover */
+  background-color: #0056b3;
+  color: #cfcfcf;
+
+}
+
+/* Hide the text when the button is clicked */
+.jump-button:active {
+  color: transparent;
+  text-shadow: none;
+}
+
+@media (max-width: 767px) {
+  .jump-button {
+    font-size: 0.9rem;
+    padding: 6px 17px;
+    border-radius: 3px;
+
+  }
 }
 
 .video-container {
