@@ -53,6 +53,7 @@ body {
   font-size: 1.2rem;
   font-weight: bold;
   color:#E65929 !important;
+  text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5); /* Add text shadow */
 }
 
 @media (max-width: 767px) {
@@ -230,7 +231,7 @@ left: 0;
 @media (max-width: 767px) {
   .jump-button {
     font-size: 0.9rem;
-    padding: 6px 17px;
+    padding: 5px 15px;
     border-radius: 3px;
 
   }
