@@ -5,7 +5,10 @@
 
 {% block page_content %}
 
-<img class="main-image" src="https://static.igem.wiki/teams/4811/wiki/images/pfas-map-new.gif" alt="PFAS Map" >
+<div class="map-container">
+  <img class="main-image" src="https://static.igem.wiki/teams/4811/wiki/images/pfas-map-new.gif" alt="PFAS Map" >
+  <div id="map"></div>
+</div>
 <div class="container">
   <div id="typedtext" class="col-md-12 text-center main-title">
   </div>
@@ -32,6 +35,9 @@
 
 <script src="{{ url_for('static', filename='js/d3.v7.min.js') }}"></script>
 <script src="{{ url_for('static', filename='js/topojson.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/leaflet.js') }}"></script>
+integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+crossorigin=""></script>
 <script type="text/javascript">
       // set up text to print, each item in array is new line
     var aText = new Array(
@@ -80,6 +86,45 @@
   path: 'static/images/duck.json', // URL to your first Lottie animation
   animationSpeed: 0.8,
 });
+
+function getRadius(value) {
+    // Using a base value for radius (e.g., 10 meters) and then scaling it based on the log of the value.
+    return 5000 * Math.log(value + 1); // We add 1 to avoid log(0) issues
+}
+
+
+setTimeout(function() {
+        // Hide the image
+        document.querySelector('.main-image').style.display = 'none';
+        document.querySelector('#map').style.display = 'block';
+        // Show the map
+        const map = L.map('map').setView([55.6,10.4], 7);
+        const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+        fetch('static/data/pfas-water-data.json')
+.then(response => response.json())
+.then(data => {
+addCircles(data.points);
+})
+.catch(error => console.error('Error fetching data:', error));
+
+function addCircles(points) {
+points.forEach(function(point) {
+var scaledRadius = getRadius(point.value);
+
+var circle = L.circle([point.latitude, point.longitude], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: scaledRadius
+}).addTo(map);
+
+circle.bindPopup("<h4>Our Recent Test</h4><br><b>Location:</b> " + point.location + "<br><b>Sum of PFASs:</b> " + point.value, );
+});
+}
+    }, 5000);
 
 </script>
 

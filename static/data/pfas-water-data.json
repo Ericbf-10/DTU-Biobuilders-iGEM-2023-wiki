@@ -1,4 +1,5 @@
-[
+{
+	"points":[
 {"latitude": 55.8029754, "longitude": 12.3871456, "value": 53.7, "location": "Furesø, 3500 Værløse "},
 {"latitude": 55.8029754, "longitude": 12.3871456, "value": 43.8, "location": "Furesø, 3500 Værløse "},
 {"latitude": 55.775142, "longitude": 12.470146, "value": 43.9, "location": "Lyngby lake, Lyngby"},
@@ -15,5 +16,6 @@
 {"latitude": 55.8180889, "longitude": 12.4529684, "value": 7237.9, "location": "Furesø, 3500 Værløse "},
 {"latitude": 55.780978, "longitude": 12.446188, "value": 0.0, "location": "Mølleå, Lyngby"},
 {"latitude": 55.5579230, "longitude": 8.0761565, "value": 42.6, "location": "Nordsøen, Blåvandshuk"},
-{"latitude": 55.3358316, "longitude": 8.4327964, "value": 51.3, "location": "Fanø, Sønderho Beach"},
+{"latitude": 55.3358316, "longitude": 8.4327964, "value": 51.3, "location": "Fanø, Sønderho Beach"}
 ]
+}

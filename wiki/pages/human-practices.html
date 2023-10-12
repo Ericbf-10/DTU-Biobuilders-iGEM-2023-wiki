@@ -56,9 +56,11 @@
           
           <h3 id="pfas-detection">PFAS detection</h3>
           <p>Before designing such a test, we needed to understand the current landscape of PFAS detection. For this, our first step was to get in touch with <strong>Kit Grandby</strong>, the lead researcher that broke the story regarding high concentrations of PFAS present in Danish eggs (Grandby <em>et al.</em>, 2023). From her, we learned the extent of the issue and the current ways PFAS can be quantified. </p>
-          <p>We also got in touch with the <strong>Water Technology and Processes group</strong> at DTU Sustain, our environmental engineering department. This group is setting up a state of the art detection protocol for PFAS, based on the current best approach towards its quantification: a Liquid Chromatography with tandem Mass Spectrometry (LC-MS/MS) system. Nevertheless, to not only engage with the issue theoretically and learn the practical details of the detection process, we collaborated with them to contribute to the current efforts towards mapping the extent of PFAS contamination. For this, we carried out an analysis of our own, <strong>sampling various bodies of water across Denmark</strong> and using the aforementioned LC-MS/MS to quantify them. </p>
-          <iframe width="100%" height="800" frameborder="0"
-          src="https://observablehq.com/embed/61ed8f6e640b6a80@434?cells=chart"></iframe>          
+          Certainly! Here's a more polished version of the paragraph:
+
+          <p>We recently established a collaboration with the <strong>group</strong> at DTU Sustain. Through this collaboration, we had the privilege of working closely with waste water experts Henrik Rasmus Andersen and Kai Tang. Their specialization in PFAS detection is particularly commendable, utilizing a sophisticated Liquid Chromatography with tandem Mass Spectrometry (LC-MS/MS) system – which is currently recognized as the industry's leading method for PFAS quantification. Keen on providing hands-on contributions and gaining practical insight, we partnered with them to augment ongoing efforts in mapping the scope of PFAS contamination. To this end, we initiated a comprehensive water sampling project, <strong>exploring various aquatic ecosystems throughout Denmark</strong> and employing the LC-MS/MS technique for precise quantification. We provided more than 20 samples cross Denmark, and our result shows great variabilities among different locations and types of water. You can download our result through  <a href="https://static.igem.wiki/teams/4811/wiki/data/pfas-results-1.pdf">this pdf </a> or look at the map below </p>          
+          <div id="map" style="height: 180px;"></div>
+          
             <div class="image-container album">
               <img class="image" src="https://static.igem.wiki/teams/4811/wiki/images/hp/samplinga1.jpg" alt="Image 1" width="300">
               <img class="image" src="https://static.igem.wiki/teams/4811/wiki/images/hp/samplingb1.jpg" alt="Image 2" width="300">      
@@ -138,5 +140,47 @@
       </div>
     </div>
   </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+  crossorigin=""></script>
+  <script>
+
+
+    const map = L.map('map').setView([55.6,10.4], 7);
+  
+    const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+fetch('static/data/pfas-water-data.json')
+.then(response => response.json())
+.then(data => {
+addCircles(data.points);
+})
+.catch(error => console.error('Error fetching data:', error));
+
+function addCircles(points) {
+points.forEach(function(point) {
+var scaledRadius = getRadius(point.value);
+
+var circle = L.circle([point.latitude, point.longitude], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: scaledRadius
+}).addTo(map);
+
+circle.bindPopup("<b>Location:</b> " + point.location + "<br><b>Sum of PFASs:</b> " + point.value, );
+});
+}
+
+function getRadius(value) {
+return 5000 * Math.log(value + 1); // We add 1 to avoid log(0) issues
+}
+
+
+  </script>    
 
 {% endblock %}

@@ -52,7 +52,7 @@ body {
 .navbar-light .navbar-nav .nav-link {
   font-size: 1.2rem;
   font-weight: bold;
-  color:#BA2424 !important;
+  color:#E65929 !important;
 }
 
 @media (max-width: 767px) {
@@ -84,13 +84,32 @@ body {
   --ocean-deep: #010440;
 }
 
-/* text block */
-.main-image {
+.map-container {
   padding-top: 1.8rem;
   width: 100%;
-  height: 80%;
+  height: 80vh;
+  position: relative;
 }
 
+.main-image {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+#map {
+  width: 100%;
+  height: 80%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: none;
+}
 .main-title {
     font-family: 'Bahnschrift', 'Arial', 'Helvetica', sans-serif;
     font-size: 2rem;;
