@@ -46,28 +46,40 @@
           <p>This hands-on experience included working with reporter genes, utilizing genes from both prokaryotic and eukaryotic hosts, and crafting plasmids that incorporated these genes. The students' faces lit up with curiosity and fascination as they witnessed the practical application of biotechnology in action.</p>
           <div class="slideshow-container">
             <div class="mySlides fade">
-              <div class="numbertext">1 / 6</div>
+              <div class="numbertext">1 / 9</div>
               <img class="album"  src="https://static.igem.wiki/teams/4811/wiki/images/lab-safety/workshop-sg-1.jpeg">
             </div>
             <div class="mySlides fade">
-              <div class="numbertext">2 / 6</div>
+              <div class="numbertext">2 / 9</div>
               <img class="album"  src="https://static.igem.wiki/teams/4811/wiki/images/lab-safety/workshop-sg-2.jpeg">
             </div>
             <div class="mySlides fade">
-              <div class="numbertext">3 / 6</div>
+              <div class="numbertext">3 / 9</div>
               <img class="album" src="https://static.igem.wiki/teams/4811/wiki/images/lab-safety/workshop-sg-3.jpeg">
             </div>
             <div class="mySlides fade">
-              <div class="numbertext">4 / 6</div>
+              <div class="numbertext">4 / 9</div>
               <img class="album" src="https://static.igem.wiki/teams/4811/wiki/images/lab-safety/workshop-sg-4.jpeg">
             </div>
             <div class="mySlides fade">
-              <div class="numbertext">5 / 6</div>
+              <div class="numbertext">5 / 9</div>
               <img class="album" src="https://static.igem.wiki/teams/4811/wiki/images/lab-safety/workshop-sg-5.jpeg">
             </div>
             <div class="mySlides fade">
-              <div class="numbertext">6 / 6</div>
+              <div class="numbertext">6 / 9</div>
               <img class="album" src="https://static.igem.wiki/teams/4811/wiki/images/lab-safety/workshop-sg-6.jpeg">
+            </div>
+            <div class="mySlides fade">
+              <div class="numbertext">7 / 9</div>
+              <img class="album" src="https://static.igem.wiki/teams/4811/wiki/images/lab-safety/workshop-ng-1.jpg">
+            </div>
+            <div class="mySlides fade">
+              <div class="numbertext">8 / 9</div>
+              <img class="album" src="https://static.igem.wiki/teams/4811/wiki/images/lab-safety/workshop-ng-2.jpg">
+            </div>
+            <div class="mySlides fade">
+              <div class="numbertext">9 / 9</div>
+              <img class="album" src="https://static.igem.wiki/teams/4811/wiki/images/lab-safety/workshop-ng-3.jpg">
             </div>
             
           </div>
@@ -80,29 +92,13 @@
           <span class="dot"></span>
           <span class="dot"></span>
           <span class="dot"></span> 
+          <span class="dot"></span> 
+          <span class="dot"></span> 
+          <span class="dot"></span>
+            
           </div>
           <br>
-          <div class="slideshow-container">
-            <div class="mySlides-ng fade">
-              <div class="numbertext">1 / 3</div>
-              <img class="album" src="https://static.igem.wiki/teams/4811/wiki/images/lab-safety/workshop-ng-1.jpg">
-            </div>
-            <div class="mySlides-ng fade">
-              <div class="numbertext">2 / 3</div>
-              <img class="album" src="https://static.igem.wiki/teams/4811/wiki/images/lab-safety/workshop-ng-2.jpg">
-            </div>
-            <div class="mySlides-ng fade">
-              <div class="numbertext">3 / 3</div>
-              <img class="album" src="https://static.igem.wiki/teams/4811/wiki/images/lab-safety/workshop-ng-3.jpg">
-            </div>
-          </div>
-          <br>
-          <div style="text-align:center">
-            <span class="dot-ng"></span> 
-            <span class="dot-ng"></span> 
-            <span class="dot-ng"></span>
-            </div>
-            <br>
+       
           <p>We extend our heartfelt gratitude to the schools, dedicated teachers, and enthusiastic students who wholeheartedly embraced our workshops. Your engagement and commitment have been invaluable, and we look forward to the bright futures that lie ahead for these budding biotechnologists.</p>
           <h2 id="biotech">Biotech Academy</h2>
           <p>We aimed to broaden the reach of our project and decided to collaborate with Biotech Academy, a non-profit organization affiliated with DTU Bioengineering. Biotech Academy is staffed by enthusiastic fellow university students with a passion for biotechnology, biology, chemistry, and communicating these subjects, particularly to Danish primary school children and Danish high school students. They ensure education through various channels, including their website (<a href="https://www.biotechacademy.dk/">biotechacademy.dk</a>), camps, and teaching material. What sets them apart is their close collaboration with industry partners, guaranteeing teaching materials that are not only highly relevant for biotechnology but also up to date on the current advancements.</p>
@@ -152,34 +148,7 @@ function showSlides() {
 }
 
 </script>
-<script>
-  let slideIndexNg = 0;
-  showSlidesNg();
 
-  function showSlidesNg() {
-    let i;
-    let slides = document.getElementsByClassName("mySlides-ng");
-    let dots = document.getElementsByClassName("dot-ng");
-
-    for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-    }
-
-    slideIndexNg++;
-
-    if (slideIndexNg > slides.length) {
-      slideIndexNg = 1;
-    }
-
-    for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-    }
-
-    slides[slideIndexNg - 1].style.display = "block";
-    dots[slideIndexNg - 1].className += " active";
-    setTimeout(showSlidesNg, 2000); // Change image every 2 seconds
-  }
-</script>
 
 
 {% endblock %}
