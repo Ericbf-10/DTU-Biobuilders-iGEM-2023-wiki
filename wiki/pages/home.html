@@ -8,6 +8,8 @@
 <div class="map-container">
   <img class="main-image" src="https://static.igem.wiki/teams/4811/wiki/images/pfas-map-new.gif" alt="PFAS Map" >
   <div id="map"></div>
+  <div class="map-header-overlay">Our recent PFAS test result</div>
+
 </div>
 <div class="container">
   <div id="typedtext" class="col-md-12 text-center main-title">
@@ -36,8 +38,7 @@
 <script src="{{ url_for('static', filename='js/d3.v7.min.js') }}"></script>
 <script src="{{ url_for('static', filename='js/topojson.min.js') }}"></script>
 <script src="{{ url_for('static', filename='js/leaflet.js') }}"></script>
-integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-crossorigin=""></script>
+
 <script type="text/javascript">
       // set up text to print, each item in array is new line
     var aText = new Array(
@@ -45,7 +46,7 @@ crossorigin=""></script>
         "the question is not where PFAS are,",
         "but where PFAS aren't."
     );
-    var iSpeed = 100; // time delay of print out
+    var iSpeed = 50; // time delay of print out
     var iIndex = 0; // start printing array at this posision
     var iArrLength = aText[0].length; // the length of the text array
     var iScrollAt = 20; // start scrolling up at this many lines
@@ -97,8 +98,10 @@ setTimeout(function() {
         // Hide the image
         document.querySelector('.main-image').style.display = 'none';
         document.querySelector('#map').style.display = 'block';
+        document.querySelector('.map-header-overlay').style.display = 'block';
+
         // Show the map
-        const map = L.map('map').setView([55.6,10.4], 7);
+        const map = L.map('map').setView([55.6,10.4], 6);
         const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -124,7 +127,7 @@ var circle = L.circle([point.latitude, point.longitude], {
 circle.bindPopup("<h4>Our Recent Test</h4><br><b>Location:</b> " + point.location + "<br><b>Sum of PFASs:</b> " + point.value, );
 });
 }
-    }, 5000);
+    }, 8000);
 
 </script>
 
