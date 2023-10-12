@@ -1,14 +1,14 @@
 /* Fonts */
 @font-face {
   font-family: 'Bahnschrift';
-  src: url('https://static.igem.wiki/teams/4811/wiki/fonts/bahnschrift.ttf') format('truetype');
+  src: url('fonts/bahnschrift.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'PublicSans';
-  src: url('https://static.igem.org/teams/4811/wiki/fonts/publicsans-blackitalic.ttf') format('truetype');
+  font-family: 'Public Sans';
+  src: url('fonts/publicsans-blackitalic.ttf') format('truetype');
   font-weight: normal;
   font-style: italic;
 }
@@ -93,43 +93,21 @@ body {
 }
 
 .main-image {
+  padding-top: 1.8rem;
   width: 100%;
   height: 80%;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
+
 }
 
-#map {
-  width: 100%;
-  height: 300px;
-  position: relative;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  display: block;
-}
 .main-title {
     font-family: 'Bahnschrift', 'Arial', 'Helvetica', sans-serif;
     font-size: 2.5rem;;
     position: relative;
-    margin-top: -2rem;
+    margin-top: 3rem;
     width: 100%; 
     height: 250px;
 }
-.map-header-overlay {
-  position: absolute;
-  top: 10px;  /* Adjust as needed */
-  left: 50%;
-  transform: translateX(-50%);  /* Center the text horizontally */
-  background-color: rgba(255, 255, 255, 0.8);  /* Semi-transparent white */
-  padding: 5px 10px;  /* Add some padding */
-  border-radius: 5px;  /* Rounded corners */
-  z-index: 3;  /* Ensure it's above both the image and the map */
-  display: none;  /* Hide it initially */
-}
+
 @media (max-width: 767px) {
   .main-image {
     padding-top: 0.9rem;
