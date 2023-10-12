@@ -370,6 +370,7 @@ padding-bottom: 2rem;
   height: 100%; /* Make the images take the full height of the container */
   object-fit: cover; /* Crop the images to fit within the square container */
   margin: 0; /* Add spacing between images */
+  box-sizing: border-box;
 }
 
 @media (max-width: 767px) {
