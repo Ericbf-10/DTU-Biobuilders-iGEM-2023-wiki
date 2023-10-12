@@ -1,5 +1,6 @@
 {% extends "layout.html" %}
 {% block page_content %}
+<script src="{{ url_for('static', filename = 'js/lottie.min.js') }}"></script>
 
 <div class="page">
 
@@ -139,10 +140,7 @@
       </div>
     </div>
   </div>
-
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-  crossorigin=""></script>
+  <script src="{{ url_for('static', filename='js/leaflet.js') }}"></script>
   <script>
 
 
@@ -153,32 +151,31 @@
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
 
-fetch('static/data/pfas-water-data.json')
-.then(response => response.json())
-.then(data => {
-addCircles(data.points);
-})
-.catch(error => console.error('Error fetching data:', error));
+    fetch('static/data/pfas-water-data.json')
+    .then(response => response.json())
+    .then(data => {
+    addCircles(data.points);
+    })
+    .catch(error => console.error('Error fetching data:', error));
 
-function addCircles(points) {
-points.forEach(function(point) {
-var scaledRadius = getRadius(point.value);
+    function addCircles(points) {
+    points.forEach(function(point) {
+    var scaledRadius = getRadius(point.value);
 
-var circle = L.circle([point.latitude, point.longitude], {
-    color: 'red',
-    fillColor: '#f03',
-    fillOpacity: 0.5,
-    radius: scaledRadius
-}).addTo(map);
+    var circle = L.circle([point.latitude, point.longitude], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: scaledRadius
+    }).addTo(map);
 
-circle.bindPopup("<b>Location:</b> " + point.location + "<br><b>Sum of PFASs:</b> " + point.value, );
-});
-}
+    circle.bindPopup("<b>Location:</b> " + point.location + "<br><b>Sum of PFASs:</b> " + point.value, );
+    });
+    }
 
-function getRadius(value) {
-return 5000 * Math.log(value + 1); // We add 1 to avoid log(0) issues
-}
-
+    function getRadius(value) {
+    return 5000 * Math.log(value + 1); // We add 1 to avoid log(0) issues
+    }
 
   </script>    
 
