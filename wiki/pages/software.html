@@ -19,6 +19,7 @@
               <li><a href="#maws">> MAWS</a></li>
               <li><a href="#docking">> Docking</a></li>
               <li><a href="#molecular-dynamics">> Molecular Dynamics</a></li>
+              <li><a href="#aptaloop-s-development">> AptaLoop's Development</a></li>            
             <li>
               <a href="#references">> References</a>
             </li>
@@ -244,9 +245,18 @@
             <p>To ensure the system is free from any clashes or geometry-related issues, energy minimization (EM) is carried out. The EM process consolidates the aptamer structure, topology, and other simulation parameters into an input file, thus preparing the system for dynamic simulations.</p>
             <p>Temperature and pressure equilibration steps are subsequently carried out to rule out any potential anomalies in the system. Given that our objective is to analyze the stability of aptamers in water, we run the MD simulations for a duration of 2 ns.</p>
             <p>After these extensive preliminary steps, the MD simulation is executed. The resulting data, which includes key observables like aptamer conformation and PFAS binding affinity, is then analyzed to draw conclusions relevant to our biosensor project. The results of this specific analysis can be seen in the simulation tab. </p>
-            
+            <h2 id="aptaloop-s-development">AptaLoop&#39;s development</h2>
+            <p>When creating AptaLoop, our intention was to develop a software tool that was useful and accesible to everybody. For such purposes, we developed <a href="https://jupyter.org/">Jupyter notebooks</a>, which are interactive and are appropiate to clarify each step and give instructions to the users. We created jupyter notebooks to: </p>
+            <ul>
+            <li>Obtain a .pdb file to go from a DNA or RNA sequence to a 3D structure, using <a href="http://ambermd.org/tutorials/pengfei/">tleap</a>, <a href="https://github.com/ViennaRNA/ViennaRNA">viennaRNA</a>, and <a href="http://biophy.hust.edu.cn/new/3dRNA">3dRNA/DNA</a>.</li>
+            <li>Generate an aptamer for a determined target molecule, using the optimized version of MAWS.</li>
+            <li>Perform Docking, using <a href="https://github.com/ccsb-scripps/AutoDock-Vina">AutoDock Vina</a>.</li>
+            <li>Perform Molecular Dynamics, using <a href="https://www.gromacs.org/">GROMACS</a>.</li>
+            </ul>
+            <p>After creating the Jupyter notebooks, we realized that plenty of dependencies were needed for the whole pipeline to run. In our experience with other software tools installations, this often leads to compatibility issues and other problems that prevent the users of using a software tool effectively and with no complications. </p>
+            <p>Since we wanted to make AptaLoop as accessible and user-friendly as possible, we decided to package the entire AptaLoop pipeline within a <a href="https://www.docker.com/">Docker</a> container. We created a Docker image that contains all the necessary dependencies and libraries required for AptaLoop, thereby eliminating the often challenging task of managing and installing multiple dependencies on various operating systems. By implementing Docker, we eliminated compatibility issues, version conflicts, and complex instalation procedures.</p>
+            <p>Interested in using AptaLoop? Visit our <a href="https://gitlab.igem.org/2023/software-tools/dtu-denmark">gitlab</a>, and start exploring all its functions.</p>
             <h2 id="references">References</h2>
-            <hr>
             <ul>
                 <li>AutoDock Vina Documentation. (2023). Frequently asked questions. <a href="https://autodock-vina.readthedocs.io/en/latest/faq.html">https://autodock-vina.readthedocs.io/en/latest/faq.html</a></li>
                 <li>Buglak, A. A., Samokhvalov, A. V., Zherdev, A. V., & Dzantiev, B. B. (2020). Methods and applications of in silico aptamer design and modeling. International Journal of Molecular Sciences, 21(22), 8420. <a href="https://doi.org/10.3390/ijms21228420">https://doi.org/10.3390/ijms21228420</a></li>
