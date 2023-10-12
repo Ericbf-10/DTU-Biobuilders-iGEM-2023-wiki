@@ -99,6 +99,21 @@ body {
   height: 80%;
 
 }
+/* Container for the image and data credit */
+.main-container {
+  position: relative;
+  display: inline-block; /* Ensure the container's size fits the content */
+  width: 100%;
+}
+
+/* Style for the data credit */
+.data-credit {
+  position: absolute;
+  bottom: 10px; /* Adjust the vertical position as needed */
+  right: 10px; /* Adjust the horizontal position as needed */
+  color: white; /* Text color */
+  padding: 5px 10px; /* Padding for the data credit */
+}
 
 .main-title {
     font-family: 'Bahnschrift', 'Arial', 'Helvetica', sans-serif;
