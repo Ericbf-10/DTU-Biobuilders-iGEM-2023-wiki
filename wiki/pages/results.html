@@ -126,14 +126,14 @@
   
   <script>
     // Load the second animation
-    lottie.loadAnimation({
+    var anime2 = lottie.loadAnimation({
       container: document.getElementById('animation'),
       renderer: 'svg', // You can choose 'svg', 'canvas', or 'html' based on your preference
       loop: true, // Set to true for looping
       autoplay: true, // Set to true for auto playback
-      path: 'https://static.igem.wiki/teams/4811/wiki/images/2nd_animation.json', // URL to your first Lottie animation
-      animationSpeed: 5,
+      path: 'static/images/2nd_animation.json', // URL to your first Lottie animation
     });
+    anime2.setSpeed(0.6);
   </script>
 
 {% endblock %}

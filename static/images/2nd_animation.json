@@ -12,7 +12,7 @@
       "id": "image_0",
       "w": 500,
       "h": 500,
-      "u": "https://uploads.igem.org/teams/4811/wiki/animations/",
+      "u": "./",
       "p": "pfas.png",
       "e": 0
     },
@@ -607,10 +607,10 @@
   "fonts": {
     "list": [
       {
-        "fName": "MyriadPro-Regular",
-        "fFamily": "Myriad Pro",
+        "fName": "Arial-Regular",
+        "fFamily": "Arial",
         "fStyle": "Regular",
-        "ascent": 70.9991455078125
+        "ascent": 100
       }
     ]
   },
@@ -743,7 +743,7 @@
             {
               "s": {
                 "s": 36,
-                "f": "MyriadPro-Regular",
+                "f": "Arial-Regular",
                 "t": "Ligand",
                 "ca": 0,
                 "j": 2,
@@ -907,7 +907,7 @@
             {
               "s": {
                 "s": 36,
-                "f": "MyriadPro-Regular",
+                "f": "Arial-Regular",
                 "t": "TMS",
                 "ca": 0,
                 "j": 0,
@@ -1071,7 +1071,7 @@
             {
               "s": {
                 "s": 36,
-                "f": "MyriadPro-Regular",
+                "f": "Arial-Regular",
                 "t": "mCherry",
                 "ca": 0,
                 "j": 0,
@@ -1235,7 +1235,7 @@
             {
               "s": {
                 "s": 36,
-                "f": "MyriadPro-Regular",
+                "f": "Arial-Regular",
                 "t": "mCherry",
                 "ca": 0,
                 "j": 0,
@@ -14164,7 +14164,7 @@
           }
         ]
       },
-      "fFamily": "Myriad Pro"
+      "fFamily": "Arial"
     },
     {
       "ch": "C",
@@ -14328,7 +14328,7 @@
           }
         ]
       },
-      "fFamily": "Myriad Pro"
+      "fFamily": "Arial"
     },
     {
       "ch": "h",
@@ -14552,7 +14552,7 @@
           }
         ]
       },
-      "fFamily": "Myriad Pro"
+      "fFamily": "Arial"
     },
     {
       "ch": "e",
@@ -14761,7 +14761,7 @@
           }
         ]
       },
-      "fFamily": "Myriad Pro"
+      "fFamily": "Arial"
     },
     {
       "ch": "r",
@@ -14961,7 +14961,7 @@
           }
         ]
       },
-      "fFamily": "Myriad Pro"
+      "fFamily": "Arial"
     },
     {
       "ch": "y",
@@ -15197,7 +15197,7 @@
           }
         ]
       },
-      "fFamily": "Myriad Pro"
+      "fFamily": "Arial"
     },
     {
       "ch": "T",
@@ -15337,7 +15337,7 @@
           }
         ]
       },
-      "fFamily": "Myriad Pro"
+      "fFamily": "Arial"
     },
     {
       "ch": "M",
@@ -15645,7 +15645,7 @@
           }
         ]
       },
-      "fFamily": "Myriad Pro"
+      "fFamily": "Arial"
     },
     {
       "ch": "S",
@@ -15857,7 +15857,7 @@
           }
         ]
       },
-      "fFamily": "Myriad Pro"
+      "fFamily": "Arial"
     },
     {
       "ch": "L",
@@ -15973,7 +15973,7 @@
           }
         ]
       },
-      "fFamily": "Myriad Pro"
+      "fFamily": "Arial"
     },
     {
       "ch": "i",
@@ -16134,7 +16134,7 @@
           }
         ]
       },
-      "fFamily": "Myriad Pro"
+      "fFamily": "Arial"
     },
     {
       "ch": "g",
@@ -16487,7 +16487,7 @@
           }
         ]
       },
-      "fFamily": "Myriad Pro"
+      "fFamily": "Arial"
     },
     {
       "ch": "a",
@@ -16780,7 +16780,7 @@
           }
         ]
       },
-      "fFamily": "Myriad Pro"
+      "fFamily": "Arial"
     },
     {
       "ch": "n",
@@ -17004,7 +17004,7 @@
           }
         ]
       },
-      "fFamily": "Myriad Pro"
+      "fFamily": "Arial"
     },
     {
       "ch": "d",
@@ -17297,7 +17297,7 @@
           }
         ]
       },
-      "fFamily": "Myriad Pro"
+      "fFamily": "Arial"
     }
   ]
 }
