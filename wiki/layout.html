@@ -42,8 +42,8 @@
     var tocItems;
     // Factor of screen size that the element must cross
     // before it's considered visible
-    var TOP_MARGIN = 0.1,
-        BOTTOM_MARGIN = 0.1;
+    var TOP_MARGIN = 0.15,
+        BOTTOM_MARGIN = 0.15;
     var pathLength;
     window.addEventListener( 'resize', drawPath, false );
     window.addEventListener( 'scroll', sync, false );
@@ -100,42 +100,42 @@
       
     }
     function sync() {
-      
-      var windowHeight = window.innerHeight;
-      
-      var pathStart = Number.MAX_VALUE,
-          pathEnd = 0;
-      
-      var visibleItems = 0;
-      
-      tocItems.forEach( function( item ) {
-        var targetBounds = item.target.getBoundingClientRect();
-        
-        if( targetBounds.bottom > windowHeight * TOP_MARGIN && targetBounds.top < windowHeight * ( 1 - BOTTOM_MARGIN ) ) {
-          pathStart = Math.min( item.pathStart, pathStart );
-          pathEnd = Math.max( item.pathEnd, pathEnd );
-          
-          visibleItems += 1;
-          
-          item.listItem.classList.add( 'visible' );
-        }
-        else {
-          item.listItem.classList.remove( 'visible' );
-        }
-        
-      } );
-      
-      // Specify the visible path or hide the path altogether
-      // if there are no visible items
-      if( visibleItems > 0 && pathStart < pathEnd ) {
-        tocPath.setAttribute( 'stroke-dashoffset', '1' );
-        tocPath.setAttribute( 'stroke-dasharray', '1, '+ pathStart +', '+ ( pathEnd - pathStart ) +', ' + pathLength );
-        tocPath.setAttribute( 'opacity', 1 );
-      }
-      else {
-        tocPath.setAttribute( 'opacity', 0 );
-      }
+  var windowHeight = window.innerHeight;
+
+  var pathStart = Number.MAX_VALUE,
+      pathEnd = 0;
+
+  var visibleItems = 0;
+
+  tocItems.forEach(function(item, i) {
+    var targetBounds = item.target.getBoundingClientRect();
+    var nextItem = tocItems[i + 1];
+    var nextTargetBounds = nextItem ? nextItem.target.getBoundingClientRect() : null;
+
+    // Check if the current section top is above the bottom margin and the next section top is not yet visible
+    if (targetBounds.top < windowHeight * (1 - BOTTOM_MARGIN) && (!nextItem || nextTargetBounds.top > windowHeight * TOP_MARGIN)) {
+      pathStart = Math.min(item.pathStart, pathStart);
+      pathEnd = Math.max(item.pathEnd, pathEnd);
+
+      visibleItems += 1;
+
+      item.listItem.classList.add('visible');
+    } else {
+      item.listItem.classList.remove('visible');
     }
+  });
+
+  // Specify the visible path or hide the path altogether
+  // if there are no visible items
+  if (visibleItems > 0 && pathStart < pathEnd) {
+    tocPath.setAttribute('stroke-dashoffset', '1');
+    tocPath.setAttribute('stroke-dasharray', '1, ' + pathStart + ', ' + (pathEnd - pathStart) + ', ' + pathLength);
+    tocPath.setAttribute('opacity', 1 );
+  } else {
+    tocPath.setAttribute('opacity', 0 );
+  }
+}
+
 
     tocItems.forEach(function (item) {
   item.anchor.addEventListener('click', function (e) {

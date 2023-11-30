@@ -334,6 +334,8 @@ video {
 .page-text{
   color: white;
   padding: 2rem;
+  max-width: 100%;
+  overflow-x: auto; 
 }
 
 .page-text img {
@@ -487,6 +489,7 @@ padding-bottom: 2rem;
 
 .page-text table {
   border-collapse: collapse;
+  overflow-x: auto;
   width: 100%;
   margin-bottom: 20px;
 }
@@ -514,6 +517,38 @@ padding-bottom: 2rem;
 .page-text table tbody tr:hover {
   background-color: #ddd;
 }
+
+
+/* style for notebook */
+#notebook {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+#notebook td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  color: black;
+  cursor: pointer; /* Change cursor to indicate clickability */
+  transition: background-color 0.3s, box-shadow 0.3s, font-weight 0.3s; /* Smooth transitions for hover effects */
+}
+
+#notebook tr:nth-child(even) {
+  background-color: #fff;
+}
+
+#notebook tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+#notebook td:hover {
+  background-color: #ddd; /* Change background color on hover */
+  box-shadow: 0 0 10px 2px rgba(0,0,0,0.2); /* Glow effect */
+  font-weight: bold; /* Make font bold */
+}
+
 
 /* page text style */
 .page-text ul {
