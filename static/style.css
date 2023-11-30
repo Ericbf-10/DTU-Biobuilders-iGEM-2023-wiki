@@ -468,6 +468,21 @@ padding-bottom: 2rem;
   margin: 1rem;
 }
 
+@media (max-width: 767px) {
+  .page-text .prize {
+    padding: 1.5rem;
+    width: 100%;
+  }
+  .page-text .prize h1 {
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+    margin-inline: auto;
+  }
+  .page-text .prize img {
+    width: 80%;
+  }
+}
+
 .page-text .text-container {
   background-color: #99CCFF;
   border-radius: 1rem;
