@@ -189,13 +189,13 @@ body {
 }
 .ocean {
   left: 0px;
-  height: 60px;
+  height: 58px;
   position: absolute;
   overflow: hidden;
 }
 
 .wave {
-background: url("https://static.igem.wiki/teams/4811/wiki/images/wave.svg");
+background: url("https://static.igem.wiki/teams/4811/wiki/images/wave1.svg");
 position: absolute;
 width: 200%;
 height: 100%;
