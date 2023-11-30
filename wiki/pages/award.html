@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block page_content %}
+<div class="page">
+  <div class="page-header" style="background-image: url('https://static.igem.wiki/teams/4811/wiki/awards/celebrate.jpg');">
+  </div>
+  <div class="container page-content">
+    <div class="row h-100">
+      <div class="toc col-lg-5">
+
+        <h5>Menu</h5>
+        <ul>
+            <li><a href="#gold-medal"> > Gold Medal</a></li>
+            <li><a href="#best-environment-project"> > Best Environment Project</a></li>
+            <li><a href="#best-software"> > Best Software Nominated</a></li>
+            <li><a href="#best-wiki"> > Best Wiki Nominated</a></li>
+            <li><a href="#top-10"> > Top 10 in Overgraduate</a></li>
+        </ul>
+        <svg class="toc-marker" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+          <path stroke="#fff" stroke-width="3" fill="transparent" stroke-dasharray="0, 0, 0, 1000" stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.5, -0.5)" />
+        </svg>
+      </div>
+
+      <div class="page-text col-lg-9">
+        <h1>Awards</h1>
+
+        <div id="gold-medal" class="prize">
+            <img src="https://static.igem.wiki/teams/4811/wiki/awards/medal-flat.svg" alt="Award Icon">
+            <h1>
+                Gold Medal</h1>
+        </div>
+        <div id="best-environment-project" class="prize">
+            <img src="https://static.igem.wiki/teams/4811/wiki/awards/environment.svg" alt="Award Icon">      
+            <h1 >
+                Best Environment Project</h1>
+        </div>
+        <div id="best-software" class="prize">
+            <img src="https://static.igem.wiki/teams/4811/wiki/awards/software-tool.svg" alt="Award Icon">
+            <h1>
+                Best Software Nominated</h1>
+        </div>
+        <div id="best-wiki" class="prize">
+            <img src="https://static.igem.wiki/teams/4811/wiki/awards/wiki.svg" alt="Award Icon">
+            <h1>
+                Best Wiki Nominated</h1>
+        </div>
+
+        <div id="top-10" class="prize">
+            <img src="https://static.igem.org/websites/common/2022/icons/awards/top10-color.svg" alt="Award Icon">
+            <h1>
+                Top 10 in Overgraduate</h1>
+      </div>
+
+      To find more about the awards, please visit <a href="https://jamboree.igem.org/2023/results#finalists">2023 iGEM Jamboree</a> webpage.
+    </div>
+  </div>
+</div>
+
+{% endblock %}

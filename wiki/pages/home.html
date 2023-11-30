@@ -16,8 +16,9 @@
 </div>
 
 <div class="sky">
-  <div id="duck" class="floating-duck"></div>
-
+  <div id="duck" class="floating-duck">
+    <div class="tooltip">We won 5 awards!</div>
+  </div>
   <div class="container-fluid ocean">
     <div class="wave"></div>
     <div class="wave"></div>
@@ -81,13 +82,17 @@
     typewriter();
 
     lottie.loadAnimation({
-  container: document.getElementById('duck'),
-  renderer: 'svg', // You can choose 'svg', 'canvas', or 'html' based on your preference
-  loop: true, // Set to true for looping
-  autoplay: true, // Set to true for auto playback
-  path: 'static/images/duck.json', // URL to your first Lottie animation
-  animationSpeed: 0.8,
-});
+    container: document.getElementById('duck'),
+    renderer: 'svg',
+    loop: true, 
+    autoplay: true, 
+    path: 'static/images/duck.json', 
+    animationSpeed: 0.8,
+    });
+
+    document.getElementById('duck').addEventListener('click', function() {
+      window.location.href = "{{ url_for('pages', page='award') }}";
+    });
 
 </script>
 

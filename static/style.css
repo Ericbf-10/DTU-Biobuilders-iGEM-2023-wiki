@@ -141,32 +141,55 @@ body {
 /* Styling for the floating duck */
 .floating-duck {
   position: relative;
-  top: 50%;
+  top: 35%;
   left: -100px; /* Start the duck off-screen on the left */
-  width: 60px; /* Adjust the duck's size */
-  height: 60px;
+  width: 70px; /* Adjust the duck's size */
+  height: 70px;
   animation: floatAnimation 10s linear infinite; /* Adjust animation duration */
+  cursor: pointer;
+}
+
+.floating-duck:hover {
+  animation-play-state: paused; /* Pause animation on hover */
 }
 
 /* Define the animation for the floating duck */
 @keyframes floatAnimation {
   0% {
-    left: -60px; /* Start off-screen on the left */
+    left: -60px; 
   }
   100% {
-    left: 100%; /* Move off-screen on the right */
+    left: 100%; 
   }
 }
-
+.tooltip {
+  font-family: 'Bahnschrift', 'Arial', 'Helvetica', sans-serif;
+  font-size: 1rem;
+  position: absolute;
+  bottom: 100%; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  color: #E65929;
+  padding: 3px;
+  white-space: nowrap;
+  opacity: 1;
+  transition: font-size 0.3s ease, box-shadow 0.3s ease; 
+}
+.tooltip:hover {
+  font-size: 1.1rem; 
+  background: #feb;
+  box-shadow: 0 0 5px #feb; 
+  border-radius: 8px;
+}
 
 /* ocean */
 .sky {
-  height: 80px;
+  height: 100px;
   overflow: hidden;
 }
 .ocean {
   left: 0px;
-  height: 48px;
+  height: 60px;
   position: absolute;
   overflow: hidden;
 }
@@ -315,11 +338,19 @@ video {
 
 .page-text img {
   width: 100%;
+  max-width: 100%; 
+  height: auto; 
 }
 
 .page-text h2 {
 padding-top: 3rem;
 padding-bottom: 2rem;
+}
+
+.page-text h1 img {
+  height: 1em; 
+  margin-right: 10px; 
+  width: auto;
 }
 
 .page-text h3 {
@@ -344,11 +375,6 @@ padding-bottom: 2rem;
 .page-text img.svg-img {
   background-color: white;
   padding: 1rem;
-}
-
-.page-text img {
-  max-width: 100%; 
-  height: auto; 
 }
 
 .page-text .album{
@@ -419,6 +445,25 @@ padding-bottom: 2rem;
     width: 100%; /* On smaller screens, make the images stack on top of each other */
     height: auto; /* Allow the images to scale proportionally on smaller screens */
   }
+}
+
+.page-text .prize {
+  text-align: center;
+  background-color: #212529;
+  border-radius: 1rem;
+  padding: 3rem;
+  width: 90%;
+  margin: 3rem auto; /* Center the container horizontally */
+  color: #000614;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Add a subtle box shadow */
+}
+
+.page-text .prize img {
+  width: 60%;
+}
+
+.page-text .prize h1 {
+  margin: 1rem;
 }
 
 .page-text .text-container {
