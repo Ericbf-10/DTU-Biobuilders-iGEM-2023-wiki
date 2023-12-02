@@ -701,32 +701,44 @@ figure img {
   height: auto; /* Maintain the aspect ratio */
 }
 
-.page .hover-image {
+.page-header .hover-image {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
-  height: 600px;
+  height: 40rem;
   width: 100%;
   transition: background-image 0.3s ease-in-out;
-  background-image: url('https://static.igem.wiki/teams/4811/wiki/team/team4.jpeg')
+  background-image: url('https://static.igem.wiki/teams/4811/wiki/team/team4.jpeg');
+}
+
+ .hover-image-prize {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 40rem;
+  width: 100%;
+  transition: background-image 0.3s ease-in-out;
+  background-image: url('https://static.igem.wiki/teams/4811/wiki/awards/celebrate2.jpg');
 }
 
 /* Media query for screens with a maximum width of 768px */
 @media (max-width: 960px) {
-  .page .hover-image {
+  .page-header .hover-image {
     background-size: cover;
     background-position: top center;
-    height: 20rem;
+    height: 25rem;
   }
 }
 
 @media (max-width: 550px) {
-  .page .hover-image {
+  .page-header .hover-image {
     background-size: cover;
     background-position: top center;
-    height: 10rem;
+    height: 15rem;
   }
 }
+
+
 
 .team-member {
   text-align: center; 

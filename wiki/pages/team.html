@@ -1,28 +1,29 @@
 {% extends "layout.html" %}
 
 {% block page_content %}
-<div class="page" style="background-position-y: 0rem;">
-  <div class="hover-image">
-</div>
+<div class="page">
+  <div class="page-header" style="background-position-y: 0rem; height: 40rem;">
+    <div class="hover-image"></div>
+  </div>
 
-<script>
-  const backgroundElement = document.querySelector('.hover-image');
-  let hoverTimeout;
+  <script>
+    const backgroundElement = document.querySelector('.hover-image');
+    let hoverTimeout;
 
-  backgroundElement.addEventListener('mouseenter', function() {
-    clearTimeout(hoverTimeout);
-    hoverTimeout = setTimeout(() => {
-      this.style.backgroundImage = "url('https://static.igem.wiki/teams/4811/wiki/team/team5.jpeg')";
-    }, 300); // 300ms delay
-  });
+    backgroundElement.addEventListener('mouseenter', function() {
+      clearTimeout(hoverTimeout);
+      hoverTimeout = setTimeout(() => {
+        this.style.backgroundImage = "url('https://static.igem.wiki/teams/4811/wiki/team/team5.jpeg')";
+      }, 300); // 300ms delay
+    });
 
-  backgroundElement.addEventListener('mouseleave', function() {
-    clearTimeout(hoverTimeout);
-    hoverTimeout = setTimeout(() => {
-      this.style.backgroundImage = "url('https://static.igem.wiki/teams/4811/wiki/team/team4.jpeg')";
-    }, 300); // 300ms delay
-  });
-</script>
+    backgroundElement.addEventListener('mouseleave', function() {
+      clearTimeout(hoverTimeout);
+      hoverTimeout = setTimeout(() => {
+        this.style.backgroundImage = "url('https://static.igem.wiki/teams/4811/wiki/team/team4.jpeg')";
+      }, 300); // 300ms delay
+    });
+  </script>
 
   <div class="container page-content">
     <h1>Team Members</h1>
@@ -39,10 +40,10 @@
           
           <h3>Monika Gołędowska</h3>
           <p>
-Monika, a 24-year-old from Poland. 🇵🇱
-Monika is currently pursuing an M.Sc. in Biotechnology and plays a role in our wetlab and wiki efforts. Beyond her dedicated work on the iGEM project, Monika's passions include crafting crochet creations and gaming. 🎮
-In just three words, she describes herself as "Hold my poodle" 🚀
-Now, let's dive into the most important question: What's her favorite organism? Monika's fascinating choice is the remarkable Didelphidae.
+  Monika, a 24-year-old from Poland. 🇵🇱
+  Monika is currently pursuing an M.Sc. in Biotechnology and plays a role in our wetlab and wiki efforts. Beyond her dedicated work on the iGEM project, Monika's passions include crafting crochet creations and gaming. 🎮
+  In just three words, she describes herself as "Hold my poodle" 🚀
+  Now, let's dive into the most important question: What's her favorite organism? Monika's fascinating choice is the remarkable Didelphidae.
           </p>
         </div>
       </div>

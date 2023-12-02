@@ -2,8 +2,30 @@
 
 {% block page_content %}
 <div class="page">
-  <div class="page-header" style="background-image: url('https://static.igem.wiki/teams/4811/wiki/awards/celebrate.jpg');">
+  <div class="page-header" style="background-position-y: 0rem; height: 40rem;">
+    <div class="hover-image-prize"></div>
+    <div class="photo-credit">Photo: iGEM</div>
   </div>
+
+  <script>
+    const backgroundElement = document.querySelector('.hover-image-prize');
+    let hoverTimeout;
+
+    backgroundElement.addEventListener('mouseenter', function() {
+      clearTimeout(hoverTimeout);
+      hoverTimeout = setTimeout(() => {
+        this.style.backgroundImage = "url('https://static.igem.wiki/teams/4811/wiki/awards/celebrate4.jpg')";
+      }, 300); // 300ms delay
+    });
+
+    backgroundElement.addEventListener('mouseleave', function() {
+      clearTimeout(hoverTimeout);
+      hoverTimeout = setTimeout(() => {
+        this.style.backgroundImage = "url('https://static.igem.wiki/teams/4811/wiki/awards/celebrate2.jpg')";
+      }, 300); // 300ms delay
+    });
+  </script>
+
   <div class="container page-content">
     <div class="row h-100">
       <div class="toc col-lg-5">
@@ -51,7 +73,7 @@
                 Top 10 in Overgraduate</h1>
       </div>
 
-      To find more about the awards, please visit <a href="https://jamboree.igem.org/2023/results#finalists">2023 iGEM Jamboree</a> webpage.
+      To find more about the awards, please visit <a href="https://jamboree.igem.org/2023/results#finalists">2023 iGEM Jamboree</a> official webpage.
     </div>
   </div>
 </div>
