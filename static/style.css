@@ -398,7 +398,7 @@ padding-bottom: 2rem;
   }
 }
 .page-text figure.square{
-  width: 300px; 
+  width: 80%; 
   height: 300px; 
   overflow: hidden; 
   position:center; 
